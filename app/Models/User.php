@@ -53,7 +53,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-#[Fillable(['fullname', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar_path'])]
+#[Fillable(['name', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar_path'])]
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable
 {
@@ -65,6 +65,10 @@ class User extends Authenticatable
 
     protected $casts = [
         'is_active' => 'boolean',
+    ];
+
+    protected $attributes = [
+      'user_info' => "Информация отсуствует"
     ];
 
     public function role(): BelongsTo
