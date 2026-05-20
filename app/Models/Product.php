@@ -8,6 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Order> $orders
+ * @property-read int|null $orders_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\SelectedProduct> $selectedProducts
+ * @property-read int|null $selected_products_count
+ * @property-read \App\Models\StatusProduct|null $statusProduct
+ * @property-read \App\Models\User|null $user
+ * @property-read \App\Models\Ypk|null $ypk
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product query()
+ * @mixin \Eloquent
+ */
 class Product extends Model
 {
     use HasFactory, HasUuids;

@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property-read \App\Models\User|null $customer
+ * @property-read \App\Models\User|null $executor
+ * @property-read \App\Models\Product|null $product
+ * @property-read \App\Models\StatusOrder|null $statusOrder
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order query()
+ * @mixin \Eloquent
+ */
 class Order extends Model
 {
     use HasFactory, HasUuids;
