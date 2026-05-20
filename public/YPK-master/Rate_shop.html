@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГБПОУ ВО БТПИТ УПК</title>
+     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+   
+</head>
+<body>
+    <!-- шапка -->
+  <section class="myColorHeader ">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+        <div class="container-fluid ">
+            <!-- логотип упк -->
+            <a class="navbar-brand " href="index.html">
+                <img src="img/logo.png" alt="Логотип" class="myImg">
+            </a>
+            
+            <!-- поиск -->
+            <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
+                <input class="form-control " type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="">
+                        <!-- выпадающий список -->
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="img/Group 2.png" alt="Иконка группы">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- иконки-->
+                     <div class="myIcons">
+                    <div class="d-flex me-3 myStyleTextLogo header-icons ">
+                        <div class="mx-1 text-center">
+                            <a href="#">
+                                <img src="img/comment.png" alt="Иконка комментария">
+                            </a>
+                        </div>
+                        <div class="mx-1 text-center">
+                            <a href="Login.html">
+                                <img src="img/user.png" alt="Иконка пользователя">
+                            </a>
+                        </div>
+                        <div class="mx-1 text-center">
+                            <a href="#">
+                                <img src="img/heart.png" alt="Иконка сердца">
+                            </a>
+                        </div>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+    
+  <!-- карточка оформления заказа -->
+   <section class="mx-4 myInfoCard catalog content">
+   <div class=" mb-3">
+  <div class="card-body text-center">
+     <div  class="m-5">
+  <img src="img/Group 19.png" class="card-img-top w-50" alt="..." >
+  </div>
+    <h3>Cheeseburger Wendy's Burger</h3>
+    <h3>Исполнитель</h3>
+    <h3>Номер телефона</h3>
+    <h3>Адресс</h3>
+    <h3>Цена</h3>
+    <div>
+        <textarea name="" id="" class="w-75 rounded-2 myGrey m-2 border-0" placeholder="Вы хотите добавить комментарий к вашему заказу?" rows="7" ></textarea>
+    </div>
+    <div class="d-flex m-2 justify-content-evenly">
+        <button class="w-25 myButton rounded-4 myGrey text-black p-2 border-0">отмена</button>
+        <button type="button" class="w-25 myButton rounded-4 myLightBlue text-white p-2 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">оформить</button>
+    </div>
+    
+</div>
+
+</div></section>
+   <!-- ======================= ПОДВАЛ САЙТА ======================= -->
+    <footer class="px-3">
+        <section class="d-flex justify-content-between catalog">
+            <div class="d-flex">
+                <img src="img/logo.png" alt="Логотип">
+                <div class="align-self-center">
+                    <img src="img/YPK.png" alt="YPK">
+                </div>
+            </div>
+            <div class="align-self-center text-center text-white">
+                <p>Телефон: 8 (999) 999-99-99</p>
+                <p>Email: gmail@gmail.com</p>
+            </div>
+        </section>
+    </footer>
+
+    <!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
+    <div class="mobile-bottom-nav">
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/comment.png" alt="Комментарии">
+                <div>
+                    <span class="text-decoration-none text-white">Отзывы</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="Login.html">
+                <img src="img/user.png" alt="Профиль">
+                <div>
+                    <span class="text-decoration-none text-white">Профиль</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/heart.png" alt="Избранное">
+                <div>
+                    <span class="text-decoration-none text-white">Избранное</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header d-flex justify-content-center mySearh">
+            <img src="img/checkMark.png" alt="">
+      </div>
+      <div class="modal-body text-center catalog">
+        <h1 class="myA">Успешно</h1>
+        <p class="px-5 opacity-75">В ближайшее время вам позвонят для подтверждения заказа</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center mySearh">
+        <a href="index.html"><button type="button" class="btn btn-primary myButton rounded-4 myLightBlue text-white p-2 border-0">Вернуться</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Подключение скриптов Bootstrap -->
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+    
+</body>
+</html>

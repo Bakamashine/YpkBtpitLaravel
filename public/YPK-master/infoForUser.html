@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГБПОУ ВО БТПИТ УПК</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+    <!-- ======================= ШАПКА САЙТА ======================= -->
+    <section class="myColorHeader">
+        <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+            <div class="container-fluid">
+                <!-- Логотип -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Логотип" class="myImg">
+                </a>
+
+                <!-- Блок поиска и иконок -->
+                <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
+                    <!-- Поле поиска -->
+                    <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+
+                    <!-- Иконки и выпадающий список -->
+                    <div class="d-flex justify-content-end align-items-center">
+                        <!-- Выпадающий список -->
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="img/Group 2.png" alt="Иконка группы">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Основные иконки -->
+                        <div class="myIcons">
+                            <div class="d-flex me-3 myStyleTextLogo header-icons">
+                                <div class="mx-1 text-center">
+                                    <a href="#">
+                                        <img src="img/comment.png" alt="Иконка комментария">
+                                    </a>
+                                </div>
+                                <div class="mx-1 text-center">
+                                    <a href="Login.html">
+                                        <img src="img/user.png" alt="Иконка пользователя">
+                                    </a>
+                                </div>
+                                <div class="mx-1 text-center">
+                                    <a href="#">
+                                        <img src="img/heart.png" alt="Иконка сердца">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- ======================= КАРТОЧКА ТОВАРА / ПОДРОБНЕЕ ======================= -->
+    <section class="mx-4 myInfoCard catalog content ">
+        <div>
+            <!-- Кнопка назад -->
+            <a href="index.html">
+                <img src="img/arrow-left.png" alt="Назад" class="my-2 myImgArrow">
+            </a>
+
+            <div class="mb-3">
+                <div class="card-body text-center">
+                    <div class="m-5">
+                        <img src="img/Group 19.png" class="card-img-top w-50" alt="Изображение товара">
+                    </div>
+                    <h3>Cheeseburger Wendy's Burger</h3>
+                    <h3>Исполнитель</h3>
+                    <h3>Номер телефона</h3>
+                    <h3>Адрес</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, nisi velit!
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas odit perspiciatis hic, obcaecati veritatis nostrum.
+                    </p>
+                  <p>
+                    Для отмены заказа свяжитесь с испольнителем  <b>8999999999</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= ПОДВАЛ САЙТА ======================= -->
+    <footer class="px-3">
+        <section class="d-flex justify-content-between catalog">
+            <div class="d-flex">
+                <img src="img/logo.png" alt="Логотип">
+                <div class="align-self-center">
+                    <img src="img/YPK.png" alt="YPK">
+                </div>
+            </div>
+            <div class="align-self-center text-center text-white">
+                <p>Телефон: 8 (999) 999-99-99</p>
+                <p>Email: gmail@gmail.com</p>
+            </div>
+        </section>
+    </footer>
+
+    <!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
+    <div class="mobile-bottom-nav">
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/comment.png" alt="Комментарии">
+                <div>
+                    <span class="text-decoration-none text-white">Отзывы</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="Login.html">
+                <img src="img/user.png" alt="Профиль">
+                <div>
+                    <span class="text-decoration-none text-white">Профиль</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/heart.png" alt="Избранное">
+                <div>
+                    <span class="text-decoration-none text-white">Избранное</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов Bootstrap -->
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+    <!-- Обратите внимание: папка названа "boosstrap" (опечатка), если нужно, исправьте на "bootstrap" -->
+</body>
+</html>

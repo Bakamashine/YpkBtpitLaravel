@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГБПОУ ВО БТПИТ УПК</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <!-- ======================= ШАПКА САЙТА ======================= -->
+    <section class="myColorHeader">
+        <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+            <div class="container-fluid">
+                <!-- Логотип -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Логотип" class="myImg">
+                </a>
+
+                <!-- Блок поиска и иконок -->
+                <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
+                    <!-- Поле поиска -->
+                    <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+
+                    <!-- Иконки и выпадающий список -->
+                    <div class="d-flex justify-content-end align-items-center">
+                        <!-- Выпадающий список -->
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="img/Group 2.png" alt="Иконка группы">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Основные иконки -->
+                        <div class="myIcons">
+                            <div class="d-flex me-3 myStyleTextLogo header-icons">
+                                <div class="mx-1 text-center">
+                                    <a href="#">
+                                        <img src="img/comment.png" alt="Иконка комментария">
+                                    </a>
+                                </div>
+                                <div class="mx-1 text-center">
+                                    <a href="userProfile.html">
+                                        <img src="img/user.png" alt="Иконка пользователя">
+                                    </a>
+                                </div>
+                                <div class="mx-1 text-center">
+                                    <a href="#">
+                                        <img src="img/heart.png" alt="Иконка сердца">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- ======================= КНОПКА НАЗАД ======================= -->
+    <div class="mx-5">
+        <a href="userProfile.html">
+            <img src="img/arrow-left.png" alt="Назад" class="my-2 myImgArrow">
+        </a>
+    </div>
+
+    <!-- ======================= КАТАЛОГ ТОВАРОВ И УСЛУГ ======================= -->
+    <div class="catalog content">
+        <section class="m-5 catalog text-center">
+            <h1>Редактировать статус заказов</h1>
+            <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+            
+            <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+                <!-- Основная карточка с кнопками подробнее и закрыть заказ -->
+                <div class="col d-flex">
+                    <div class="rounded shadow p-3 w-100">
+                        <img src="img/Group 19.png" class="card-img-top" alt="...">
+                        <div class="card-body catalog">
+                            <h3 class="card-title">Крутое название</h3>
+                            <h5>Исполнитель</h5>
+                            <h4>Цена</h4>
+                            <p>Крутое инфо Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita?</p>
+
+                    <!-- кнопка подробнее -->
+                    <a href="redactStatusOrderInfo.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                        <button type="button" class="my-3 sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                            <span>Статус</span>
+                        </button>
+                    </a>
+                    <!-- кнопка закрыть заказ -->
+                     <form action="" method="post">
+                        <a href="close.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                            <button type="button" class="my-3 sign-out d-flex bg-warning border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                                <span>Закрыть заказ</span>
+                            </button>
+                        </a>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка-заполнитель 1 -->
+                <div class="col d-flex">
+                    <div class="rounded shadow p-3 w-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное введение в дополнительный контент.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка-заполнитель 2 -->
+                <div class="col d-flex">
+                    <div class="rounded shadow p-3 w-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка-заполнитель 3 -->
+                <div class="col d-flex">
+                    <div class="rounded shadow p-3 w-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное введение в дополнительный контент.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======================= ПОДВАЛ САЙТА ======================= -->
+    <footer class="px-3">
+        <section class="d-flex justify-content-between catalog">
+            <div class="d-flex">
+                <img src="img/logo.png" alt="Логотип">
+                <div class="align-self-center">
+                    <img src="img/YPK.png" alt="YPK">
+                </div>
+            </div>
+            <div class="align-self-center text-center text-white">
+                <p>Телефон: 8 (999) 999-99-99</p>
+                <p>Email: gmail@gmail.com</p>
+            </div>
+        </section>
+    </footer>
+
+    <!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
+    <div class="mobile-bottom-nav">
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/comment.png" alt="Комментарии">
+                <div>
+                    <span class="text-decoration-none text-white">Отзывы</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="Login.html">
+                <img src="img/user.png" alt="Профиль">
+                <div>
+                    <span class="text-decoration-none text-white">Профиль</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/heart.png" alt="Избранное">
+                <div>
+                    <span class="text-decoration-none text-white">Избранное</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов Bootstrap -->
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

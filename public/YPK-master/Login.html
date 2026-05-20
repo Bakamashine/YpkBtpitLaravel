@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГБПОУ ВО БТПИТ УПК</title>
+     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+   
+</head>
+<body>
+     <!-- шапка -->
+  <section class="myColorHeader px-3">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+        <div class="container-fluid ">
+            <!-- логотип упк -->
+            <a class="navbar-brand " href="index.html">
+                <img src="img/logo.png" alt="Логотип" class="myImg">
+            </a>
+            
+            <!-- поиск -->
+            <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
+                <input class="form-control " type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="">
+                        <!-- выпадающий список -->
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="img/Group 2.png" alt="Иконка группы">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- иконки-->
+                     <div class="myIcons">
+                    <div class="d-flex me-3 myStyleTextLogo header-icons ">
+                        <div class="mx-1 text-center">
+                            <a href="#">
+                                <img src="img/comment.png" alt="Иконка комментария">
+                            </a>
+                        </div>
+                        <div class="mx-1 text-center">
+                            <a href="Login.html">
+                                <img src="img/user.png" alt="Иконка пользователя">
+                            </a>
+                        </div>
+                        <div class="mx-1 text-center">
+                            <a href="#">
+                                <img src="img/heart.png" alt="Иконка сердца">
+                            </a>
+                        </div>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+    
+
+  <!-- форма авторизации -->
+   <section class="d-flex justify-content-center registration content">
+    <div class="text-center my-5 ">
+    <h1 class="my-2">Добро пожаловать</h1>
+    <h5 class="my-4">Еще нет аккаунта? <a href="Register.html" class="myA">Создай его</a></h5>
+    <input type="tel" placeholder="Ваш номер телефона" pattern="\+7\s?\(?[0-9]{3}\)?\s?[0-9]{3}-?[0-9]{2}-?[0-9]{2}"
+    class="w-75 border-0 myGrey rounded my-1 p-1 mySize20" required >
+    <input type="password" placeholder="Ваш пароль" class="w-75 border-0 myGrey  rounded my-1 p-1 mySize20">
+    <div>
+        <button href="" class=" w-75 rounded-4 mySize20 myLightBlue text-white p-2 border-0 m-2">Войти</button>
+    </div>
+    <a href="NumberLogin.html" class="myA">Забыли пароль?</a>
+   </section>
+</div>
+
+<!-- подвал -->
+    <footer class="px-3">
+        <section class="d-flex justify-content-between catalog ">
+            <div class="d-flex">
+                <img src="img/logo.png" alt="" >
+                <div class="align-self-center">
+                    <img src="img/YPK.png" alt="">  
+                </div>
+            </div>
+            <div class="align-self-center text-center text-white">
+                <p>номер телефон А: 89999999999</p>
+                <p>почта А: gmail@gmail.com</p>
+            </div>
+        </section>
+    </footer>
+
+<!-- ========= НИЖНЯЯ НАВИГАЦИЯ ДЛЯ МОБИЛЬНЫХ ========= -->
+    <!-- Этот блок будет виден только на телефонах и находится внизу -->
+    <div class="mobile-bottom-nav ">
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/comment.png" alt="Комментарии">
+                <div>
+                    <span class="text-decoration-none text-white">Отзывы</span>
+                </div>
+                
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="Login.html">
+                <img src="img/user.png" alt="Профиль">
+                <div>
+                    <span class="text-decoration-none text-white">Профиль</span>
+                </div>
+                
+            </a>
+        </div>
+        <div class="nav-icon text-center">
+            <a href="#">
+                <img src="img/heart.png" alt="Избранное">
+                <div>
+                    <span class="text-decoration-none text-white">Избранное</span>
+                </div>
+                
+            </a>
+        </div>
+    </div>
+    <!-- ================================================== -->
+
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>
