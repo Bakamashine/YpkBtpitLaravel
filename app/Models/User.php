@@ -53,7 +53,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-#[Fillable(['name', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar_path'])]
+#[Fillable(['name', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar'])]
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable
 {
@@ -71,6 +71,10 @@ class User extends Authenticatable
       'user_info' => "Информация отсуствует"
     ];
 
+
+    public function isAdmin(): bool {
+        return $this->role?->role_name === \App\Enums\RoleName::Admin->value;
+    }
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id');
@@ -105,4 +109,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(SelectedProduct::class, 'user_id');
     }
+
 }

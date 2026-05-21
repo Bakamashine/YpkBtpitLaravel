@@ -6,3 +6,17 @@ Route::controller(\App\Http\Controllers\MainController::class)
     ->group(function () {
         Route::get("/", 'index')->name("main");
     });
+
+Route::middleware("auth")
+    ->group(function () {
+        Route::controller(\App\Http\Controllers\CurrentUserController::class)
+            ->group(function () {
+                Route::get('/home', 'index')->name('home');
+                Route::prefix('user')
+                    ->group(function () {
+                        Route::get("/edit", 'edit')->name('user_edit');
+                        Route::put("/update", 'update')->name('user_edit.update');
+                    });
+
+            });
+    });

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             YpkSeeder::class,
             RoleSeeder::class,
             StatusProductSeeder::class,
+            UserSeeder::class,
             ProductSeeder::class,
         ]);
     }
