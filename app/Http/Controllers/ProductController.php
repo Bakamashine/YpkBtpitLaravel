@@ -80,7 +80,7 @@ class ProductController extends Controller
 
         $request->user()->products()->create($data);
 
-        return to_route('home');
+        return to_route('product.edit_page');
     }
 
     /**
@@ -127,7 +127,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return to_route('home');
+        return to_route('product.edit_page');
     }
 
     /**
@@ -141,6 +141,6 @@ class ProductController extends Controller
         $this->imageService->removeImage($product->photo_path);
         $product->delete();
 
-        return to_route('home');
+        return to_route('product.edit_page');
     }
 }

@@ -104,6 +104,7 @@ class ImageService implements IImageService
      */
     public function removeImage(?string $path): void
     {
+        if ($path)
         Storage::disk('public')->delete($path);
     }
 

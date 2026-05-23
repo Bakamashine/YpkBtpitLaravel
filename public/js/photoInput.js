@@ -1,5 +1,7 @@
-let current_id;
-let current_preview;
+var id, preview
+
+let current_id, current_preview;
+
 
 if (!id) {
     current_id = "photoInput";

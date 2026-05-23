@@ -19,12 +19,13 @@
                 <div class="mb-3">
                     <div class="newTovar">
                         <div class="card-body text-center ">
-                            <div
+                            <label
+                            for="photoInput"
                                 class="m-3 newFoto rounded-5 bg-secondary d-flex justify-content-center align-items-center">
                                 <img id="photoPreview"
                                     src="{{ $product->photo_path ? get_image_or_default($product->photo_path) : '/img/material-symbols_add-a-photo-outline-sharp.png' }}"
                                     class="w-25" alt="Изображение товара">
-                            </div>
+                            </label>
                             <input type="file" name="photo_path" accept="image/*" hidden id="photoInput">
                             @error('photo_path')
                                 <div class="text-danger small">{{ $message }}</div>
