@@ -5,10 +5,15 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Валидация запроса на создание товара/услуги.
+ */
 class StoreProductRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Разрешить выполнение запроса.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -16,7 +21,7 @@ class StoreProductRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Правила валидации для создания товара/услуги.
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */

@@ -4,13 +4,26 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Валидация запроса на создание пользователя.
+ */
 class StoreUserRequest extends FormRequest
 {
+    /**
+     * Разрешить выполнение запроса.
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * Правила валидации для создания пользователя.
+     *
+     * @return array
+     */
     public function rules(): array
     {
         return [

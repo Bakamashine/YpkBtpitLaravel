@@ -9,8 +9,14 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
+/**
+ * Действие для обновления профиля пользователя (имя, телефон, email, аватар).
+ */
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
+    /**
+     * @param IImageService $imageService Сервис для обработки и загрузки изображений.
+     */
     public function __construct(
         private IImageService $imageService,
     ) {}

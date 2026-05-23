@@ -4,6 +4,7 @@ namespace App\Http\Requests\Feedback;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/** Валидация запроса на создание отзыва. */
 class StoreFeedbackRequest extends FormRequest
 {
     public function rules(): array

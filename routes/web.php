@@ -5,13 +5,34 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\YpkController;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Главная страница
+|--------------------------------------------------------------------------
+|
+| Доступна всем пользователям без авторизации.
+|
+|--------------------------------------------------------------------------
+*/
 Route::controller(\App\Http\Controllers\MainController::class)
     ->group(function () {
         Route::get("/", 'index')->name("main");
     });
 
+/*
+|--------------------------------------------------------------------------
+| Маршруты для авторизованных пользователей
+|--------------------------------------------------------------------------
+|
+| Личный кабинет, редактирование профиля. Требуют аутентификации.
+|
+|--------------------------------------------------------------------------
+*/
 Route::middleware("auth")
     ->group(function () {
+        /*
+         * Профиль текущего пользователя
+         */
         Route::controller(\App\Http\Controllers\CurrentUserController::class)
             ->group(function () {
                 Route::get('/home', 'index')->name('home');
@@ -22,8 +43,14 @@ Route::middleware("auth")
                     });
             });
 
+        /*
+         * Административные маршруты (только для администраторов)
+         */
         Route::middleware('admin')
             ->group(function () {
+                /*
+                 * Управление категориями товаров/услуг
+                 */
                 Route::controller(YpkController::class)
                     ->prefix('ypk')
                     ->name('ypk')
@@ -32,7 +59,9 @@ Route::middleware("auth")
                         Route::delete('', 'destroy')->name('.destroy');
                     });
 
-
+                /*
+                 * Управление товарами и услугами
+                 */
                 Route::controller(ProductController::class)
                     ->prefix('product')
                     ->name('product')
@@ -47,9 +76,9 @@ Route::middleware("auth")
                         Route::delete('{product}', 'destroy')->name('.destroy');
                     });
 
-                // Route::get('/product/edit_page', [ProductController::class, 'edit_page'])
-                //     ->name('product.edit_page');
-
+                /*
+                 * Управление пользователями
+                 */
                 Route::controller(UserController::class)
                     ->prefix('user_management')
                     ->name('user_management')

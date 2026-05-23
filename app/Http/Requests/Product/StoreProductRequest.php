@@ -4,6 +4,7 @@ namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/** Валидация запроса на создание товара. */
 class StoreProductRequest extends FormRequest
 {
     public function rules(): array

@@ -5,13 +5,26 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Валидация запроса на обновление товара/услуги.
+ */
 class UpdateProductRequest extends FormRequest
 {
+    /**
+     * Разрешить выполнение запроса.
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * Правила валидации для обновления товара/услуги.
+     *
+     * @return array<string, ValidationRule|array<mixed>|string>
+     */
     public function rules(): array
     {
         return [

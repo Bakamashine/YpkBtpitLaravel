@@ -9,61 +9,54 @@ use Illuminate\Http\Request;
 
 class YpkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Сохранить новую категорию товаров/услуг.
+     *
+     * @param StoreYpkRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreYpkRequest $request)
     {
         Ypk::create($request->all());
+
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Ypk $ypk)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Ypk $ypk)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateYpkRequest $request, Ypk $ypk)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удалить категорию товаров/услуг.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)
     {
         Ypk::findOrFail($request->ypk_id)->delete();
+
         return back();
     }
 }

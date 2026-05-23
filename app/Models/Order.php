@@ -8,13 +8,33 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @property-read \App\Models\User|null $customer
+ * @property string $id
+ * @property string $customer_id
+ * @property string|null $executor_id
+ * @property string $product_id
+ * @property string $status_order_id
+ * @property \Illuminate\Support\Carbon $date
+ * @property string|null $customers_comment
+ * @property string|null $user_comment
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $customer
  * @property-read \App\Models\User|null $executor
- * @property-read \App\Models\Product|null $product
- * @property-read \App\Models\StatusOrder|null $statusOrder
+ * @property-read \App\Models\Product $product
+ * @property-read \App\Models\StatusOrder $statusOrder
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereCustomerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereCustomersComment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereExecutorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereStatusOrderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereUserComment($value)
  * @mixin \Eloquent
  */
 class Order extends Model

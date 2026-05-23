@@ -5,10 +5,15 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Валидация запроса на обновление категории товаров/услуг (не используется).
+ */
 class UpdateYpkRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Разрешить выполнение запроса.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -16,9 +21,9 @@ class UpdateYpkRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Правила валидации (заглушка — метод не используется).
      *
-     * @return array<string, ValidationRule|array<mixed>|string>
+     * @return array
      */
     public function rules(): array
     {

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Контроллер главной страницы.
+ *
+ * Отвечает за отображение каталога товаров и услуг на главной странице сайта.
+ */
 
 namespace App\Http\Controllers;
 
@@ -8,8 +13,17 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index() {
+    /**
+     * Показать главную страницу со списком товаров/услуг.
+     *
+     * Выводит последние добавленные товары и услуги с пагинацией.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
         $products = Product::orderByDesc('created_at')->paginate(5);
+
         return view("index", [
             "products" => $products,
         ]);

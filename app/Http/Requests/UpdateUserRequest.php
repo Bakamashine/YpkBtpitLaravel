@@ -5,13 +5,26 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
+/**
+ * Валидация запроса на обновление пользователя.
+ */
 class UpdateUserRequest extends FormRequest
 {
+    /**
+     * Разрешить выполнение запроса.
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * Правила валидации для обновления пользователя.
+     *
+     * @return array
+     */
     public function rules(): array
     {
         return [

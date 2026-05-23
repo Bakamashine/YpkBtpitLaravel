@@ -4,6 +4,7 @@ namespace App\Http\Requests\Order;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/** Валидация запроса на создание заказа. */
 class StoreOrderRequest extends FormRequest
 {
     public function rules(): array

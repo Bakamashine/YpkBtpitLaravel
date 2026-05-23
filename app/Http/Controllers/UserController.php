@@ -1,4 +1,10 @@
 <?php
+/**
+ * Контроллер для управления пользователями (административная панель).
+ *
+ * Предоставляет CRUD-операции для работы с пользователями: просмотр списка,
+ * создание, редактирование и удаление. Доступен только администраторам.
+ */
 
 namespace App\Http\Controllers;
 
@@ -12,10 +18,18 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-
+    /**
+     * @param IImageService $imageService
+     */
     public function __construct(private IImageService $imageService)
     {
     }
+
+    /**
+     * Показать список всех пользователей с пагинацией.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $users = User::with('role')->paginate(10);
@@ -25,16 +39,21 @@ class UserController extends Controller
         return view('users.index', compact('users', 'roles', 'ypks'));
     }
 
+    /**
+     * Создать нового пользователя.
+     *
+     * @param StoreUserRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(StoreUserRequest $request)
     {
-        // $data = $request->validated();
         $data = $request->all();
 
         if ($request->hasFile('avatar')) {
-            // $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
             $data['avatar'] = $this->imageService->uploadImage($request->file('avatar'), "avatar");
         }
 
+        // Хешируем пароль перед сохранением
         $data['password'] = bcrypt($data['password']);
 
         User::create($data);
@@ -42,15 +61,23 @@ class UserController extends Controller
         return to_route('user_management.index');
     }
 
+    /**
+     * Обновить данные пользователя.
+     *
+     * @param UpdateUserRequest $request
+     * @param User              $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
 
         if ($request->hasFile('avatar')) {
-            if ($user->avatar) {
-                Storage::disk('public')->delete($user->avatar);
-            }
-            $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
+            $data['avatar'] = $this->imageService->updateImage($request->file('avatar'), 'avatars', $user->avatar);
+            // if ($user->avatar) {
+            //     Storage::disk('public')->delete($user->avatar);
+            // }
+            // $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
         }
 
         if (isset($data['password'])) {
@@ -64,14 +91,15 @@ class UserController extends Controller
         return to_route('user_management.index');
     }
 
+    /**
+     * Удалить пользователя.
+     *
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(User $user)
     {
-
         $this->imageService->removeImage($user->avatar);
-        // if ($user->avatar) {
-        //     Storage::disk('public')->delete($user->avatar);
-        // }
-
         $user->delete();
 
         return to_route('user_management.index');

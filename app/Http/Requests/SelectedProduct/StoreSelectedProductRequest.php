@@ -4,6 +4,7 @@ namespace App\Http\Requests\SelectedProduct;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/** Валидация запроса на создание выбранного товара. */
 class StoreSelectedProductRequest extends FormRequest
 {
     public function rules(): array

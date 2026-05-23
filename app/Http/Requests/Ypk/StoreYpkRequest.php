@@ -4,6 +4,7 @@ namespace App\Http\Requests\Ypk;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/** Валидация запроса на создание УПК. */
 class StoreYpkRequest extends FormRequest
 {
     public function rules(): array

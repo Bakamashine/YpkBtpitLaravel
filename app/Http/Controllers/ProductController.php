@@ -1,4 +1,10 @@
 <?php
+/**
+ * Контроллер для управления товарами и услугами.
+ *
+ * Обрабатывает создание, просмотр, редактирование и удаление товаров/услуг.
+ * Также предоставляет страницу редактирования для администратора с выводом заказов.
+ */
 
 namespace App\Http\Controllers;
 
@@ -14,17 +20,28 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-
-
-
+    /**
+     * Конструктор с внедрением сервиса изображений.
+     *
+     * @param IImageService $imageService
+     */
     public function __construct(private IImageService $imageService)
     {
     }
+
+    /**
+     * Показать список всех товаров/услуг (заглушка).
+     */
     public function index()
     {
         //
     }
 
+    /**
+     * Показать форму создания нового товара/услуги.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         $ypks = Ypk::all();
@@ -33,21 +50,31 @@ class ProductController extends Controller
         return view('products.create', compact('ypks', 'statusProducts'));
     }
 
+    /**
+     * Показать страницу управления товарами/услугами (для администратора).
+     *
+     * @return \Illuminate\View\View
+     */
     public function edit_page()
     {
-
         $orders = Order::orderByDesc('created_at')->paginate(6);
         $products = Product::orderByDesc('created_at')->paginate(6);
+
         return view('products.edit_page', compact('orders', 'products'));
     }
 
+    /**
+     * Сохранить новый товар/услугу в базу данных.
+     *
+     * @param StoreProductRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(StoreProductRequest $request)
     {
         $data = $request->validated();
         $data['user_id'] = $request->user()->id;
 
         if ($request->hasFile('photo_path')) {
-            // $data['photo_path'] = $request->file('photo_path')->store('products', 'public');
             $data['photo_path'] = $this->imageService->uploadImage($request->file('photo_path'), 'products');
         }
 
@@ -56,11 +83,23 @@ class ProductController extends Controller
         return to_route('home');
     }
 
+    /**
+     * Показать детальную информацию о товаре/услуге.
+     *
+     * @param Product $product
+     * @return \Illuminate\View\View
+     */
     public function show(Product $product)
     {
         return view('products.show', compact('product'));
     }
 
+    /**
+     * Показать форму редактирования товара/услуги.
+     *
+     * @param Product $product
+     * @return \Illuminate\View\View
+     */
     public function edit(Product $product)
     {
         $ypks = Ypk::all();
@@ -69,6 +108,13 @@ class ProductController extends Controller
         return view('products.edit', compact('product', 'ypks', 'statusProducts'));
     }
 
+    /**
+     * Обновить товар/услугу в базе данных.
+     *
+     * @param UpdateProductRequest $request
+     * @param Product              $product
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(UpdateProductRequest $request, Product $product)
     {
         $data = $request->validated();
@@ -84,10 +130,15 @@ class ProductController extends Controller
         return to_route('home');
     }
 
+    /**
+     * Удалить товар/услугу.
+     *
+     * @param Product $product
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Product $product)
     {
         $this->imageService->removeImage($product->photo_path);
-
         $product->delete();
 
         return to_route('home');

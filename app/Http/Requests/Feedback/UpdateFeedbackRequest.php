@@ -4,6 +4,7 @@ namespace App\Http\Requests\Feedback;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/** Валидация запроса на обновление отзыва. */
 class UpdateFeedbackRequest extends FormRequest
 {
     public function rules(): array
