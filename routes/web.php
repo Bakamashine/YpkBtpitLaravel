@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\YpkController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,13 +23,42 @@ Route::middleware("auth")
             });
 
         Route::middleware('admin')
-        ->group(function() {
-            Route::controller(YpkController::class)
-            ->prefix('ypk')
-            ->name('ypk')
             ->group(function () {
-                Route::post('', 'store')->name('.store');
-                Route::delete('', 'destroy')->name('.destroy');
+                Route::controller(YpkController::class)
+                    ->prefix('ypk')
+                    ->name('ypk')
+                    ->group(function () {
+                        Route::post('', 'store')->name('.store');
+                        Route::delete('', 'destroy')->name('.destroy');
+                    });
+
+
+                Route::controller(ProductController::class)
+                    ->prefix('product')
+                    ->name('product')
+                    ->group(function () {
+                        Route::get('', 'index')->name('.index');
+                        Route::get('create', 'create')->name('.create');
+                        Route::post('', 'store')->name('.store');
+                        Route::get('/edit_page', 'edit_page')->name('.edit_page');
+                        Route::get('{product}', 'show')->name('.show');
+                        Route::get('{product}/edit', 'edit')->name('.edit');
+                        Route::put('{product}', 'update')->name('.update');
+                        Route::delete('{product}', 'destroy')->name('.destroy');
+                    });
+
+                // Route::get('/product/edit_page', [ProductController::class, 'edit_page'])
+                //     ->name('product.edit_page');
+
+                Route::controller(UserController::class)
+                    ->prefix('user_management')
+                    ->name('user_management')
+                    ->group(function () {
+                        Route::get('', 'index');
+                        Route::post('', 'store')->name('.store');
+                        Route::get('{user}/edit', 'edit')->name('.edit');
+                        Route::put('{user}', 'update')->name('.update');
+                        Route::delete('{user}', 'destroy')->name('.destroy');
+                    });
             });
-        });
     });

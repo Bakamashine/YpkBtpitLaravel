@@ -39,37 +39,38 @@
                         <!-- ======================= Исполнитель кнопки======================= -->
                         @isAdmin
                             <!-- добавь товары/услуги -->
-                            <a href="addProduct.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                            <a href="{{ route('product.create') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                                 <button type="button"
                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                                     <span>Добавить товары/услуги</span>
                                 </button>
                             </a>
+                            <!-- ======================= Админ кнопки ======================= -->
+                            <!-- Редактировать товары/услуги -->
+                            <a href="{{ route('product.edit_page') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                                <button type="button"
+                                    class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                                    <span>Редактировать товары/услуги</span>
+                                </button>
+                            </a>
+
+                            <!-- Управление пользователями -->
+                            <a href="{{ route('user_management') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                                <button type="button"
+                                    class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                                    <span>Управление пользователями</span>
+                                </button>
+                            </a>
+
+                            <!-- Управление заказами -->
+                            <a href="redactStatusOrder.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                                <button type="button"
+                                    class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                                    <span>Управление заказами</span>
+                                </button>
+                            </a>
                         @endisAdmin
-                        <!-- ======================= Админ кнопки ======================= -->
-                        <!-- Редактировать товары/услуги -->
-                        <a href="redactProduct.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                            <button type="button"
-                                class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                <span>Редактировать товары/услуги</span>
-                            </button>
-                        </a>
 
-                        <!-- Управление пользователями -->
-                        <a href="redactUser.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                            <button type="button"
-                                class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                <span>Управление пользователями</span>
-                            </button>
-                        </a>
-
-                        <!-- Управление заказами -->
-                        <a href="redactStatusOrder.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                            <button type="button"
-                                class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                <span>Управление заказами</span>
-                            </button>
-                        </a>
                         <!-- оставить отзыв после хотя 1 оказанной услуги -->
                         <a href="formComments.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
@@ -80,14 +81,15 @@
                     </div>
 
                     <!-- Правая группа (выход) -->
-                    <div class="flex-shrink-0">
-                        <button type="button"
+                    <form class="flex-shrink-0" action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button
                             class="sign-out d-flex btn btn-outline-danger justify-content-center align-items-center gap-2 w-100 w-md-auto">
-                            <span>выйти из аккаунта</span>
+                            <span>Выйти из аккаунта</span>
                             <img src="img/sign-out.png" alt="" class="profileButton"
                                 style="width: 16px; height: 16px;">
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -221,114 +223,69 @@
                 </div>
             </div>
         </section>
-        <!-- ======================= ШТУКИ АДМИНА!!!!!!!!!!!!!!!!  ======================= -->
-        <!-- Добавить новый тип услуг/продуктов -->
-        <section>
-            <div class="myBlue rounded-3">
-                <h1 class="p-3 text-white nameBlock">Добавить новый тип услуг/продуктов</h1>
-            </div>
-            <form action="{{ route('ypk.store') }}" method="post" class="d-flex gap-2 mb-3">
-                @csrf
-                <div class="w-75">
-                    <input name="ypk_name" type="text" placeholder="Введите новый тип услуги или продукта"
-                        class=" border-0 rounded-4 backColorGre1 p-3 w-100 @error('ypk_name') is-invalid @enderror" style="height: 100%;">
-                    @error('ypk_name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+
+        @isAdmin
+            <!-- ======================= ШТУКИ АДМИНА!!!!!!!!!!!!!!!!  ======================= -->
+            <!-- Добавить новый тип услуг/продуктов -->
+            <section>
+                <div class="myBlue rounded-3">
+                    <h1 class="p-3 text-white nameBlock">Добавить новый тип услуг/продуктов</h1>
                 </div>
-                <div class="w-25">
-                    <button
-                        class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100">
-                        <span>Добавить</span>
-                    </button>
+                <form action="{{ route('ypk.store') }}" method="post" class="d-flex gap-2 mb-3">
+                    @csrf
+                    <div class="w-75">
+                        <input name="ypk_name" type="text" placeholder="Введите новый тип услуги или продукта"
+                            class=" border-0 rounded-4 backColorGre1 p-3 w-100 @error('ypk_name') is-invalid @enderror"
+                            style="height: 100%;">
+                        @error('ypk_name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="w-25">
+                        <button
+                            class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100">
+                            <span>Добавить</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <!-- Удалить тип услуг/продуктов -->
+            <form action="{{ route('ypk.destroy') }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <div class="myBlue rounded-3">
+                    <h1 class="p-3 text-white nameBlock">Удалить тип услуг/продуктов</h1>
+                </div>
+                <div class="d-flex gap-2 mb-3">
+                    <div class="w-75">
+                        <select name="ypk_id" class=" border-0 rounded-4 backColorGre1 p-3 w-100 text-muted"
+                            style="height: 100%;">
+                            <option value="" disabled selected>Выберите тип услуги или продукта</option>
+                            @if (count($ypk) > 0)
+                                @foreach ($ypk as $value)
+                                    <option value="{{ $value->id }}">{{ $value->ypk_name }}</option>
+                                @endforeach
+                            @else
+                                <option></option>
+                            @endif
+                        </select>
+                    </div>
+                    <div class="w-25">
+                        <button type="submit"
+                            class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100">
+                            <span>Удалить</span>
+                        </button>
+                    </div>
                 </div>
             </form>
         </section>
-        <!-- Удалить тип услуг/продуктов -->
-        <form action="{{ route('ypk.destroy') }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <div class="myBlue rounded-3">
-                <h1 class="p-3 text-white nameBlock">Удалить тип услуг/продуктов</h1>
-            </div>
-            <div class="d-flex gap-2 mb-3">
-                <div class="w-75">
-                    <select name="ypk_id" class=" border-0 rounded-4 backColorGre1 p-3 w-100 text-muted"
-                        style="height: 100%;">
-                        <option value="" disabled selected>Выберите тип услуги или продукта</option>
-                        @if (count($ypk) > 0)
-                            @foreach ($ypk as $value)
-                                <option value="{{ $value->id }}">{{ $value->ypk_name }}</option>
-                            @endforeach
-                        @else
-                            <option></option>
-                        @endif
-                    </select>
-                </div>
-                <div class="w-25">
-                    <button type="submit"
-                        class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100">
-                        <span>Удалить</span>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </section>
+    @endisAdmin
 
 
 
-    <!-- ========= НИЖНЯЯ НАВИГАЦИЯ ДЛЯ МОБИЛЬНЫХ ========= -->
-    <!-- Этот блок будет виден только на телефонах и находится внизу -->
-    <div class="mobile-bottom-nav ">
-        <div class="nav-icon text-center">
-            <a href="index.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Главная</span>
-                </div>
 
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="comments.html" class="text-decoration-none">
-                <img src="img/comment.png" alt="Комментарии">
-                <div>
-                    <span class="text-decoration-none text-white">Отзывы</span>
-                </div>
-
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="Login.html" class="text-decoration-none">
-                <img src="img/user.png" alt="Профиль">
-                <div>
-                    <span class="text-decoration-none text-white">Профиль</span>
-                </div>
-
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="like.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Избранное</span>
-                </div>
-
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="" class="text-decoration-none">
-                <img src="img/material-symbols_info-outline-rounded1.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">О нас</span>
-                </div>
-
-            </a>
-        </div>
-    </div>
-    <!-- ================================================== -->
 
 
 @endsection

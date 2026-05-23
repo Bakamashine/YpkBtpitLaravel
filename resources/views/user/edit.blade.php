@@ -67,7 +67,7 @@
     </form>
 </section>
 
-<script>
+{{-- <script>
     document.getElementById('avatar').addEventListener('change', function (e) {
         const file = e.target.files[0];
         if (file) {
@@ -78,5 +78,13 @@
             reader.readAsDataURL(file);
         }
     });
+</script> --}}
+
+<script>
+    let id = "avatar"
+    let preview = "avatarPreview"
+
 </script>
+
+<script src="{{ asset('js/photoInput.js') }}"></script>
 @endsection

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateUserRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -15,11 +14,11 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['sometimes', 'string', 'max:150'],
-            'email' => ['nullable', 'email', Rule::unique('users')->ignore($this->route('user'))],
-            'phone_number' => ['sometimes', 'string', 'max:12', Rule::unique('users')->ignore($this->route('user'))],
-            'password' => ['nullable', 'string', 'min:8'],
-            'role_id' => ['sometimes', 'uuid', 'exists:roles,id'],
+            'name' => ['required', 'string', 'max:150'],
+            'email' => ['nullable', 'email', 'unique:users,email'],
+            'phone_number' => ['required', 'string', 'max:12', 'unique:users,phone_number'],
+            'password' => ['required', 'string', 'min:8'],
+            'role_id' => ['required', 'uuid', 'exists:roles,id'],
             'ypk_id' => ['nullable', 'uuid', 'exists:ypks,id'],
             'user_info' => ['nullable', 'string'],
             'is_active' => ['boolean'],

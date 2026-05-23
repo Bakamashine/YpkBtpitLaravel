@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Contracts\IImageService;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->scoped(IImageService::class, ImageService::class);
     }
 
     /**
