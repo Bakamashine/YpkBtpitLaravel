@@ -27,6 +27,10 @@ class Ypk extends Model
         'is_active' => 'boolean',
     ];
 
+    protected $attributes = [
+        "is_active" => 1
+    ];
+
     public function users(): HasMany
     {
         return $this->hasMany(User::class, 'ypk_id');
