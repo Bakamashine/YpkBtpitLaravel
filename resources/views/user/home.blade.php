@@ -55,7 +55,7 @@
                             </a>
 
                             <!-- Управление пользователями -->
-                            <a href="{{ route('user_management') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                            <a href="{{ route('user_management.index') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                                 <button type="button"
                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                                     <span>Управление пользователями</span>

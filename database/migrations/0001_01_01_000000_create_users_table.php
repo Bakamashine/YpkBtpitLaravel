@@ -35,7 +35,7 @@ return new class extends Migration
 //                ->default(null)
                 ->constrained()
                 ->nullOnDelete();
-            $table->foreignUuid("ypk_uuid")
+            $table->foreignUuid("ypk_id")
                 ->nullable()
 //                ->default(null)
                 ->constrained('ypks')

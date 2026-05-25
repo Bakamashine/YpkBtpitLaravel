@@ -32,7 +32,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('role')->paginate(10);
+        $users = User::with('role')
+            ->orderByDesc("created_at")
+            ->paginate(10);
         $roles = Role::all();
         $ypks = Ypk::all();
 
@@ -53,12 +55,27 @@ class UserController extends Controller
             $data['avatar'] = $this->imageService->uploadImage($request->file('avatar'), "avatar");
         }
 
-        // Хешируем пароль перед сохранением
         $data['password'] = bcrypt($data['password']);
 
         User::create($data);
 
         return to_route('user_management.index');
+    }
+
+    public function edit(User $user)
+    {
+        $roles = Role::all();
+        $ypks = Ypk::all();
+
+        return view('users.edit', compact('user', 'roles', 'ypks'));
+    }
+
+    public function create()
+    {
+        $roles = Role::all();
+        $ypks = Ypk::all();
+
+        return view('users.create', compact('roles', 'ypks'));
     }
 
     /**
@@ -74,10 +91,6 @@ class UserController extends Controller
 
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $this->imageService->updateImage($request->file('avatar'), 'avatars', $user->avatar);
-            // if ($user->avatar) {
-            //     Storage::disk('public')->delete($user->avatar);
-            // }
-            // $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
         }
 
         if (isset($data['password'])) {

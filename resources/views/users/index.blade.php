@@ -13,6 +13,7 @@
             </div>
 
             <div class="my-5 w-100">
+                <a href="{{route('user_management.create')}}" class="btn btn-dark">Создать пользователя</a>
                 @forelse ($users as $user)
                     <div class="d-flex align-items-center justify-content-between my-3">
                         <img src="{{ get_image_or_default($user->avatar) }}" class="avatar" alt="...">
@@ -24,10 +25,11 @@
                             <p><b>Доп информация: </b>{{ $user->user_info }}</p>
                             <hr style="width: 100%; margin: 0;">
 
-                            <div class="d-flex align-items-center gap-2">
-                                <p class="me-2 mb-0">Роль:</p>
-                                <span class="badge bg-secondary">{{ $user->role?->role_name ?? 'Нет роли' }}</span>
-                                <form action="{{ route('user_management.destroy', $user) }}" method="POST" class="d-inline ms-auto" onsubmit="return confirm('Удалить пользователя?')">
+                             <div class="d-flex align-items-center gap-2">
+                                 <p class="me-2 mb-0">Роль:</p>
+                                 <span class="badge bg-secondary">{{ $user->role?->role_name ?? 'Нет роли' }}</span>
+                                 <a href="{{ route('user_management.edit', $user) }}" class="btn btn-sm btn-outline-primary ms-auto">Редактировать</a>
+                                 <form action="{{ route('user_management.destroy', $user) }}" method="POST" class="d-inline" onsubmit="return confirm('Удалить пользователя?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>

@@ -1,4 +1,4 @@
-var id, preview
+// var id, preview
 
 let current_id, current_preview;
 

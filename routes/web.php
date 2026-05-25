@@ -83,7 +83,8 @@ Route::middleware("auth")
                     ->prefix('user_management')
                     ->name('user_management')
                     ->group(function () {
-                        Route::get('', 'index');
+                        Route::get('', 'index')->name('.index');
+                        Route::get('create', 'create')->name('.create');
                         Route::post('', 'store')->name('.store');
                         Route::get('{user}/edit', 'edit')->name('.edit');
                         Route::put('{user}', 'update')->name('.update');
