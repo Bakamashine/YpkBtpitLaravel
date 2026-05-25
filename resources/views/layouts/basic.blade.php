@@ -30,7 +30,7 @@
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <img src="/img/Group 2.png" alt="Меню" style="width: 30px;" />
+                    <img src="{{asset('img/Group 2.png')}}" alt="Меню" style="width: 30px;" />
                 </button>
 
                 <div class="d-none d-lg-flex align-items-center">
@@ -43,7 +43,7 @@
                             @auth
                                 <div class="mx-1 text-center">
                                     <a href="{{ route('home') }}" class="text-decoration-none">
-                                        <img class="header__image__size" src="/img/user.png"
+                                        <img class="header__image__size" src="{{asset('img/user.png')}}"
                                             alt="Профиль" />
                                         <p class="header__button__text">Профиль</p>
                                     </a>
@@ -51,7 +51,7 @@
                                 <div class="mx-1 text-center">
                                     <a href="{{ route('logout') }}" class="text-decoration-none"
                                         onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();">
-                                        <img class="header__image__size header__image-logout" src="/img/logout.png"
+                                        <img class="header__image__size header__image-logout" src="{{asset('img/logout.png')}}"
                                             alt="Выход" />
                                         <p class="header__button__text">Выйти</p>
                                     </a>
@@ -60,11 +60,19 @@
                                         @csrf
                                     </form>
                                 </div>
+                                    <div class="mx-1 text-center">
+                                        <a href="{{ route('favourite.index') }}" class="text-decoration-none">
+                                            <img class="header__image__size" src="{{asset('img/heart.png')}}"
+                                                 alt="Профиль" />
+                                            <p class="header__button__text">Избранное</p>
+                                        </a>
+                                    </div>
                             @endauth
                             <div class="mx-1 text-center">
-                                <a href="college.html">
+                                <a href="{{route('about_us')}}" class="text-decoration-none">
                                     <img class="header__image__size"
-                                        src="/img/material-symbols_info-outline-rounded1.png" alt="Информация" />
+                                        src="{{asset('img/material-symbols_info-outline-rounded1.png')}}" alt="Информация" />
+                                    <p class="header__button__text">О нас</p>
                                 </a>
                             </div>
                         </div>

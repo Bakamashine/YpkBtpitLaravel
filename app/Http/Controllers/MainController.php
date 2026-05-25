@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Ypk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -22,10 +23,18 @@ class MainController extends Controller
      */
     public function index()
     {
-        $products = Product::orderByDesc('created_at')->paginate(5);
+        $products = Product::with('user', 'ypk', 'statusProduct')
+            ->orderByDesc('created_at')
+            ->paginate(5);
+
+        $favoritedProductIds = [];
+        if (Auth::check()) {
+            $favoritedProductIds = Auth::user()->favourite()->pluck('product_id')->all();
+        }
 
         return view("index", [
             "products" => $products,
+            "favoritedProductIds" => $favoritedProductIds,
         ]);
     }
 }

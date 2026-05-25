@@ -91,4 +91,9 @@ class Product extends Model
     {
         return $this->hasMany(SelectedProduct::class, 'product_id');
     }
+
+    public function favourite(): \Illuminate\Database\Eloquent\Builder|HasMany|Product
+    {
+        return $this->hasMany(Favourite::class, 'product_id');
+    }
 }

@@ -5,34 +5,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\YpkController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Главная страница
-|--------------------------------------------------------------------------
-|
-| Доступна всем пользователям без авторизации.
-|
-|--------------------------------------------------------------------------
-*/
 Route::controller(\App\Http\Controllers\MainController::class)
     ->group(function () {
         Route::get("/", 'index')->name("main");
     });
 
-/*
-|--------------------------------------------------------------------------
-| Маршруты для авторизованных пользователей
-|--------------------------------------------------------------------------
-|
-| Личный кабинет, редактирование профиля. Требуют аутентификации.
-|
-|--------------------------------------------------------------------------
-*/
 Route::middleware("auth")
     ->group(function () {
-        /*
-         * Профиль текущего пользователя
-         */
         Route::controller(\App\Http\Controllers\CurrentUserController::class)
             ->group(function () {
                 Route::get('/home', 'index')->name('home');
@@ -43,14 +22,17 @@ Route::middleware("auth")
                     });
             });
 
-        /*
-         * Административные маршруты (только для администраторов)
-         */
+        Route::controller(\App\Http\Controllers\FavouriteController::class)
+            ->prefix("favourite")
+            ->name("favourite")
+            ->group(function () {
+                Route::get('', 'index')->name('.index');
+                Route::post('', 'store')->name('.store');
+                Route::delete("{product}", 'destroy')->name('.destroy');
+            });
+
         Route::middleware('admin')
             ->group(function () {
-                /*
-                 * Управление категориями товаров/услуг
-                 */
                 Route::controller(YpkController::class)
                     ->prefix('ypk')
                     ->name('ypk')
@@ -59,9 +41,6 @@ Route::middleware("auth")
                         Route::delete('', 'destroy')->name('.destroy');
                     });
 
-                /*
-                 * Управление товарами и услугами
-                 */
                 Route::controller(ProductController::class)
                     ->prefix('product')
                     ->name('product')
@@ -70,15 +49,11 @@ Route::middleware("auth")
                         Route::get('create', 'create')->name('.create');
                         Route::post('', 'store')->name('.store');
                         Route::get('/edit_page', 'edit_page')->name('.edit_page');
-                        Route::get('{product}', 'show')->name('.show');
                         Route::get('{product}/edit', 'edit')->name('.edit');
                         Route::put('{product}', 'update')->name('.update');
                         Route::delete('{product}', 'destroy')->name('.destroy');
                     });
 
-                /*
-                 * Управление пользователями
-                 */
                 Route::controller(UserController::class)
                     ->prefix('user_management')
                     ->name('user_management')
@@ -92,3 +67,6 @@ Route::middleware("auth")
                     });
             });
     });
+
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show')->whereUuid('product');
+Route::view('about_us', 'about_us')->name('about_us');

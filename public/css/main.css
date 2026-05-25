@@ -383,3 +383,37 @@ a {
   padding: 5px;
   border-radius: 5px;
 }
+
+.heart-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.heart-wrapper img {
+  transition: opacity 0.15s ease;
+}
+
+.heart-wrapper .heart-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.heart-wrapper:hover .heart-hover {
+  opacity: 1;
+}
+
+.heart-wrapper:hover .heart-default {
+  opacity: 0;
+}
+
+.heart-wrapper.is-favorited .heart-default,
+.heart-wrapper.is-favorited .heart-hover {
+  opacity: 1;
+}
+
+.heart-wrapper.is-favorited:hover .heart-hover {
+  opacity: 0;
+}

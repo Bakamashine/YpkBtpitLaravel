@@ -128,4 +128,9 @@ class User extends Authenticatable
         return $this->hasMany(SelectedProduct::class, 'user_id');
     }
 
+
+    public function favourite(): \Illuminate\Database\Eloquent\Builder|User|HasMany
+    {
+        return $this->hasMany(Favourite::class, 'user_id');
+    }
 }
