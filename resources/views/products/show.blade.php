@@ -12,8 +12,8 @@
                     <div class="myInfoCard catalog addProduct p-4">
                         <div class="text-center mb-4">
                             <img src="{{ get_image_or_default($product->photo_path) }}"
-                                class="img-fluid rounded-4 mb-3" alt="{{ $product->product_name }}"
-                                style="max-height: 400px; object-fit: contain;">
+                                 class="img-fluid rounded-4 mb-3" alt="{{ $product->product_name }}"
+                                 style="max-height: 400px; object-fit: contain;">
                         </div>
 
                         <div class="mb-5">
@@ -77,8 +77,10 @@
                                     <form action="{{ route('favourite.destroy', $product) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger d-flex align-items-center gap-2">
-                                            <img src="{{ asset('img/redHeart.png') }}" alt="В избранном" style="width: 24px;">
+                                        <button type="submit"
+                                                class="btn btn-outline-danger d-flex align-items-center gap-2">
+                                            <img src="{{ asset('img/redHeart.png') }}" alt="В избранном"
+                                                 style="width: 24px;">
                                             <span>В избранном</span>
                                         </button>
                                     </form>
@@ -86,8 +88,11 @@
                                     <form action="{{ route('favourite.store') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <button type="submit" class="btn btn-outline-secondary favourite-btn d-flex align-items-center gap-2" title="Добавить в избранное">
-                                            <img src="{{ asset('img/greyHeart.png') }}" alt="В избранное" class="like" style="width: 24px;">
+                                        <button type="submit"
+                                                class="btn btn-outline-secondary favourite-btn d-flex align-items-center gap-2"
+                                                title="Добавить в избранное">
+                                            <img src="{{ asset('img/greyHeart.png') }}" alt="В избранное" class="like"
+                                                 style="width: 24px;">
                                             <span>Добавить в избранное</span>
                                         </button>
                                     </form>

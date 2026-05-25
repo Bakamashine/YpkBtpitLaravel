@@ -1,9 +1,9 @@
 <?php
 
-use Diglactic\Breadcrumbs\Breadcrumbs;
-use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 use App\Models\Product;
 use App\Models\User;
+use Diglactic\Breadcrumbs\Breadcrumbs;
+use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('main', function (BreadcrumbTrail $trail) {
     $trail->push('Главная', route('main'));

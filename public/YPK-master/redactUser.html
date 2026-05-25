@@ -2,196 +2,202 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ГБПОУ ВО БТПИТ УПК</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-    <!-- ======================= ШАПКА САЙТА ======================= -->
-    <section class="myColorHeader">
-        <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
-            <div class="container-fluid">
-                <!-- Логотип -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" alt="Логотип" class="myImg">
-                </a>
+<!-- ======================= ШАПКА САЙТА ======================= -->
+<section class="myColorHeader">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+        <div class="container-fluid">
+            <!-- Логотип -->
+            <a class="navbar-brand" href="index.html">
+                <img alt="Логотип" class="myImg" src="img/logo.png">
+            </a>
 
-                <!-- Блок поиска и иконок -->
-                <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
-                    <!-- Поле поиска -->
-                    <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+            <!-- Блок поиска и иконок -->
+            <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
+                <!-- Поле поиска -->
+                <input aria-label="Поиск" class="form-control" placeholder="Поиск" style="height: 60px;" type="search">
 
-                    <!-- Иконки и выпадающий список -->
-                    <div class="d-flex justify-content-end align-items-center">
-                        <!-- Выпадающий список -->
+                <!-- Иконки и выпадающий список -->
+                <div class="d-flex justify-content-end align-items-center">
+                    <!-- Выпадающий список -->
+                    <div class="dropdown">
+                        <button aria-expanded="false" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                id="dropdownMenuButton1" type="button">
+                            <img alt="Иконка группы" src="img/Group 2.png">
+                        </button>
+                        <ul aria-labelledby="dropdownMenuButton1" class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Основные иконки -->
+                    <div class="myIcons">
+                        <div class="d-flex me-3 myStyleTextLogo header-icons">
+                            <div class="mx-1 text-center">
+                                <a href="#">
+                                    <img alt="Иконка комментария" src="img/comment.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="userProfile.html">
+                                    <img alt="Иконка пользователя" src="img/user.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="#">
+                                    <img alt="Иконка сердца" src="img/heart.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+
+<!-- ======================= КНОПКА НАЗАД ======================= -->
+<div class="mx-5">
+    <a href="userProfile.html">
+        <img alt="Назад" class="my-2 myImgArrow" src="img/arrow-left.png">
+    </a>
+</div>
+
+<!-- ======================= Список пользователей ======================= -->
+<div class="catalog content">
+    <section class=" catalog ">
+        <!-- поиск по данным -->
+        <div class="text-center">
+            <h1>Редактировать роль пользователей</h1>
+            <input aria-label="Поиск" class="form-control" placeholder="Поиск" style="height: 60px;" type="search">
+        </div>
+
+        <!-- вывод списка  -->
+        <div class="my-5 w-100">
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <img alt="..." class="avatar" src="img/fotoUser.png">
+                <div class="mx-3" style="flex: 1;">
+                    <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Номер телефона: </b>8 999 999 99 99</p>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero
+                        cupiditate?</p>
+                    <hr style="width: 100%; margin: 0;">
+
+                    <!-- ВЫПАДАЮЩИЙ СПИСОК С РОЛЯМИ (вместо 4-го пункта) -->
+                    <div class="d-flex ">
+                        <p class="me-2 ">Роль:</p>
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/Group 2.png" alt="Иконка группы">
+                            <button aria-expanded="false" class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Выберите роль
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Администратор</a></li>
+                                <li><a class="dropdown-item" href="#">Исполнитель</a></li>
+                                <li><a class="dropdown-item" href="#">Пользователь</a></li>
                             </ul>
                         </div>
-
-                        <!-- Основные иконки -->
-                        <div class="myIcons">
-                            <div class="d-flex me-3 myStyleTextLogo header-icons">
-                                <div class="mx-1 text-center">
-                                    <a href="#">
-                                        <img src="img/comment.png" alt="Иконка комментария">
-                                    </a>
-                                </div>
-                                <div class="mx-1 text-center">
-                                    <a href="userProfile.html">
-                                        <img src="img/user.png" alt="Иконка пользователя">
-                                    </a>
-                                </div>
-                                <div class="mx-1 text-center">
-                                    <a href="#">
-                                        <img src="img/heart.png" alt="Иконка сердца">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    <hr style="width: 100%; margin: 0;">
                 </div>
             </div>
-        </nav>
-    </section>
 
-    <!-- ======================= КНОПКА НАЗАД ======================= -->
-    <div class="mx-5">
-        <a href="userProfile.html">
-            <img src="img/arrow-left.png" alt="Назад" class="my-2 myImgArrow">
+            <!--  заполнители-->
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <img alt="..." class="avatar" src="img/fotoUser.png">
+                <div class="mx-3" style="flex: 1;">
+                    <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Номер телефона: </b>8 999 999 99 99</p>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero
+                        cupiditate?</p>
+                    <hr style="width: 100%; margin: 0;">
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <img alt="..." class="avatar" src="img/fotoUser.png">
+                <div class="mx-3" style="flex: 1;">
+                    <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Номер телефона: </b>8 999 999 99 99</p>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero
+                        cupiditate?</p>
+                    <hr style="width: 100%; margin: 0;">
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <img alt="..." class="avatar" src="img/fotoUser.png">
+                <div class="mx-3" style="flex: 1;">
+                    <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Номер телефона: </b>8 999 999 99 99</p>
+                    <hr style="width: 100%; margin: 0;">
+                    <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero
+                        cupiditate?</p>
+                    <hr style="width: 100%; margin: 0;">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- ======================= ПОДВАЛ САЙТА ======================= -->
+<footer class="px-3">
+    <section class="d-flex justify-content-between catalog">
+        <div class="d-flex">
+            <img alt="Логотип" src="img/logo.png">
+            <div class="align-self-center">
+                <img alt="YPK" src="img/YPK.png">
+            </div>
+        </div>
+        <div class="align-self-center text-center text-white">
+            <p>Телефон: 8 (999) 999-99-99</p>
+            <p>Email: gmail@gmail.com</p>
+        </div>
+    </section>
+</footer>
+
+<!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
+<div class="mobile-bottom-nav">
+    <div class="nav-icon text-center">
+        <a href="#">
+            <img alt="Комментарии" src="img/comment.png">
+            <div>
+                <span class="text-decoration-none text-white">Отзывы</span>
+            </div>
         </a>
     </div>
-
-    <!-- ======================= Список пользователей ======================= -->
-    <div class="catalog content">
-        <section class=" catalog ">
-            <!-- поиск по данным -->
-             <div class="text-center">
-                 <h1>Редактировать роль пользователей</h1>
-                <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;"> 
-             </div>
-           
-            <!-- вывод списка  -->
-             <div class="my-5 w-100">
-                <div class="d-flex align-items-center justify-content-between my-3">
-                    <img src="img/fotoUser.png" class="avatar" alt="...">
-                    <div class="mx-3" style="flex: 1;">
-                        <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
-                        <hr style="width: 100%; margin: 0;">
-                        <p><b>Номер телефона: </b>8 999 999 99 99</p>
-                        <hr style="width: 100%; margin: 0;">
-                        <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero cupiditate?</p>
-                        <hr style="width: 100%; margin: 0;">
-                        
-                        <!-- ВЫПАДАЮЩИЙ СПИСОК С РОЛЯМИ (вместо 4-го пункта) -->
-                        <div class="d-flex ">
-                            <p class="me-2 ">Роль:</p>
-                            <div class="dropdown">
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Выберите роль
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Администратор</a></li>
-                                    <li><a class="dropdown-item" href="#">Исполнитель</a></li>
-                                    <li><a class="dropdown-item" href="#">Пользователь</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <hr style="width: 100%; margin: 0;">
-                    </div>
-                </div>
-
-                <!--  заполнители-->
-                        <div class="d-flex align-items-center justify-content-between my-3">
-                            <img src="img/fotoUser.png" class="avatar" alt="...">
-                            <div class="mx-3" style="flex: 1;">
-                                <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
-                                <hr style="width: 100%; margin: 0;">
-                                <p><b>Номер телефона: </b>8 999 999 99 99</p>
-                                <hr style="width: 100%; margin: 0;">
-                                <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero cupiditate?</p>
-                                <hr style="width: 100%; margin: 0;">
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center justify-content-between my-3">
-                            <img src="img/fotoUser.png" class="avatar" alt="...">
-                            <div class="mx-3" style="flex: 1;">
-                                <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
-                                <hr style="width: 100%; margin: 0;">
-                                <p><b>Номер телефона: </b>8 999 999 99 99</p>
-                                <hr style="width: 100%; margin: 0;">
-                                <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero cupiditate?</p>
-                                <hr style="width: 100%; margin: 0;">
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center justify-content-between my-3">
-                            <img src="img/fotoUser.png" class="avatar" alt="...">
-                            <div class="mx-3" style="flex: 1;">
-                                <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
-                                <hr style="width: 100%; margin: 0;">
-                                <p><b>Номер телефона: </b>8 999 999 99 99</p>
-                                <hr style="width: 100%; margin: 0;">
-                                <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero cupiditate?</p>
-                                <hr style="width: 100%; margin: 0;">
-                            </div>
-                        </div>
-             </div>
-        </section>
-    </div>
-    <!-- ======================= ПОДВАЛ САЙТА ======================= -->
-    <footer class="px-3">
-        <section class="d-flex justify-content-between catalog">
-            <div class="d-flex">
-                <img src="img/logo.png" alt="Логотип">
-                <div class="align-self-center">
-                    <img src="img/YPK.png" alt="YPK">
-                </div>
+    <div class="nav-icon text-center">
+        <a href="Login.html">
+            <img alt="Профиль" src="img/user.png">
+            <div>
+                <span class="text-decoration-none text-white">Профиль</span>
             </div>
-            <div class="align-self-center text-center text-white">
-                <p>Телефон: 8 (999) 999-99-99</p>
-                <p>Email: gmail@gmail.com</p>
-            </div>
-        </section>
-    </footer>
-
-    <!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
-    <div class="mobile-bottom-nav">
-        <div class="nav-icon text-center">
-            <a href="#">
-                <img src="img/comment.png" alt="Комментарии">
-                <div>
-                    <span class="text-decoration-none text-white">Отзывы</span>
-                </div>
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="Login.html">
-                <img src="img/user.png" alt="Профиль">
-                <div>
-                    <span class="text-decoration-none text-white">Профиль</span>
-                </div>
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="#">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Избранное</span>
-                </div>
-            </a>
-        </div>
+        </a>
     </div>
+    <div class="nav-icon text-center">
+        <a href="#">
+            <img alt="Избранное" src="img/heart.png">
+            <div>
+                <span class="text-decoration-none text-white">Избранное</span>
+            </div>
+        </a>
+    </div>
+</div>
 
-    <!-- Подключение скриптов Bootstrap -->
-    <script src="bootstrap/bootstrap.bundle.js"></script>
+<!-- Подключение скриптов Bootstrap -->
+<script src="bootstrap/bootstrap.bundle.js"></script>
 </body>
 </html>

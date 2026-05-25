@@ -22,7 +22,8 @@
                    value="{{old('phone')}}"
                    name="phone_number"
                    {{--                   pattern="\+7\s?\(?[0-9]{3}\)?\s?[0-9]{3}-?[0-9]{2}-?[0-9]{2}"--}}
-                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('phone_number') is-invalid @enderror" required>
+                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('phone_number') is-invalid @enderror"
+                   required>
             @error('phone_number')
             <div class="invalid-feedback">
                 {{$message}}

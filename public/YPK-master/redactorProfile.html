@@ -2,141 +2,147 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ГБПОУ ВО БТПИТ УПК</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ======================= ШАПКА САЙТА ======================= -->
-    <section class="myColorHeader">
-        <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
-            <div class="container-fluid">
-                <!-- Логотип -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" alt="Логотип" class="myImg">
-                </a>
+<!-- ======================= ШАПКА САЙТА ======================= -->
+<section class="myColorHeader">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
+        <div class="container-fluid">
+            <!-- Логотип -->
+            <a class="navbar-brand" href="index.html">
+                <img alt="Логотип" class="myImg" src="img/logo.png">
+            </a>
 
-                <!-- Блок поиска и иконок -->
-                <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
-                    <!-- Поле поиска -->
-                    <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+            <!-- Блок поиска и иконок -->
+            <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
+                <!-- Поле поиска -->
+                <input aria-label="Поиск" class="form-control" placeholder="Поиск" style="height: 60px;" type="search">
 
-                    <!-- Иконки и выпадающий список -->
-                    <div class="d-flex justify-content-end align-items-center">
-                        <!-- Выпадающий список -->
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/Group 2.png" alt="Иконка группы">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
+                <!-- Иконки и выпадающий список -->
+                <div class="d-flex justify-content-end align-items-center">
+                    <!-- Выпадающий список -->
+                    <div class="dropdown">
+                        <button aria-expanded="false" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                id="dropdownMenuButton1" type="button">
+                            <img alt="Иконка группы" src="img/Group 2.png">
+                        </button>
+                        <ul aria-labelledby="dropdownMenuButton1" class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
 
-                        <!-- Основные иконки -->
-                        <div class="myIcons">
-                            <div class="d-flex me-3 myStyleTextLogo header-icons">
-                                <div class="mx-1 text-center">
-                                    <a href="#">
-                                        <img src="img/comment.png" alt="Иконка комментария">
-                                    </a>
-                                </div>
-                                <div class="mx-1 text-center">
-                                    <a href="Login.html">
-                                        <img src="img/user.png" alt="Иконка пользователя">
-                                    </a>
-                                </div>
-                                <div class="mx-1 text-center">
-                                    <a href="#">
-                                        <img src="img/heart.png" alt="Иконка сердца">
-                                    </a>
-                                </div>
+                    <!-- Основные иконки -->
+                    <div class="myIcons">
+                        <div class="d-flex me-3 myStyleTextLogo header-icons">
+                            <div class="mx-1 text-center">
+                                <a href="#">
+                                    <img alt="Иконка комментария" src="img/comment.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="Login.html">
+                                    <img alt="Иконка пользователя" src="img/user.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="#">
+                                    <img alt="Иконка сердца" src="img/heart.png">
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </nav>
-    </section>
+        </div>
+    </nav>
+</section>
 
-    <!-- ======================= Редактировать Личный кабинет ======================= -->
-    <section class="catalog  profile">
-        <!-- профиль -->
-        <div class="m-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <img src="img/fotoUser.png" class=" avatar" alt="...">
+<!-- ======================= Редактировать Личный кабинет ======================= -->
+<section class="catalog  profile">
+    <!-- профиль -->
+    <div class="m-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <img alt="..." class=" avatar" src="img/fotoUser.png">
             <div class="mx-3" style="flex: 1;">
-                <h5><b>Фио: </b><input type="text" name="name" class="border-0 w-100" placeholder="введите свое Фио"></h5>
+                <h5><b>Фио: </b><input class="border-0 w-100" name="name" placeholder="введите свое Фио" type="text">
+                </h5>
                 <hr style="width: 100%; margin: 0;">
-                <p><b>Номер телефона: </b><input type="tel" name="phone" class="border-0 w-100" placeholder="введите свой номер телефона" inputmode="numeric" pattern="[0-9+\-\s]+"></p>
+                <p><b>Номер телефона: </b><input class="border-0 w-100" inputmode="numeric" name="phone"
+                                                 pattern="[0-9+\-\s]+" placeholder="введите свой номер телефона"
+                                                 type="tel"></p>
                 <hr style="width: 100%; margin: 0;">
-                <p><b>Доп информация: </b><input type="text" name="info" class="border-0 w-100" placeholder="введите информацию"></p>
+                <p><b>Доп информация: </b><input class="border-0 w-100" name="info" placeholder="введите информацию"
+                                                 type="text"></p>
                 <hr style="width: 100%; margin: 0;">
-            </div>
-            </div>
-            <div class="d-flex justify-content-between m-3 align-items-center">
-                <div class="d-flex ">
-                    <a href="userProfile.html" class="text-decoration-none">
-                        <button type="button" class="sign-out d-flex edit justify-content-evenly align-items-center gap-2 p-2 text-white ">
-                            <span>Сохранить</span>
-                            <img src="img/edit.png" alt="" class="profileButton">
-                        </button>
-                    </a>
-                </div>
             </div>
         </div>
-    </section>
-    </section>
-    <!-- ======================= ПОДВАЛ САЙТА ======================= -->
-    <footer class="px-3">
-        <section class="d-flex justify-content-between catalog">
-            <div class="d-flex">
-                <img src="img/logo.png" alt="Логотип">
-                <div class="align-self-center">
-                    <img src="img/YPK.png" alt="YPK">
-                </div>
+        <div class="d-flex justify-content-between m-3 align-items-center">
+            <div class="d-flex ">
+                <a class="text-decoration-none" href="userProfile.html">
+                    <button class="sign-out d-flex edit justify-content-evenly align-items-center gap-2 p-2 text-white "
+                            type="button">
+                        <span>Сохранить</span>
+                        <img alt="" class="profileButton" src="img/edit.png">
+                    </button>
+                </a>
             </div>
-            <div class="align-self-center text-center text-white">
-                <p>Телефон: 8 (999) 999-99-99</p>
-                <p>Email: gmail@gmail.com</p>
-            </div>
-        </section>
-    </footer>
-
-    <!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
-    <div class="mobile-bottom-nav">
-        <div class="nav-icon text-center">
-            <a href="#">
-                <img src="img/comment.png" alt="Комментарии">
-                <div>
-                    <span class="text-decoration-none text-white">Отзывы</span>
-                </div>
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="Login.html">
-                <img src="img/user.png" alt="Профиль">
-                <div>
-                    <span class="text-decoration-none text-white">Профиль</span>
-                </div>
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="#">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Избранное</span>
-                </div>
-            </a>
         </div>
     </div>
+</section>
+</section>
+<!-- ======================= ПОДВАЛ САЙТА ======================= -->
+<footer class="px-3">
+    <section class="d-flex justify-content-between catalog">
+        <div class="d-flex">
+            <img alt="Логотип" src="img/logo.png">
+            <div class="align-self-center">
+                <img alt="YPK" src="img/YPK.png">
+            </div>
+        </div>
+        <div class="align-self-center text-center text-white">
+            <p>Телефон: 8 (999) 999-99-99</p>
+            <p>Email: gmail@gmail.com</p>
+        </div>
+    </section>
+</footer>
 
-    <!-- Подключение скриптов Bootstrap -->
-    <script src="bootstrap/bootstrap.bundle.js"></script>
-    <!-- Обратите внимание: папка названа "boosstrap" (опечатка), если нужно, исправьте на "bootstrap" -->
+<!-- ======================= НИЖНЯЯ НАВИГАЦИЯ (МОБИЛЬНАЯ ВЕРСИЯ) ======================= -->
+<div class="mobile-bottom-nav">
+    <div class="nav-icon text-center">
+        <a href="#">
+            <img alt="Комментарии" src="img/comment.png">
+            <div>
+                <span class="text-decoration-none text-white">Отзывы</span>
+            </div>
+        </a>
+    </div>
+    <div class="nav-icon text-center">
+        <a href="Login.html">
+            <img alt="Профиль" src="img/user.png">
+            <div>
+                <span class="text-decoration-none text-white">Профиль</span>
+            </div>
+        </a>
+    </div>
+    <div class="nav-icon text-center">
+        <a href="#">
+            <img alt="Избранное" src="img/heart.png">
+            <div>
+                <span class="text-decoration-none text-white">Избранное</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- Подключение скриптов Bootstrap -->
+<script src="bootstrap/bootstrap.bundle.js"></script>
+<!-- Обратите внимание: папка названа "boosstrap" (опечатка), если нужно, исправьте на "bootstrap" -->
 </body>
 </html>

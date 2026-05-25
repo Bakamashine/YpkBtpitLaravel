@@ -11,13 +11,11 @@ namespace App\Http\Controllers;
 use App\Contracts\IImageService;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Order;
 use App\Models\Product;
 use App\Models\StatusProduct;
 use App\Models\Ypk;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -39,19 +37,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Показать форму создания нового товара/услуги.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
-    {
-        $ypks = Ypk::all();
-        $statusProducts = StatusProduct::all();
-
-        return view('products.create', compact('ypks', 'statusProducts'));
-    }
-
-    /**
      * Показать страницу управления товарами/услугами (для администратора).
      *
      * @return \Illuminate\View\View
@@ -61,16 +46,15 @@ class ProductController extends Controller
         $search = $request->input('search');
 
         $products = Product::when($search, function (Builder $query, $search) {
-                $query->whereLike('product_name', "%{$search}%")
-                    ->orWhereLike('address', "%{$search}%");
-            })
+            $query->whereLike('product_name', "%{$search}%")
+                ->orWhereLike('address', "%{$search}%");
+        })
             ->orderByDesc('created_at')
             ->paginate(6)
             ->withQueryString();
 
         return view('products.edit_page', compact('products'));
     }
-
 
     /**
      * Сохранить новый товар/услугу в базу данных.
@@ -90,6 +74,19 @@ class ProductController extends Controller
         $request->user()->products()->create($data);
 
         return to_route('product.edit_page');
+    }
+
+    /**
+     * Показать форму создания нового товара/услуги.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        $ypks = Ypk::all();
+        $statusProducts = StatusProduct::all();
+
+        return view('products.create', compact('ypks', 'statusProducts'));
     }
 
     /**
@@ -121,7 +118,7 @@ class ProductController extends Controller
      * Обновить товар/услугу в базе данных.
      *
      * @param UpdateProductRequest $request
-     * @param Product              $product
+     * @param Product $product
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateProductRequest $request, Product $product)

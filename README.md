@@ -58,17 +58,17 @@ Laravel-based backend API for the YPK (УПК) management system.
 
 ### Tables
 
-| Table | Description |
-|-------|-------------|
-| `roles` | User roles (Admin, Manager, DefaultUser) |
-| `ypks` | YPK entities |
-| `status_orders` | Order status definitions |
-| `status_products` | Product status definitions |
-| `users` | User accounts with roles and optional YPK assignment |
-| `products` | Products linked to YPKs and users |
-| `feedbacks` | User feedback with ratings |
-| `orders` | Orders with customer, executor, and product |
-| `selected_products` | User's selected/favorite products |
+| Table               | Description                                          |
+|---------------------|------------------------------------------------------|
+| `roles`             | User roles (Admin, Manager, DefaultUser)             |
+| `ypks`              | YPK entities                                         |
+| `status_orders`     | Order status definitions                             |
+| `status_products`   | Product status definitions                           |
+| `users`             | User accounts with roles and optional YPK assignment |
+| `products`          | Products linked to YPKs and users                    |
+| `feedbacks`         | User feedback with ratings                           |
+| `orders`            | Orders with customer, executor, and product          |
+| `selected_products` | User's selected/favorite products                    |
 
 ## Models
 
@@ -89,6 +89,7 @@ Each model has `Store{Model}Request` and `Update{Model}Request` for validation.
 ## Authentication
 
 This project uses Laravel Fortify for authentication. Available features:
+
 - Login / Logout
 - Registration
 - Password Reset
@@ -101,16 +102,19 @@ Configure Fortify features in `config/fortify.php`.
 ## Development
 
 Run development server:
+
 ```bash
 composer run dev
 ```
 
 Run tests:
+
 ```bash
 composer run test
 ```
 
 Code style:
+
 ```bash
 vendor/bin/pint
 ```

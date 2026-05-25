@@ -19,7 +19,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function __construct(
         private IImageService $imageService,
-    ) {}
+    )
+    {
+    }
 
     /**
      * Validate and update the given user's profile information.

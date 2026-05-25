@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -21,7 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $email_verified_at
  * @property string $phone_number
  * @property string|null $role_id
- * @property string|null $ypk_uuid
+ * @property string|null $ypk_id
  * @property string $user_info
  * @property bool $is_active
  * @property string|null $avatar
@@ -36,6 +35,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read int|null $customer_orders_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Order> $executorOrders
  * @property-read int|null $executor_orders_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Favourite> $favourite
+ * @property-read int|null $favourite_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feedback> $feedbacks
  * @property-read int|null $feedbacks_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
@@ -68,7 +69,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUserInfo($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereYpkUuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereYpkId($value)
  * @mixin \Eloquent
  */
 #[Fillable(['name', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar'])]
@@ -77,8 +78,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, HasUuids, Notifiable, TwoFactorAuthenticatable;
 
-    protected $primaryKey = 'id';
     public $incrementing = false;
+    protected $primaryKey = 'id';
     protected $keyType = 'string';
 
     protected $casts = [
@@ -86,13 +87,15 @@ class User extends Authenticatable
     ];
 
     protected $attributes = [
-      'user_info' => "Информация отсуствует"
+        'user_info' => "Информация отсуствует"
     ];
 
 
-    public function isAdmin(): bool {
+    public function isAdmin(): bool
+    {
         return $this->role?->role_name === \App\Enums\RoleName::Admin->value;
     }
+
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id');

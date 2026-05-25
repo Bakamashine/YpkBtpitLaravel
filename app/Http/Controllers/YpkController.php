@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ypk;
 use App\Http\Requests\StoreYpkRequest;
 use App\Http\Requests\UpdateYpkRequest;
+use App\Models\Ypk;
 use Illuminate\Http\Request;
 
 class YpkController extends Controller
 {
     public function index()
-    {
-        //
-    }
-
-    public function create()
     {
         //
     }
@@ -30,6 +25,11 @@ class YpkController extends Controller
         Ypk::create($request->all());
 
         return back();
+    }
+
+    public function create()
+    {
+        //
     }
 
     public function show(Ypk $ypk)

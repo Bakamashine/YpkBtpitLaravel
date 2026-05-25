@@ -2,33 +2,34 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ГБПОУ ВО БТПИТ УПК</title>
-     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-   
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
 </head>
 <body>
-    <!-- шапка -->
-  <section class="myColorHeader ">
+<!-- шапка -->
+<section class="myColorHeader ">
     <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
         <div class="container-fluid ">
             <!-- логотип упк -->
             <a class="navbar-brand " href="index.html">
-                <img src="img/logo.png" alt="Логотип" class="myImg">
+                <img alt="Логотип" class="myImg" src="img/logo.png">
             </a>
-            
+
             <!-- поиск -->
             <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
-                <input class="form-control " type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+                <input aria-label="Поиск" class="form-control " placeholder="Поиск" style="height: 60px;" type="search">
                 <div class="d-flex justify-content-end align-items-center">
                     <div class="">
                         <!-- выпадающий список -->
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/Group 2.png" alt="Иконка группы">
+                            <button aria-expanded="false" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    id="dropdownMenuButton1" type="button">
+                                <img alt="Иконка группы" src="img/Group 2.png">
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul aria-labelledby="dropdownMenuButton1" class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -36,30 +37,31 @@
                         </div>
                     </div>
                     <!-- иконки-->
-                     <div class="myIcons">
-                    <div class="d-flex me-3 myStyleTextLogo header-icons ">
-                        <div class="mx-1 text-center">
-                            <a href="comments.html">
-                                <img src="img/comment.png" alt="Иконка комментария">
-                            </a>
+                    <div class="myIcons">
+                        <div class="d-flex me-3 myStyleTextLogo header-icons ">
+                            <div class="mx-1 text-center">
+                                <a href="comments.html">
+                                    <img alt="Иконка комментария" src="img/comment.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <!-- для не авторизированных <a href="Login.html"> -->
+                                <a href="userProfile.html">
+                                    <img alt="Иконка пользователя" src="img/user.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="like.html">
+                                    <img alt="Иконка сердца" src="img/heart.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="college.html">
+                                    <img alt="Иконка сердца" src="img/material-symbols_info-outline-rounded1.png">
+                                </a>
+                            </div>
                         </div>
-                        <div class="mx-1 text-center">
-                            <!-- для не авторизированных <a href="Login.html"> -->
-                            <a href="userProfile.html">
-                                <img src="img/user.png" alt="Иконка пользователя">
-                            </a>
-                        </div>
-                        <div class="mx-1 text-center">
-                            <a href="like.html">
-                                <img src="img/heart.png" alt="Иконка сердца">
-                            </a>
-                        </div>
-                        <div class="mx-1 text-center">
-                            <a href="college.html">
-                                <img src="img/material-symbols_info-outline-rounded1.png" alt="Иконка сердца">
-                            </a>
-                        </div>
-                    </div></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,61 +72,69 @@
     <!-- профиль -->
     <div class="m-3">
         <div class="d-flex align-items-center justify-content-between">
-            <img src="img/fotoUser.png" class="avatar" alt="...">
+            <img alt="..." class="avatar" src="img/fotoUser.png">
             <div class="mx-3" style="flex: 1;">
                 <h5><b>Фио: </b>Карикова Ирина Юрьевна</h5>
                 <hr style="width: 100%; margin: 0;">
                 <p><b>Номер телефона: </b>8 999 999 99 99</p>
                 <hr style="width: 100%; margin: 0;">
-                <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero cupiditate?</p>
+                <p><b>Доп информация: </b>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, libero
+                    cupiditate?</p>
                 <hr style="width: 100%; margin: 0;">
             </div>
         </div>
         <div class="container-fluid px-2 px-md-3">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3 my-3">
+            <div
+                class="d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3 my-3">
 
                 <!-- Левая группа кнопок (основные действия) -->
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2 gap-md-3">
 
                     <!-- общие данные -->
-                    <a href="redactorProfile.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex edit justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                    <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="redactorProfile.html">
+                        <button class="sign-out d-flex edit justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                type="button">
                             <span>ваши данные</span>
-                            <img src="img/edit.png" alt="" class="profileButton" style="width: 16px; height: 16px;">
+                            <img alt="" class="profileButton" src="img/edit.png" style="width: 16px; height: 16px;">
                         </button>
                     </a>
                     <!-- ======================= Исполнитель кнопки======================= -->
 
                     <!-- добавь товары/услуги -->
-                    <a href="addProduct.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                    <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="addProduct.html">
+                        <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                type="button">
                             <span>Добавить товары/услуги</span>
                         </button>
                     </a>
                     <!-- ======================= Админ кнопки ======================= -->
                     <!-- Редактировать товары/услуги -->
-                    <a href="redactProduct.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                    <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="redactProduct.html">
+                        <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                type="button">
                             <span>Редактировать товары/услуги</span>
                         </button>
                     </a>
 
                     <!-- Управление пользователями -->
-                    <a href="redactUser.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                    <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="redactUser.html">
+                        <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                type="button">
                             <span>Управление пользователями</span>
                         </button>
                     </a>
 
                     <!-- Управление заказами -->
-                    <a href="redactStatusOrder.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                    <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="redactStatusOrder.html">
+                        <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                type="button">
                             <span>Управление заказами</span>
                         </button>
                     </a>
                     <!-- оставить отзыв после хотя 1 оказанной услуги -->
-                    <a href="formComments.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                    <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="formComments.html">
+                        <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                type="button">
                             <span>Оставить отзыв</span>
                         </button>
                     </a>
@@ -132,9 +142,10 @@
 
                 <!-- Правая группа (выход) -->
                 <div class="flex-shrink-0">
-                    <button type="button" class="sign-out d-flex btn btn-outline-danger justify-content-center align-items-center gap-2 w-100 w-md-auto">
+                    <button class="sign-out d-flex btn btn-outline-danger justify-content-center align-items-center gap-2 w-100 w-md-auto"
+                            type="button">
                         <span>выйти из аккаунта</span>
-                        <img src="img/sign-out.png" alt="" class="profileButton" style="width: 16px; height: 16px;">
+                        <img alt="" class="profileButton" src="img/sign-out.png" style="width: 16px; height: 16px;">
                     </button>
                 </div>
             </div>
@@ -142,233 +153,243 @@
     </div>
 
 
-<!-- ======================= Заказы обычного пользователя ======================= -->
-<section class="order">
-    <div class="myBlue rounded-3">
-        <h1 class="p-3 text-white nameBlock">Заказы</h1>
-    </div>
-    <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
-        <!-- основная карточка -->
-        <div class="col d-flex">
-            <a href="infoForUser.html" class="text-decoration-none text-black">
+    <!-- ======================= Заказы обычного пользователя ======================= -->
+    <section class="order">
+        <div class="myBlue rounded-3">
+            <h1 class="p-3 text-white nameBlock">Заказы</h1>
+        </div>
+        <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+            <!-- основная карточка -->
+            <div class="col d-flex">
+                <a class="text-decoration-none text-black" href="infoForUser.html">
+                    <div class="rounded shadow p-3 w-100">
+                        <img alt="..." class="card-img-top" src="img/Group 19.png">
+                        <div class="card-body catalog">
+                            <h3 class="card-title">Крутое название</h3>
+                            <h5>Исполнитель</h5>
+                            <h4>Цена</h4>
+                            <p>Дата</p>
+                            <p>Статус</p>
+                            <p>Телефон</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- заполнители-карточки -->
+            <div class="col d-flex">
                 <div class="rounded shadow p-3 w-100">
-                    <img src="img/Group 19.png" class="card-img-top" alt="...">
-                    <div class="card-body catalog">
-                        <h3 class="card-title">Крутое название</h3>
-                        <h5>Исполнитель</h5>
-                        <h4>Цена</h4>
-                        <p>Дата</p>
-                        <p>Статус</p>
-                        <p>Телефон</p>
+                    <img alt="..." class="card-img-top" src="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное
+                            введение в дополнительный контент.</p>
                     </div>
                 </div>
-            </a>
-        </div>
-        <!-- заполнители-карточки -->
-        <div class="col d-flex">
-            <div class="rounded shadow p-3 w-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное введение в дополнительный контент.</p>
+            </div>
+            <div class="col d-flex">
+                <div class="rounded shadow p-3 w-100">
+                    <img alt="..." class="card-img-top" src="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex">
+                <div class="rounded shadow p-3 w-100">
+                    <img alt="..." class="card-img-top" src="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное
+                            введение в дополнительный контент.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col d-flex">
-            <div class="rounded shadow p-3 w-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
+    </section>
+
+    <!-- ======================= товары и услуги редактора/исполнителя ======================= -->
+    <section>
+        <div class="myBlue rounded-3">
+            <h1 class="p-3 text-white nameBlock">Ваши товары и услуги</h1>
+        </div>
+        <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+            <!-- основная карточка -->
+            <div class="col d-flex">
+                <a class="text-decoration-none text-black" href="infoForUser.html">
+                    <div class="rounded shadow p-3 w-100">
+                        <img alt="..." class="card-img-top" src="img/Group 19.png">
+                        <div class="card-body catalog">
+                            <h3 class="card-title">Крутое название</h3>
+                            <h5>Исполнитель</h5>
+                            <h4>Цена</h4>
+                            <p>Дата</p>
+                            <p>Статус</p>
+                            <p>Телефон</p>
+                        </div>
+                        <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="redactProductInfo.html">
+                            <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                    type="button">
+                                <span>Редактировать</span>
+                            </button>
+                        </a>
+                        <!-- кнопка скрыть услугу если она больше не акуальна -->
+                        <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="hide.html">
+                            <button class="my-3 sign-out d-flex bg-danger-subtle border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                    type="button">
+                                <span>Скрыть</span>
+                            </button>
+                        </a>
+                        <!-- кнопка если товар был скрыт и его нужно вернуть -->
+                        <a class="text-decoration-none flex-grow-1 flex-md-grow-0" href="return.html">
+                            <button class="my-3 sign-out d-flex bg-success-subtle border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100"
+                                    type="button">
+                                <span>Вернуть</span>
+                            </button>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            <!-- заполнители-карточки -->
+            <div class="col d-flex">
+                <div class="rounded shadow p-3 w-100">
+                    <img alt="..." class="card-img-top" src="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное
+                            введение в дополнительный контент.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex">
+                <div class="rounded shadow p-3 w-100">
+                    <img alt="..." class="card-img-top" src="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex">
+                <div class="rounded shadow p-3 w-100">
+                    <img alt="..." class="card-img-top" src="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное
+                            введение в дополнительный контент.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col d-flex">
-            <div class="rounded shadow p-3 w-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное введение в дополнительный контент.</p>
-                </div>
+    </section>
+    <!-- ======================= ШТУКИ АДМИНА!!!!!!!!!!!!!!!!  ======================= -->
+    <!-- Добавить новый тип услуг/продуктов -->
+    <section>
+        <div class="myBlue rounded-3">
+            <h1 class="p-3 text-white nameBlock">Добавить новый тип услуг/продуктов</h1>
+        </div>
+        <div class="d-flex gap-2 mb-3">
+            <div class="w-75">
+                <input class=" border-0 rounded-4 backColorGre1 p-3 w-100" placeholder="Введите новый тип услуги или продукта"
+                       style="height: 100%;" type="text">
+            </div>
+            <div class="w-25">
+                <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100"
+                        type="button">
+                    <span>Добавить</span>
+                </button>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- Удалить тип услуг/продуктов -->
+    <section>
+        <div class="myBlue rounded-3">
+            <h1 class="p-3 text-white nameBlock">Удалить тип услуг/продуктов</h1>
+        </div>
+        <div class="d-flex gap-2 mb-3">
+            <div class="w-75">
+                <select class=" border-0 rounded-4 backColorGre1 p-3 w-100 text-muted" style="height: 100%;">
+                    <option disabled selected value="">Выберите тип услуги или продукта</option>
+                    <option value="консультация">ааааааа</option>
+                </select>
+            </div>
+            <div class="w-25">
+                <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100"
+                        type="button">
+                    <span>Удалить</span>
+                </button>
+            </div>
+        </div>
+    </section>
 </section>
 
-<!-- ======================= товары и услуги редактора/исполнителя ======================= -->
-<section>
-    <div class="myBlue rounded-3">
-        <h1 class="p-3 text-white nameBlock">Ваши товары и услуги</h1>
-    </div>
-    <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
-        <!-- основная карточка -->
-                <div class="col d-flex">
-                    <a href="infoForUser.html" class="text-decoration-none text-black">
-                <div class="rounded shadow p-3 w-100">
-                    <img src="img/Group 19.png" class="card-img-top" alt="...">
-                    <div class="card-body catalog">
-                        <h3 class="card-title">Крутое название</h3>
-                        <h5>Исполнитель</h5>
-                        <h4>Цена</h4>
-                        <p>Дата</p>
-                        <p>Статус</p>
-                        <p>Телефон</p>
-                    </div>
-                           <a href="redactProductInfo.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                            <span>Редактировать</span>
-                        </button>
-                    </a>
-                    <!-- кнопка скрыть услугу если она больше не акуальна -->
-                          <a href="hide.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="my-3 sign-out d-flex bg-danger-subtle border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                            <span>Скрыть</span>
-                        </button>
-                    </a>
-                    <!-- кнопка если товар был скрыт и его нужно вернуть -->
-                        <a href="return.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                        <button type="button" class="my-3 sign-out d-flex bg-success-subtle border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                            <span>Вернуть</span>
-                        </button>
-                    </a>
-                </div>
-            </a>
-        </div>
-        <!-- заполнители-карточки -->
-        <div class="col d-flex">
-            <div class="rounded shadow p-3 w-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное введение в дополнительный контент.</p>
-                </div>
+<!-- подвал -->
+<footer class="px-3">
+    <section class="d-flex justify-content-between catalog ">
+        <div class="d-flex">
+            <img alt="" src="img/logo.png">
+            <div class="align-self-center">
+                <img alt="" src="img/YPK.png">
             </div>
         </div>
-        <div class="col d-flex">
-            <div class="rounded shadow p-3 w-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
-                </div>
+        <div class="align-self-center text-center text-white">
+            <p>номер телефон А: 89999999999</p>
+            <p>почта А: gmail@gmail.com</p>
+        </div>
+    </section>
+</footer>
+
+<!-- ========= НИЖНЯЯ НАВИГАЦИЯ ДЛЯ МОБИЛЬНЫХ ========= -->
+<!-- Этот блок будет виден только на телефонах и находится внизу -->
+<div class="mobile-bottom-nav ">
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="index.html">
+            <img alt="Избранное" src="img/heart.png">
+            <div>
+                <span class="text-decoration-none text-white">Главная</span>
             </div>
-        </div>
-        <div class="col d-flex">
-            <div class="rounded shadow p-3 w-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как естественное введение в дополнительный контент.</p>
-                </div>
+
+        </a>
+    </div>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="comments.html">
+            <img alt="Комментарии" src="img/comment.png">
+            <div>
+                <span class="text-decoration-none text-white">Отзывы</span>
             </div>
-        </div>
+
+        </a>
     </div>
-</section>
-<!-- ======================= ШТУКИ АДМИНА!!!!!!!!!!!!!!!!  ======================= -->
-<!-- Добавить новый тип услуг/продуктов -->
-<section>
-    <div class="myBlue rounded-3">
-        <h1 class="p-3 text-white nameBlock">Добавить новый тип услуг/продуктов</h1>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="Login.html">
+            <img alt="Профиль" src="img/user.png">
+            <div>
+                <span class="text-decoration-none text-white">Профиль</span>
+            </div>
+
+        </a>
     </div>
-    <div class="d-flex gap-2 mb-3">
-        <div class="w-75">
-            <input type="text" placeholder="Введите новый тип услуги или продукта" class=" border-0 rounded-4 backColorGre1 p-3 w-100" style="height: 100%;">
-        </div>
-        <div class="w-25">
-            <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100">
-                <span>Добавить</span>
-            </button>
-        </div>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="like.html">
+            <img alt="Избранное" src="img/heart.png">
+            <div>
+                <span class="text-decoration-none text-white">Избранное</span>
+            </div>
+
+        </a>
     </div>
-</section>
-<!-- Удалить тип услуг/продуктов -->
-<section>
-    <div class="myBlue rounded-3">
-        <h1 class="p-3 text-white nameBlock">Удалить тип услуг/продуктов</h1>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="">
+            <img alt="Избранное" src="img/material-symbols_info-outline-rounded1.png">
+            <div>
+                <span class="text-decoration-none text-white">О нас</span>
+            </div>
+
+        </a>
     </div>
-    <div class="d-flex gap-2 mb-3">
-      <div class="w-75">
-    <select class=" border-0 rounded-4 backColorGre1 p-3 w-100 text-muted" style="height: 100%;">
-        <option value="" disabled selected>Выберите тип услуги или продукта</option>
-        <option value="консультация">ааааааа</option>
-    </select>
 </div>
-        <div class="w-25">
-            <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100 h-100">
-                <span>Удалить</span>
-            </button>
-        </div>
-    </div>
-</section>
-</section>
-   
-    <!-- подвал -->
-    <footer class="px-3">
-        <section class="d-flex justify-content-between catalog ">
-            <div class="d-flex">
-                <img src="img/logo.png" alt="" >
-                <div class="align-self-center">
-                    <img src="img/YPK.png" alt="">  
-                </div>
-            </div>
-            <div class="align-self-center text-center text-white">
-                <p>номер телефон А: 89999999999</p>
-                <p>почта А: gmail@gmail.com</p>
-            </div>
-        </section>
-    </footer>
+<!-- ================================================== -->
 
-    <!-- ========= НИЖНЯЯ НАВИГАЦИЯ ДЛЯ МОБИЛЬНЫХ ========= -->
-    <!-- Этот блок будет виден только на телефонах и находится внизу -->
-    <div class="mobile-bottom-nav ">
-        <div class="nav-icon text-center">
-            <a href="index.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Главная</span>
-                </div>
-                
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="comments.html" class="text-decoration-none">
-                <img src="img/comment.png" alt="Комментарии">
-                <div>
-                    <span class="text-decoration-none text-white">Отзывы</span>
-                </div>
-                
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="Login.html" class="text-decoration-none">
-                <img src="img/user.png" alt="Профиль">
-                <div>
-                    <span class="text-decoration-none text-white">Профиль</span>
-                </div>
-                
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="like.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Избранное</span>
-                </div>
-                
-            </a>
-        </div>
-               <div class="nav-icon text-center">
-            <a href="" class="text-decoration-none">
-                <img src="img/material-symbols_info-outline-rounded1.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">О нас</span>
-                </div>
-                
-            </a>
-        </div>
-    </div>
-    <!-- ================================================== -->
-
-    <script src="bootstrap/bootstrap.bundle.js"></script>
+<script src="bootstrap/bootstrap.bundle.js"></script>
 </body>
 </html>

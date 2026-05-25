@@ -8,7 +8,6 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use App\Http\Requests\UpdateUserRequest;
 use App\Models\Ypk;
 use Illuminate\Http\Request;
 
@@ -48,7 +47,7 @@ class CurrentUserController extends Controller
     /**
      * Обновить данные профиля пользователя.
      *
-     * @param Request                     $request
+     * @param Request $request
      * @param UpdateUserProfileInformation $updater
      * @return \Illuminate\Http\RedirectResponse
      */

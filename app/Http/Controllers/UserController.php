@@ -15,7 +15,6 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Ypk;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -73,14 +72,6 @@ class UserController extends Controller
         return to_route('user_management.index');
     }
 
-    public function edit(User $user)
-    {
-        $roles = Role::all();
-        $ypks = Ypk::all();
-
-        return view('users.edit', compact('user', 'roles', 'ypks'));
-    }
-
     public function create()
     {
         $roles = Role::all();
@@ -89,11 +80,19 @@ class UserController extends Controller
         return view('users.create', compact('roles', 'ypks'));
     }
 
+    public function edit(User $user)
+    {
+        $roles = Role::all();
+        $ypks = Ypk::all();
+
+        return view('users.edit', compact('user', 'roles', 'ypks'));
+    }
+
     /**
      * Обновить данные пользователя.
      *
      * @param UpdateUserRequest $request
-     * @param User              $user
+     * @param User $user
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateUserRequest $request, User $user)

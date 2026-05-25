@@ -30,20 +30,25 @@
                                         <p class="text-muted small text-truncate">{{ $product->product_info }}</p>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
-                                        <a href="{{ route('product.show', $product) }}" class="text-decoration-none flex-grow-1">
+                                        <a href="{{ route('product.show', $product) }}"
+                                           class="text-decoration-none flex-grow-1">
                                             <button type="button"
                                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center p-2 text-white w-100">
                                                 <span>подробнее</span>
                                             </button>
                                         </a>
 
-                                        <form action="{{ route('favourite.destroy', $product) }}" method="POST" class="m-0 p-0 d-inline-block lh-1">
+                                        <form action="{{ route('favourite.destroy', $product) }}" method="POST"
+                                              class="m-0 p-0 d-inline-block lh-1">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent p-0" title="Убрать из избранного">
+                                            <button type="submit" class="border-0 bg-transparent p-0"
+                                                    title="Убрать из избранного">
                                                 <div class="heart-wrapper is-favorited">
-                                                    <img src="{{ asset('img/greyHeart.png') }}" alt="Серый" class="heart-hover like">
-                                                    <img src="{{ asset('img/redHeart.png') }}" alt="Красный" class="heart-default like">
+                                                    <img src="{{ asset('img/greyHeart.png') }}" alt="Серый"
+                                                         class="heart-hover like">
+                                                    <img src="{{ asset('img/redHeart.png') }}" alt="Красный"
+                                                         class="heart-default like">
                                                 </div>
                                             </button>
                                         </form>

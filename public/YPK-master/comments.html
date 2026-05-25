@@ -2,33 +2,34 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ГБПОУ ВО БТПИТ УПК</title>
-     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-   
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
 </head>
 <body>
-    <!-- шапка -->
-  <section class="myColorHeader ">
+<!-- шапка -->
+<section class="myColorHeader ">
     <nav class="navbar navbar-expand-lg d-flex justify-content-between align-items-center">
         <div class="container-fluid ">
             <!-- логотип упк -->
             <a class="navbar-brand " href="index.html">
-                <img src="img/logo.png" alt="Логотип" class="myImg">
+                <img alt="Логотип" class="myImg" src="img/logo.png">
             </a>
-            
+
             <!-- поиск -->
             <div class="mySearh d-flex align-items-center justify-content-around" style="flex-grow: 1;">
-                <input class="form-control " type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+                <input aria-label="Поиск" class="form-control " placeholder="Поиск" style="height: 60px;" type="search">
                 <div class="d-flex justify-content-end align-items-center">
                     <div class="">
                         <!-- выпадающий список -->
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="img/Group 2.png" alt="Иконка группы">
+                            <button aria-expanded="false" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    id="dropdownMenuButton1" type="button">
+                                <img alt="Иконка группы" src="img/Group 2.png">
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul aria-labelledby="dropdownMenuButton1" class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -36,36 +37,37 @@
                         </div>
                     </div>
                     <!-- иконки-->
-                     <div class="myIcons">
-                    <div class="d-flex me-3 myStyleTextLogo header-icons ">
-                        <div class="mx-1 text-center">
-                            <a href="comments.html">
-                                <img src="img/comment.png" alt="Иконка комментария">
-                            </a>
+                    <div class="myIcons">
+                        <div class="d-flex me-3 myStyleTextLogo header-icons ">
+                            <div class="mx-1 text-center">
+                                <a href="comments.html">
+                                    <img alt="Иконка комментария" src="img/comment.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <!-- для не авторизированных <a href="Login.html"> -->
+                                <a href="userProfile.html">
+                                    <img alt="Иконка пользователя" src="img/user.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="like.html">
+                                    <img alt="Иконка сердца" src="img/heart.png">
+                                </a>
+                            </div>
+                            <div class="mx-1 text-center">
+                                <a href="college.html">
+                                    <img alt="Иконка сердца" src="img/material-symbols_info-outline-rounded1.png">
+                                </a>
+                            </div>
                         </div>
-                        <div class="mx-1 text-center">
-                            <!-- для не авторизированных <a href="Login.html"> -->
-                            <a href="userProfile.html">
-                                <img src="img/user.png" alt="Иконка пользователя">
-                            </a>
-                        </div>
-                        <div class="mx-1 text-center">
-                            <a href="like.html">
-                                <img src="img/heart.png" alt="Иконка сердца">
-                            </a>
-                        </div>
-                        <div class="mx-1 text-center">
-                            <a href="college.html">
-                                <img src="img/material-symbols_info-outline-rounded1.png" alt="Иконка сердца">
-                            </a>
-                        </div>
-                    </div></div>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 </section>
-    
+
 <!-- отзывы -->
 <div class="reviews content">
     <section class="m-5 reviews">
@@ -75,7 +77,8 @@
             <div class="col d-flex">
                 <div class="rounded shadow p-4 w-100 bg-white">
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="img/f" alt="avatar" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
+                        <img alt="avatar" class="rounded-circle" height="60" src="img/f" style="object-fit: cover;"
+                             width="60">
                         <div>
                             <h5 class="mb-0">Анна Иванова</h5>
                             <div class="text-warning">
@@ -83,7 +86,8 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mb-0 text-secondary">Отличный сервис! Всё сделали быстро и качественно. Обязательно обращусь ещё раз.</p>
+                    <p class="mb-0 text-secondary">Отличный сервис! Всё сделали быстро и качественно. Обязательно
+                        обращусь ещё раз.</p>
                     <small class="text-muted d-block mt-2">15 марта 2025</small>
                 </div>
             </div>
@@ -91,7 +95,8 @@
             <div class="col d-flex">
                 <div class="rounded shadow p-4 w-100 bg-white">
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="img/avatar2.png" alt="avatar" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
+                        <img alt="avatar" class="rounded-circle" height="60" src="img/avatar2.png" style="object-fit: cover;"
+                             width="60">
                         <div>
                             <h5 class="mb-0">Дмитрий Петров</h5>
                             <div class="text-warning">
@@ -99,23 +104,8 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом всё отлично.</p>
-                    <small class="text-muted d-block mt-2">10 марта 2025</small>
-                </div>
-            </div>
-
-             <div class="col d-flex">
-                <div class="rounded shadow p-4 w-100 bg-white">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="img/avatar2.png" alt="avatar" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
-                        <div>
-                            <h5 class="mb-0">Дмитрий Петров</h5>
-                            <div class="text-warning">
-                                <span>★★★★☆</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом всё отлично.</p>
+                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом
+                        всё отлично.</p>
                     <small class="text-muted d-block mt-2">10 марта 2025</small>
                 </div>
             </div>
@@ -123,7 +113,8 @@
             <div class="col d-flex">
                 <div class="rounded shadow p-4 w-100 bg-white">
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="img/avatar2.png" alt="avatar" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
+                        <img alt="avatar" class="rounded-circle" height="60" src="img/avatar2.png" style="object-fit: cover;"
+                             width="60">
                         <div>
                             <h5 class="mb-0">Дмитрий Петров</h5>
                             <div class="text-warning">
@@ -131,24 +122,8 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом всё отлично.</p>
-                    <small class="text-muted d-block mt-2">10 марта 2025</small>
-                </div>
-            </div>
-
-            
-            <div class="col d-flex">
-                <div class="rounded shadow p-4 w-100 bg-white">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="img/avatar2.png" alt="avatar" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
-                        <div>
-                            <h5 class="mb-0">Дмитрий Петров</h5>
-                            <div class="text-warning">
-                                <span>★★★★☆</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом всё отлично.</p>
+                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом
+                        всё отлично.</p>
                     <small class="text-muted d-block mt-2">10 марта 2025</small>
                 </div>
             </div>
@@ -156,7 +131,8 @@
             <div class="col d-flex">
                 <div class="rounded shadow p-4 w-100 bg-white">
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <img src="img/avatar2.png" alt="avatar" class="rounded-circle" width="60" height="60" style="object-fit: cover;">
+                        <img alt="avatar" class="rounded-circle" height="60" src="img/avatar2.png" style="object-fit: cover;"
+                             width="60">
                         <div>
                             <h5 class="mb-0">Дмитрий Петров</h5>
                             <div class="text-warning">
@@ -164,7 +140,45 @@
                             </div>
                         </div>
                     </div>
-                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом всё отлично.</p>
+                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом
+                        всё отлично.</p>
+                    <small class="text-muted d-block mt-2">10 марта 2025</small>
+                </div>
+            </div>
+
+
+            <div class="col d-flex">
+                <div class="rounded shadow p-4 w-100 bg-white">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img alt="avatar" class="rounded-circle" height="60" src="img/avatar2.png" style="object-fit: cover;"
+                             width="60">
+                        <div>
+                            <h5 class="mb-0">Дмитрий Петров</h5>
+                            <div class="text-warning">
+                                <span>★★★★☆</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом
+                        всё отлично.</p>
+                    <small class="text-muted d-block mt-2">10 марта 2025</small>
+                </div>
+            </div>
+
+            <div class="col d-flex">
+                <div class="rounded shadow p-4 w-100 bg-white">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img alt="avatar" class="rounded-circle" height="60" src="img/avatar2.png" style="object-fit: cover;"
+                             width="60">
+                        <div>
+                            <h5 class="mb-0">Дмитрий Петров</h5>
+                            <div class="text-warning">
+                                <span>★★★★☆</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-secondary">Хорошие товары, приятные цены. Немного задержали доставку, но в целом
+                        всё отлично.</p>
                     <small class="text-muted d-block mt-2">10 марта 2025</small>
                 </div>
             </div>
@@ -172,80 +186,81 @@
 
         <!-- кнопка "Еще отзывы" -->
         <div class="d-flex justify-content-center mt-5">
-            <button type="button" class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-3 px-5 text-white">
+            <button class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-3 px-5 text-white"
+                    type="button">
                 <span>Еще отзывы</span>
             </button>
         </div>
     </section>
 </div>
-     
-    <!-- подвал -->
-    <footer class="px-3">
-        <section class="d-flex justify-content-between catalog ">
-            <div class="d-flex">
-                <img src="img/logo.png" alt="" >
-                <div class="align-self-center">
-                    <img src="img/YPK.png" alt="">  
-                </div>
-            </div>
-            <div class="align-self-center text-center text-white">
-                <p>номер телефон А: 89999999999</p>
-                <p>почта А: gmail@gmail.com</p>
-            </div>
-        </section>
-    </footer>
 
-    <!-- ========= НИЖНЯЯ НАВИГАЦИЯ ДЛЯ МОБИЛЬНЫХ ========= -->
-    <!-- Этот блок будет виден только на телефонах и находится внизу -->
-    <div class="mobile-bottom-nav ">
-        <div class="nav-icon text-center">
-            <a href="index.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Главная</span>
-                </div>
-                
-            </a>
+<!-- подвал -->
+<footer class="px-3">
+    <section class="d-flex justify-content-between catalog ">
+        <div class="d-flex">
+            <img alt="" src="img/logo.png">
+            <div class="align-self-center">
+                <img alt="" src="img/YPK.png">
+            </div>
         </div>
-        <div class="nav-icon text-center">
-            <a href="comments.html" class="text-decoration-none">
-                <img src="img/comment.png" alt="Комментарии">
-                <div>
-                    <span class="text-decoration-none text-white">Отзывы</span>
-                </div>
-                
-            </a>
+        <div class="align-self-center text-center text-white">
+            <p>номер телефон А: 89999999999</p>
+            <p>почта А: gmail@gmail.com</p>
         </div>
-        <div class="nav-icon text-center">
-            <a href="Login.html" class="text-decoration-none">
-                <img src="img/user.png" alt="Профиль">
-                <div>
-                    <span class="text-decoration-none text-white">Профиль</span>
-                </div>
-                
-            </a>
-        </div>
-        <div class="nav-icon text-center">
-            <a href="like.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">Избранное</span>
-                </div>
-                
-            </a>
-        </div>
-               <div class="nav-icon text-center">
-            <a href="" class="text-decoration-none">
-                <img src="img/material-symbols_info-outline-rounded1.png" alt="Избранное">
-                <div>
-                    <span class="text-decoration-none text-white">О нас</span>
-                </div>
-                
-            </a>
-        </div>
+    </section>
+</footer>
+
+<!-- ========= НИЖНЯЯ НАВИГАЦИЯ ДЛЯ МОБИЛЬНЫХ ========= -->
+<!-- Этот блок будет виден только на телефонах и находится внизу -->
+<div class="mobile-bottom-nav ">
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="index.html">
+            <img alt="Избранное" src="img/heart.png">
+            <div>
+                <span class="text-decoration-none text-white">Главная</span>
+            </div>
+
+        </a>
     </div>
-    <!-- ================================================== -->
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="comments.html">
+            <img alt="Комментарии" src="img/comment.png">
+            <div>
+                <span class="text-decoration-none text-white">Отзывы</span>
+            </div>
 
-    <script src="bootstrap/bootstrap.bundle.js"></script>
+        </a>
+    </div>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="Login.html">
+            <img alt="Профиль" src="img/user.png">
+            <div>
+                <span class="text-decoration-none text-white">Профиль</span>
+            </div>
+
+        </a>
+    </div>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="like.html">
+            <img alt="Избранное" src="img/heart.png">
+            <div>
+                <span class="text-decoration-none text-white">Избранное</span>
+            </div>
+
+        </a>
+    </div>
+    <div class="nav-icon text-center">
+        <a class="text-decoration-none" href="">
+            <img alt="Избранное" src="img/material-symbols_info-outline-rounded1.png">
+            <div>
+                <span class="text-decoration-none text-white">О нас</span>
+            </div>
+
+        </a>
+    </div>
+</div>
+<!-- ================================================== -->
+
+<script src="bootstrap/bootstrap.bundle.js"></script>
 </body>
 </html>

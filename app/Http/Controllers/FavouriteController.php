@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Favourite;
 use App\Http\Requests\StoreFavouriteRequest;
 use App\Http\Requests\UpdateFavouriteRequest;
+use App\Models\Favourite;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -17,14 +17,6 @@ class FavouriteController extends Controller
     {
         $favourites = $request->user()->favourite()->with('product')->paginate(6);
         return view('user.favorite', compact('favourites'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -47,6 +39,13 @@ class FavouriteController extends Controller
             ->with("message", "Вы уже добавляли это в избранное");
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
 
     /**
      * Display the specified resource.

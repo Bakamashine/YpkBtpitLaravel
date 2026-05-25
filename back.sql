@@ -2,7 +2,8 @@
 -- PostgreSQL database dump
 --
 
-\restrict YBoNBXfOFh5lqwqtH78RHKl6BDRecMcAhfuMux4b6tnrSdfefwEJ8L31oXLafdd
+\
+restrict YBoNBXfOFh5lqwqtH78RHKl6BDRecMcAhfuMux4b6tnrSdfefwEJ8L31oXLafdd
 
 -- Dumped from database version 17.6 (Debian 17.6-1.pgdg13+1)
 -- Dumped by pg_dump version 18.1
@@ -10,16 +11,25 @@
 -- Started on 2026-05-18 19:54:51
 
 SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
+SET
+lock_timeout = 0;
+SET
+idle_in_transaction_session_timeout = 0;
+SET
+transaction_timeout = 0;
+SET
+client_encoding = 'UTF8';
+SET
+standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
+SET
+check_function_bodies = false;
+SET
+xmloption = content;
+SET
+client_min_messages = warning;
+SET
+row_security = off;
 
 --
 -- TOC entry 6 (class 2615 OID 44942)
@@ -29,22 +39,26 @@ SET row_security = off;
 CREATE SCHEMA xgb_ypkdb;
 
 
-ALTER SCHEMA xgb_ypkdb OWNER TO xgb_ypkdb;
+ALTER
+SCHEMA xgb_ypkdb OWNER TO xgb_ypkdb;
 
-SET default_tablespace = '';
+SET
+default_tablespace = '';
 
-SET default_table_access_method = heap;
+SET
+default_table_access_method = heap;
 
 --
 -- TOC entry 224 (class 1259 OID 143500)
 -- Name: Feedbacks; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."Feedbacks" (
-    "Id" uuid NOT NULL,
-    "UserId" uuid NOT NULL,
-    "Comment" character varying(1500) NOT NULL,
-    "Raiting" integer DEFAULT 1 NOT NULL,
+CREATE TABLE xgb_ypkdb."Feedbacks"
+(
+    "Id"        uuid                    NOT NULL,
+    "UserId"    uuid                    NOT NULL,
+    "Comment"   character varying(1500) NOT NULL,
+    "Raiting"   integer DEFAULT 1       NOT NULL,
     "ImagePath" text
 );
 
@@ -56,15 +70,16 @@ ALTER TABLE xgb_ypkdb."Feedbacks" OWNER TO xgb_ypkdb;
 -- Name: Orders; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."Orders" (
-    "Id" uuid NOT NULL,
-    "CustomerId" uuid NOT NULL,
-    "ExecutorId" uuid,
-    "ProductId" uuid NOT NULL,
-    "StatusOrderId" uuid NOT NULL,
-    "Date" timestamp with time zone NOT NULL,
+CREATE TABLE xgb_ypkdb."Orders"
+(
+    "Id"               uuid                     NOT NULL,
+    "CustomerId"       uuid                     NOT NULL,
+    "ExecutorId"       uuid,
+    "ProductId"        uuid                     NOT NULL,
+    "StatusOrderId"    uuid                     NOT NULL,
+    "Date"             timestamp with time zone NOT NULL,
     "CustomersComment" character varying(1500),
-    "UserComment" character varying(1500)
+    "UserComment"      character varying(1500)
 );
 
 
@@ -75,17 +90,18 @@ ALTER TABLE xgb_ypkdb."Orders" OWNER TO xgb_ypkdb;
 -- Name: Products; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."Products" (
-    "Id" uuid NOT NULL,
-    "ProductName" text NOT NULL,
-    "YpkId" uuid NOT NULL,
-    "UserId" uuid NOT NULL,
-    "StatusProductId" uuid NOT NULL,
-    "ProductCost" numeric(9,2) NOT NULL,
-    "ProductInfo" text NOT NULL,
-    "IsProduct" boolean NOT NULL,
-    "PhotoPath" text,
-    "Address" text NOT NULL
+CREATE TABLE xgb_ypkdb."Products"
+(
+    "Id"              uuid          NOT NULL,
+    "ProductName"     text          NOT NULL,
+    "YpkId"           uuid          NOT NULL,
+    "UserId"          uuid          NOT NULL,
+    "StatusProductId" uuid          NOT NULL,
+    "ProductCost"     numeric(9, 2) NOT NULL,
+    "ProductInfo"     text          NOT NULL,
+    "IsProduct"       boolean       NOT NULL,
+    "PhotoPath"       text,
+    "Address"         text          NOT NULL
 );
 
 
@@ -96,8 +112,9 @@ ALTER TABLE xgb_ypkdb."Products" OWNER TO xgb_ypkdb;
 -- Name: Roles; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."Roles" (
-    "Id" uuid NOT NULL,
+CREATE TABLE xgb_ypkdb."Roles"
+(
+    "Id"       uuid                  NOT NULL,
     "RoleName" character varying(50) NOT NULL
 );
 
@@ -109,9 +126,10 @@ ALTER TABLE xgb_ypkdb."Roles" OWNER TO xgb_ypkdb;
 -- Name: SelectedProducts; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."SelectedProducts" (
-    "Id" uuid NOT NULL,
-    "UserId" uuid NOT NULL,
+CREATE TABLE xgb_ypkdb."SelectedProducts"
+(
+    "Id"        uuid NOT NULL,
+    "UserId"    uuid NOT NULL,
     "ProductId" uuid NOT NULL
 );
 
@@ -123,8 +141,9 @@ ALTER TABLE xgb_ypkdb."SelectedProducts" OWNER TO xgb_ypkdb;
 -- Name: StatusOrders; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."StatusOrders" (
-    "Id" uuid NOT NULL,
+CREATE TABLE xgb_ypkdb."StatusOrders"
+(
+    "Id"         uuid NOT NULL,
     "StatusName" text NOT NULL
 );
 
@@ -136,8 +155,9 @@ ALTER TABLE xgb_ypkdb."StatusOrders" OWNER TO xgb_ypkdb;
 -- Name: StatusProducts; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."StatusProducts" (
-    "Id" uuid NOT NULL,
+CREATE TABLE xgb_ypkdb."StatusProducts"
+(
+    "Id"         uuid NOT NULL,
     "StatusName" text NOT NULL
 );
 
@@ -149,10 +169,11 @@ ALTER TABLE xgb_ypkdb."StatusProducts" OWNER TO xgb_ypkdb;
 -- Name: UserToken; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."UserToken" (
-    "Id" uuid NOT NULL,
-    "Token" text NOT NULL,
-    "UserId" uuid NOT NULL,
+CREATE TABLE xgb_ypkdb."UserToken"
+(
+    "Id"           uuid                     NOT NULL,
+    "Token"        text                     NOT NULL,
+    "UserId"       uuid                     NOT NULL,
     "ExpiresOnUtc" timestamp with time zone NOT NULL
 );
 
@@ -164,16 +185,17 @@ ALTER TABLE xgb_ypkdb."UserToken" OWNER TO xgb_ypkdb;
 -- Name: Users; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."Users" (
-    "Id" uuid NOT NULL,
-    "Fullname" character varying(150) NOT NULL,
+CREATE TABLE xgb_ypkdb."Users"
+(
+    "Id"           uuid                   NOT NULL,
+    "Fullname"     character varying(150) NOT NULL,
     "HashPassword" character varying(250) NOT NULL,
-    "PhoneNumber" character varying(12) NOT NULL,
-    "RoleId" uuid NOT NULL,
-    "YpkId" uuid,
-    "UserInfo" text,
-    "IsActive" boolean NOT NULL,
-    "AvatarPath" text
+    "PhoneNumber"  character varying(12)  NOT NULL,
+    "RoleId"       uuid                   NOT NULL,
+    "YpkId"        uuid,
+    "UserInfo"     text,
+    "IsActive"     boolean                NOT NULL,
+    "AvatarPath"   text
 );
 
 
@@ -184,11 +206,12 @@ ALTER TABLE xgb_ypkdb."Users" OWNER TO xgb_ypkdb;
 -- Name: Ypks; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."Ypks" (
-    "Id" uuid NOT NULL,
-    "YpkName" text NOT NULL,
+CREATE TABLE xgb_ypkdb."Ypks"
+(
+    "Id"          uuid    NOT NULL,
+    "YpkName"     text    NOT NULL,
     "Description" text,
-    "IsActive" boolean NOT NULL
+    "IsActive"    boolean NOT NULL
 );
 
 
@@ -199,9 +222,10 @@ ALTER TABLE xgb_ypkdb."Ypks" OWNER TO xgb_ypkdb;
 -- Name: __EFMigrationsHistory; Type: TABLE; Schema: xgb_ypkdb; Owner: xgb_ypkdb
 --
 
-CREATE TABLE xgb_ypkdb."__EFMigrationsHistory" (
-    "MigrationId" character varying(150) NOT NULL,
-    "ProductVersion" character varying(32) NOT NULL
+CREATE TABLE xgb_ypkdb."__EFMigrationsHistory"
+(
+    "MigrationId"    character varying(150) NOT NULL,
+    "ProductVersion" character varying(32)  NOT NULL
 );
 
 
@@ -214,7 +238,8 @@ ALTER TABLE xgb_ypkdb."__EFMigrationsHistory" OWNER TO xgb_ypkdb;
 --
 
 COPY xgb_ypkdb."Feedbacks" ("Id", "UserId", "Comment", "Raiting", "ImagePath") FROM stdin;
-\.
+\
+.
 
 
 --
@@ -224,9 +249,16 @@ COPY xgb_ypkdb."Feedbacks" ("Id", "UserId", "Comment", "Raiting", "ImagePath") F
 --
 
 COPY xgb_ypkdb."Orders" ("Id", "CustomerId", "ExecutorId", "ProductId", "StatusOrderId", "Date", "CustomersComment", "UserComment") FROM stdin;
-ccdde971-c25f-4b72-8fa5-4c0406398345	30a8513a-5805-4a38-a253-8ca75630dc9f	\N	6a553f7f-a815-4889-bff3-8403aac16d8c	a0d05954-34f8-4c84-b39e-526088b249f8	2026-05-12 07:43:19.481719+00	comment	comment
-5a40fca9-b335-49b6-8320-9509c2cbfda9	30a8513a-5805-4a38-a253-8ca75630dc9f	\N	6a553f7f-a815-4889-bff3-8403aac16d8c	ee109510-1f79-4ac0-a729-38683dc0a5fd	2026-05-17 08:09:29.499276+00	\N	\N
-0c3fd1ea-022d-42d9-bf3b-1550d86db2ed	30a8513a-5805-4a38-a253-8ca75630dc9f	\N	6a553f7f-a815-4889-bff3-8403aac16d8c	ee109510-1f79-4ac0-a729-38683dc0a5fd	2026-05-17 08:09:46.024484+00	\N	sfdgdfg
+ccdde971
+-c25f-4b72-8fa5-4c0406398345	30a8513a-5805-4a38-a253-8ca75630dc9f
+\N	6a553f7f-a815-4889-bff3-8403aac16d8c	a0d05954-34f8-4c84-b39e-526088b249f8	2026-05-12 07:43:19.481719+00	comment	comment
+5a40fca9-b335-49b6-8320-9509c2cbfda9	30a8513a-5805-4a38-a253-8ca75630dc9f
+\N	6a553f7f-a815-4889-bff3-8403aac16d8c	ee109510-1f79-4ac0-a729-38683dc0a5fd	2026-05-17 08:09:29.499276+00
+\N
+\N
+0c3fd1ea-022d-42d9-bf3b-1550d86db2ed	30a8513a-5805-4a38-a253-8ca75630dc9f
+\N	6a553f7f-a815-4889-bff3-8403aac16d8c	ee109510-1f79-4ac0-a729-38683dc0a5fd	2026-05-17 08:09:46.024484+00
+\N	sfdgdfg
 \.
 
 
@@ -237,7 +269,8 @@ ccdde971-c25f-4b72-8fa5-4c0406398345	30a8513a-5805-4a38-a253-8ca75630dc9f	\N	6a5
 --
 
 COPY xgb_ypkdb."Products" ("Id", "ProductName", "YpkId", "UserId", "StatusProductId", "ProductCost", "ProductInfo", "IsProduct", "PhotoPath", "Address") FROM stdin;
-6a553f7f-a815-4889-bff3-8403aac16d8c	продукт	f22d156e-977c-4d23-845e-28257e015812	5a029875-1bac-43bf-9b1d-64ccc93e0a07	edf83bba-899e-42f1-84e6-9b805c2fa2d3	100.00	описание продукта	t	/uploads/products/2026-05-13/d30509ee928343d89ddd35fffa6effbe.jpg	адрес
+6a553f7f
+-a815-4889-bff3-8403aac16d8c	продукт	f22d156e-977c-4d23-845e-28257e015812	5a029875-1bac-43bf-9b1d-64ccc93e0a07	edf83bba-899e-42f1-84e6-9b805c2fa2d3	100.00	описание продукта	t	/uploads/products/2026-05-13/d30509ee928343d89ddd35fffa6effbe.jpg	адрес
 \.
 
 
@@ -248,7 +281,8 @@ COPY xgb_ypkdb."Products" ("Id", "ProductName", "YpkId", "UserId", "StatusProduc
 --
 
 COPY xgb_ypkdb."Roles" ("Id", "RoleName") FROM stdin;
-0245817d-8142-4487-9f40-300dff466b65	Manager
+0245817d
+-8142-4487-9f40-300dff466b65	Manager
 77b0b255-5b16-458b-856f-1e30c9b0b467	Admin
 ca1be177-e415-4d91-ad81-c9c17da35cf9	DefaultUser
 \.
@@ -261,7 +295,8 @@ ca1be177-e415-4d91-ad81-c9c17da35cf9	DefaultUser
 --
 
 COPY xgb_ypkdb."SelectedProducts" ("Id", "UserId", "ProductId") FROM stdin;
-\.
+\
+.
 
 
 --
@@ -271,7 +306,8 @@ COPY xgb_ypkdb."SelectedProducts" ("Id", "UserId", "ProductId") FROM stdin;
 --
 
 COPY xgb_ypkdb."StatusOrders" ("Id", "StatusName") FROM stdin;
-01b550d7-fdab-4c4f-91e5-b523400c9c05	ReadyForIssue
+01b550d7
+-fdab-4c4f-91e5-b523400c9c05	ReadyForIssue
 0b744569-509f-441e-95b9-36b4e1b86c0c	Cancelled
 39b84c5c-5d99-4c68-889f-4d4685eb299b	Adopted
 a0d05954-34f8-4c84-b39e-526088b249f8	InProgress
@@ -286,7 +322,8 @@ ee109510-1f79-4ac0-a729-38683dc0a5fd	PlaceAn
 --
 
 COPY xgb_ypkdb."StatusProducts" ("Id", "StatusName") FROM stdin;
-2ff72f0c-5ac2-42b7-9f09-860ee6761ef6	Editing
+2ff72f0c
+-5ac2-42b7-9f09-860ee6761ef6	Editing
 36cf740a-83f2-4fe2-9fa1-5306dedcfa53	Deleted
 edf83bba-899e-42f1-84e6-9b805c2fa2d3	Publish
 \.
@@ -299,7 +336,8 @@ edf83bba-899e-42f1-84e6-9b805c2fa2d3	Publish
 --
 
 COPY xgb_ypkdb."UserToken" ("Id", "Token", "UserId", "ExpiresOnUtc") FROM stdin;
-97859a66-555a-4bf4-9a13-232933a2a206	JPFKJGV2siZnKi4naSJYvEAXIHhjPmUxwK5ao4I78o8=	5a029875-1bac-43bf-9b1d-64ccc93e0a07	2026-05-15 11:52:15.400614+00
+97859a66
+-555a-4bf4-9a13-232933a2a206	JPFKJGV2siZnKi4naSJYvEAXIHhjPmUxwK5ao4I78o8=	5a029875-1bac-43bf-9b1d-64ccc93e0a07	2026-05-15 11:52:15.400614+00
 998e48bc-6306-440d-9100-c17cae79e579	gjfWOZA3TKYMyiae3cKDxgndSz9gfuJKyCAJeZ54kUI=	5a029875-1bac-43bf-9b1d-64ccc93e0a07	2026-05-19 07:37:43.693034+00
 e016e029-bb3a-4b7d-bb53-4a6299147cf6	A3/SKYIImQbmXGcQ4ft6KRbxXXedUn381OIspyKUT50=	62fa0a31-f52e-40e8-8ce1-1cb9609d162b	2026-05-19 07:41:28.109271+00
 071357c0-40eb-456c-bf51-cccbe36d5fd9	i2kGP2RYVLFIZFx3vynKgVJdLQxR95tw5cxIefNyN5k=	30a8513a-5805-4a38-a253-8ca75630dc9f	2026-05-19 07:41:46.995311+00
@@ -346,11 +384,26 @@ ea8d425d-b27f-40b3-b0ea-9f58c2d8ac2a	G1bZkVvBWp78WX7fDU8RQuQCZwd20MbjHBeia2z6Jss
 --
 
 COPY xgb_ypkdb."Users" ("Id", "Fullname", "HashPassword", "PhoneNumber", "RoleId", "YpkId", "UserInfo", "IsActive", "AvatarPath") FROM stdin;
-5a029875-1bac-43bf-9b1d-64ccc93e0a07	artem	$2a$08$wObwuSwbVj1gJ62Ee9o1SOrKzZBiIm2TzL99Of4jA9swdC5iGB.0K	89304066793	77b0b255-5b16-458b-856f-1e30c9b0b467	\N	\N	t	\N
-30a8513a-5805-4a38-a253-8ca75630dc9f	DefaultUser	$2a$08$ihzYI1vKfGTnnkape.O5LuFyRRmFQa/pYQq1DgJSiTaJ9uOfbR.be	89000000001	ca1be177-e415-4d91-ad81-c9c17da35cf9	\N	\N	t	\N
-62fa0a31-f52e-40e8-8ce1-1cb9609d162b	Manager	$2a$08$EHLqPzUZXHkPHM4wOCGiBOHeYLYldsGJS.g73q1ZG0Wa5AgicSiqO	89000000000	0245817d-8142-4487-9f40-300dff466b65	f22d156e-977c-4d23-845e-28257e015812	\N	t	\N
-f9ab573f-5249-4b35-865e-af8d3ed5091b	ivan	$2a$08$kAtkBoYWmxEDT3Tsj9Ezv.OAOVnm0b9ezSDrx40pBEjbJKU5En3Ji	89805307554	ca1be177-e415-4d91-ad81-c9c17da35cf9	\N	\N	t	\N
-da70516f-a0ec-4654-a73a-38ee38616ef5	string	$2a$08$87p1X8NiNsbUnhurM0XwCuuamVP/QyIK/9E7WPTxnpzjGpmnK589a	string	ca1be177-e415-4d91-ad81-c9c17da35cf9	\N	\N	t	\N
+5a029875
+-1bac-43bf-9b1d-64ccc93e0a07	artem	$2a$08$wObwuSwbVj1gJ62Ee9o1SOrKzZBiIm2TzL99Of4jA9swdC5iGB.0K	89304066793	77b0b255-5b16-458b-856f-1e30c9b0b467
+\N
+\N	t
+\N
+30a8513a-5805-4a38-a253-8ca75630dc9f	DefaultUser	$2a$08$ihzYI1vKfGTnnkape.O5LuFyRRmFQa/pYQq1DgJSiTaJ9uOfbR.be	89000000001	ca1be177-e415-4d91-ad81-c9c17da35cf9
+\N
+\N	t
+\N
+62fa0a31-f52e-40e8-8ce1-1cb9609d162b	Manager	$2a$08$EHLqPzUZXHkPHM4wOCGiBOHeYLYldsGJS.g73q1ZG0Wa5AgicSiqO	89000000000	0245817d-8142-4487-9f40-300dff466b65	f22d156e-977c-4d23-845e-28257e015812
+\N	t
+\N
+f9ab573f-5249-4b35-865e-af8d3ed5091b	ivan	$2a$08$kAtkBoYWmxEDT3Tsj9Ezv.OAOVnm0b9ezSDrx40pBEjbJKU5En3Ji	89805307554	ca1be177-e415-4d91-ad81-c9c17da35cf9
+\N
+\N	t
+\N
+da70516f-a0ec-4654-a73a-38ee38616ef5	string	$2a$08$87p1X8NiNsbUnhurM0XwCuuamVP/QyIK/9E7WPTxnpzjGpmnK589a	string	ca1be177-e415-4d91-ad81-c9c17da35cf9
+\N
+\N	t
+\N
 \.
 
 
@@ -361,7 +414,8 @@ da70516f-a0ec-4654-a73a-38ee38616ef5	string	$2a$08$87p1X8NiNsbUnhurM0XwCuuamVP/Q
 --
 
 COPY xgb_ypkdb."Ypks" ("Id", "YpkName", "Description", "IsActive") FROM stdin;
-f22d156e-977c-4d23-845e-28257e015812	УПК 1	описание УПК 1	t
+f22d156e
+-977c-4d23-845e-28257e015812	УПК 1	описание УПК 1	t
 \.
 
 
@@ -372,7 +426,8 @@ f22d156e-977c-4d23-845e-28257e015812	УПК 1	описание УПК 1	t
 --
 
 COPY xgb_ypkdb."__EFMigrationsHistory" ("MigrationId", "ProductVersion") FROM stdin;
-20260508115043_firstMigration	6.0.36
+20260508115043_firstMigration
+6.0.36
 \.
 
 
@@ -649,7 +704,9 @@ CREATE UNIQUE INDEX "IX_Ypks_Id" ON xgb_ypkdb."Ypks" USING btree ("Id");
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Feedbacks"
-    ADD CONSTRAINT "FK_Feedbacks_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Feedbacks_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -658,7 +715,9 @@ ALTER TABLE ONLY xgb_ypkdb."Feedbacks"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Orders"
-    ADD CONSTRAINT "FK_Orders_Products_ProductId" FOREIGN KEY ("ProductId") REFERENCES xgb_ypkdb."Products"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Orders_Products_ProductId" FOREIGN KEY ("ProductId") REFERENCES xgb_ypkdb."Products"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -667,7 +726,9 @@ ALTER TABLE ONLY xgb_ypkdb."Orders"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Orders"
-    ADD CONSTRAINT "FK_Orders_StatusOrders_StatusOrderId" FOREIGN KEY ("StatusOrderId") REFERENCES xgb_ypkdb."StatusOrders"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Orders_StatusOrders_StatusOrderId" FOREIGN KEY ("StatusOrderId") REFERENCES xgb_ypkdb."StatusOrders"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -676,7 +737,9 @@ ALTER TABLE ONLY xgb_ypkdb."Orders"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Orders"
-    ADD CONSTRAINT "FK_Orders_Users_CustomerId" FOREIGN KEY ("CustomerId") REFERENCES xgb_ypkdb."Users"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Orders_Users_CustomerId" FOREIGN KEY ("CustomerId") REFERENCES xgb_ypkdb."Users"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -685,7 +748,9 @@ ALTER TABLE ONLY xgb_ypkdb."Orders"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Products"
-    ADD CONSTRAINT "FK_Products_StatusProducts_StatusProductId" FOREIGN KEY ("StatusProductId") REFERENCES xgb_ypkdb."StatusProducts"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Products_StatusProducts_StatusProductId" FOREIGN KEY ("StatusProductId") REFERENCES xgb_ypkdb."StatusProducts"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -694,7 +759,9 @@ ALTER TABLE ONLY xgb_ypkdb."Products"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Products"
-    ADD CONSTRAINT "FK_Products_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Products_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -703,7 +770,9 @@ ALTER TABLE ONLY xgb_ypkdb."Products"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Products"
-    ADD CONSTRAINT "FK_Products_Ypks_YpkId" FOREIGN KEY ("YpkId") REFERENCES xgb_ypkdb."Ypks"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Products_Ypks_YpkId" FOREIGN KEY ("YpkId") REFERENCES xgb_ypkdb."Ypks"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -712,7 +781,9 @@ ALTER TABLE ONLY xgb_ypkdb."Products"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."SelectedProducts"
-    ADD CONSTRAINT "FK_SelectedProducts_Products_ProductId" FOREIGN KEY ("ProductId") REFERENCES xgb_ypkdb."Products"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_SelectedProducts_Products_ProductId" FOREIGN KEY ("ProductId") REFERENCES xgb_ypkdb."Products"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -721,7 +792,9 @@ ALTER TABLE ONLY xgb_ypkdb."SelectedProducts"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."SelectedProducts"
-    ADD CONSTRAINT "FK_SelectedProducts_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_SelectedProducts_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -730,7 +803,9 @@ ALTER TABLE ONLY xgb_ypkdb."SelectedProducts"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."UserToken"
-    ADD CONSTRAINT "FK_UserToken_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_UserToken_Users_UserId" FOREIGN KEY ("UserId") REFERENCES xgb_ypkdb."Users"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -739,7 +814,9 @@ ALTER TABLE ONLY xgb_ypkdb."UserToken"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Users"
-    ADD CONSTRAINT "FK_Users_Roles_RoleId" FOREIGN KEY ("RoleId") REFERENCES xgb_ypkdb."Roles"("Id") ON DELETE CASCADE;
+    ADD CONSTRAINT "FK_Users_Roles_RoleId" FOREIGN KEY ("RoleId") REFERENCES xgb_ypkdb."Roles"("Id") ON
+DELETE
+CASCADE;
 
 
 --
@@ -748,7 +825,9 @@ ALTER TABLE ONLY xgb_ypkdb."Users"
 --
 
 ALTER TABLE ONLY xgb_ypkdb."Users"
-    ADD CONSTRAINT "FK_Users_Ypks_YpkId" FOREIGN KEY ("YpkId") REFERENCES xgb_ypkdb."Ypks"("Id") ON DELETE SET NULL;
+    ADD CONSTRAINT "FK_Users_Ypks_YpkId" FOREIGN KEY ("YpkId") REFERENCES xgb_ypkdb."Ypks"("Id") ON
+DELETE
+SET NULL;
 
 
 -- Completed on 2026-05-18 19:54:52
@@ -757,5 +836,6 @@ ALTER TABLE ONLY xgb_ypkdb."Users"
 -- PostgreSQL database dump complete
 --
 
-\unrestrict YBoNBXfOFh5lqwqtH78RHKl6BDRecMcAhfuMux4b6tnrSdfefwEJ8L31oXLafdd
+\unrestrict
+YBoNBXfOFh5lqwqtH78RHKl6BDRecMcAhfuMux4b6tnrSdfefwEJ8L31oXLafdd
 
