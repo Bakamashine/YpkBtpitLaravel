@@ -5,10 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="mx-4 ">
-        <a href="{{ route('home') }}">
-            <img src="/img/arrow-left.png" alt="Назад" class="my-2 myImgArrow">
-        </a>
+    <section class="mx-4">
         <div class="text-center">
             <h1>Добавить новое</h1>
         </div>

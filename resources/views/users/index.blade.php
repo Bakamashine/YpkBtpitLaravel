@@ -8,8 +8,14 @@
     <div class="catalog content">
         <section class="catalog">
             <div class="text-center">
-                <h1>Редактировать роль пользователей</h1>
-                <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" style="height: 60px;">
+                <h1>Управление пользователями</h1>
+                <form method="get" class="d-flex gap-2 mt-3">
+                    <input name="search" value="{{ request('search') }}" class="form-control" type="search" placeholder="Поиск по имени, телефону, email или информации" aria-label="Поиск" style="height: 60px;">
+                    <button type="submit" class="btn btn-dark px-4" style="height: 60px;">Найти</button>
+                    @if(request('search'))
+                        <a href="{{ route('user_management.index') }}" class="btn btn-outline-secondary" style="height: 60px; display: flex; align-items: center;">Сбросить</a>
+                    @endif
+                </form>
             </div>
 
             <div class="my-5 w-100">

@@ -6,9 +6,6 @@
 
 @section('content')
     <section class="mx-4">
-        <a href="{{ url()->previous() }}">
-            <img src="/img/arrow-left.png" alt="Назад" class="my-2 myImgArrow">
-        </a>
         <div class="myInfoCard catalog addProduct d-flex align-items-center justify-content-center">
             <div class="mb-3">
                 <div class="newTovar">

@@ -15,6 +15,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\StatusProduct;
 use App\Models\Ypk;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,13 +56,21 @@ class ProductController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit_page()
+    public function edit_page(Request $request)
     {
-        $orders = Order::orderByDesc('created_at')->paginate(6);
-        $products = Product::orderByDesc('created_at')->paginate(6);
+        $search = $request->input('search');
 
-        return view('products.edit_page', compact('orders', 'products'));
+        $products = Product::when($search, function (Builder $query, $search) {
+                $query->whereLike('product_name', "%{$search}%")
+                    ->orWhereLike('address', "%{$search}%");
+            })
+            ->orderByDesc('created_at')
+            ->paginate(6)
+            ->withQueryString();
+
+        return view('products.edit_page', compact('products'));
     }
+
 
     /**
      * Сохранить новый товар/услугу в базу данных.

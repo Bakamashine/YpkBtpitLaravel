@@ -14,6 +14,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Ypk;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -30,11 +31,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+
         $users = User::with('role')
-            ->orderByDesc("created_at")
-            ->paginate(10);
+            ->when($search, function ($query, $search) {
+                $query->whereLike('name', "%{$search}%")
+                    ->orWhereLike('phone_number', "%{$search}%")
+                    ->orWhereLike('email', "%{$search}%")
+                    ->orWhereLike('user_info', "%{$search}%");
+            })
+            ->orderByDesc('created_at')
+            ->paginate(10)
+            ->withQueryString();
+
         $roles = Role::all();
         $ypks = Ypk::all();
 
