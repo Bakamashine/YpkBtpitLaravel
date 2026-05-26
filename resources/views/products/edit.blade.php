@@ -116,6 +116,8 @@
             </div>
         </form>
     </section>
-
+    <script>
+        let id, preview
+    </script>
     <script src="{{ asset('js/photoInput.js') }}"></script>
 @endsection

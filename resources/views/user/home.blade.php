@@ -10,7 +10,7 @@
         <div class="m-3">
             <div class="d-flex align-items-center justify-content-between">
                 <img id="avatar_image"
-                     {{--                    src="{{$current_user->avatar ? asset('storage') . "/home.blade.php" : asset('/img/default_image.jpg')}}" --}} src="{{ get_image_or_default($current_user->avatar) }}"
+                     src="{{ get_image_or_default($current_user->avatar) }}"
                      class="avatar" alt="...">
                 <div class="mx-3" style="flex: 1;">
                     <h5><b>Фио: </b>{{ $current_user->name }}</h5>
@@ -29,6 +29,12 @@
                     <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2 gap-md-3">
 
                         <!-- общие данные -->
+                        <a href="{{ route('user.detail') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                            <button type="button"
+                                    class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                                <span>Подробнее</span>
+                            </button>
+                        </a>
                         <a href="{{ route('user_edit') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
                                     class="sign-out d-flex edit justify-content-center align-items-center gap-2 p-2 text-white w-100">
@@ -66,7 +72,7 @@
                         </a>
 
                         <!-- Управление заказами -->
-                        <a href="redactStatusOrder.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                        <a href="{{route('order_management.index')}}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                                 <span>Управление заказами</span>
@@ -89,7 +95,7 @@
                         <button
                             class="sign-out d-flex btn btn-outline-danger justify-content-center align-items-center gap-2 w-100 w-md-auto">
                             <span>Выйти из аккаунта</span>
-                            <img src="img/sign-out.png" alt="" class="profileButton"
+                            <img src="{{asset('img/sign-out.png')}}" alt="" class="profileButton"
                                  style="width: 16px; height: 16px;">
                         </button>
                     </form>
@@ -102,56 +108,33 @@
             <div class="myBlue rounded-3">
                 <h1 class="p-3 text-white nameBlock">Заказы</h1>
             </div>
-            <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
-                <!-- основная карточка -->
-                <div class="col d-flex">
-                    <a href="infoForUser.html" class="text-decoration-none text-black">
-                        <div class="rounded shadow p-3 w-100">
-                            <img src="img/Group 19.png" class="card-img-top" alt="...">
-                            <div class="card-body catalog">
-                                <h3 class="card-title">Крутое название</h3>
-                                <h5>Исполнитель</h5>
-                                <h4>Цена</h4>
-                                <p>Дата</p>
-                                <p>Статус</p>
-                                <p>Телефон</p>
-                            </div>
+
+            @empty($orders)
+                <p class="text-center">Заказов нет</p>
+            @else
+                <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+                    @foreach($orders as $value)
+                        <!-- основная карточка -->
+                        <div class="col d-flex">
+                            <a href="{{ route('user.detail', $value->user) }}"
+                               class="text-decoration-none text-black card-button">
+                                <div class="rounded shadow p-3 w-100">
+                                    <img src="{{ get_image_or_default($value->product->photo_path) }}"
+                                         class="card-img-top" alt="...">
+                                    <div class="card-body catalog">
+                                        <h3 class="card-title">{{ $value->product->product_name }}</h3>
+                                        <h5>{{ $value->product->user->name ?? 'Исполнитель' }}</h5>
+                                        <h4>{{ $value->product->product_cost }} руб.</h4>
+                                        <p>{{ $value->date?->format('d.m.Y') }}</p>
+                                        <p>{{ $value->statusOrder->status_name ?? 'Статус' }}</p>
+                                        <p>{{ $value->product->user->phone_number ?? 'Телефон' }}</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    @endforeach
                 </div>
-                <!-- заполнители-карточки -->
-                <div class="col d-flex">
-                    <div class="rounded shadow p-3 w-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как
-                                естественное
-                                введение в дополнительный контент.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex">
-                    <div class="rounded shadow p-3 w-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex">
-                    <div class="rounded shadow p-3 w-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как
-                                естественное
-                                введение в дополнительный контент.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endempty
         </section>
 
         <!-- ======================= товары и услуги редактора/исполнителя ======================= -->
@@ -170,7 +153,7 @@
                         <x-product-card :product="$value"/>
                     @endforeach
                 </div>
-                    @endempty
+            @endempty
         </section>
 
 

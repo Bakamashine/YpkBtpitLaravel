@@ -17,6 +17,7 @@ Route::middleware("auth")
                 Route::get('/home', 'index')->name('home');
                 Route::prefix('user')
                     ->group(function () {
+                        Route::get("/detail", 'show')->name('user.detail');
                         Route::get("/edit", 'edit')->name('user_edit');
                         Route::put("/update", 'update')->name('user_edit.update');
                     });
@@ -31,7 +32,17 @@ Route::middleware("auth")
                 Route::get('', 'index')->name('.index');
                 Route::get("create", "create")->name('.create');
                 Route::post("", "store")->name('.store');
-                Route::delete("{feedback}", 'destroy')->name('.destroy')->middleware(\App\Http\Middleware\AdminMiddleware::class);
+                Route::delete("{feedback}", 'destroy')->name('.destroy')
+                    ->middleware(\App\Http\Middleware\AdminMiddleware::class);
+            });
+
+        // Заказы
+        Route::controller(\App\Http\Controllers\OrderController::class)
+            ->prefix('order')
+            ->name('order')
+            ->group(function () {
+                Route::get('create/{product}', 'create')->name('.create');
+                Route::post('', 'store')->name('.store');
             });
 
         // Избранное
@@ -44,6 +55,8 @@ Route::middleware("auth")
                 Route::delete("{product}", 'destroy')->name('.destroy');
             });
 
+
+        // Для администратора
         Route::middleware('admin')
             ->group(function () {
                 Route::controller(YpkController::class)
@@ -54,6 +67,18 @@ Route::middleware("auth")
                         Route::delete('', 'destroy')->name('.destroy');
                     });
 
+
+                // Управление заявками
+                Route::controller(\App\Http\Controllers\OrderController::class)
+                    ->prefix('order_management')
+                    ->name('order_management')
+                    ->group(function () {
+                        Route::get('', 'management')->name('.index');
+                        Route::patch('{order}/close', 'close')->name('.close');
+                        Route::patch("{order}/update-status", 'updateStatus')->name('.update-status');
+                    });
+
+                // Управление продуктами
                 Route::controller(ProductController::class)
                     ->prefix('product')
                     ->name('product')
@@ -67,6 +92,8 @@ Route::middleware("auth")
                         Route::delete('{product}', 'destroy')->name('.destroy');
                     });
 
+
+                // Управление пользователями
                 Route::controller(UserController::class)
                     ->prefix('user_management')
                     ->name('user_management')

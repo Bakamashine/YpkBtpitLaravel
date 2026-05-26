@@ -13,7 +13,7 @@
             <h3 class="card-title">Название: {{ $product->product_name }}</h3>
             <h5>Исполнитель: {{ $product->user->name ?? 'Не указан' }}</h5>
             <h4>Цена: {{ $product->product_cost }} руб.</h4>
-            <p>Описание: {{ $product->product_info }}</p>
+            <p>Описание: {{ Str::limit($product->product_info, 100) }}</p>
             <p>{{$product->is_product ? "Продукт" : "Услуга"}}</p>
             <div class="mt-auto d-flex flex-column gap-2">
 

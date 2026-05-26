@@ -10,7 +10,9 @@ footer {
         rgba(1, 164, 240, 1)
     );
 }
-
+.hidden {
+    display: none;
+}
 /* страница занимает 100% высоты */
 html,
 body {

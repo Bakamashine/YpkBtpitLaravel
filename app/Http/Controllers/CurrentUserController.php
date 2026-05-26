@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\Order;
 use App\Models\Ypk;
 use Illuminate\Http\Request;
 
@@ -26,12 +27,26 @@ class CurrentUserController extends Controller
         $current_user = $request->user();
         $ypk = Ypk::all();
 
-        $favourite_products = $request->user()->products()->paginate(6);
+        $orders = $current_user->executorOrders()->paginate(6);
+        $favourite_products = $current_user->products()->paginate(6);
         return view('user.home', [
             'current_user' => $current_user,
             'ypk' => $ypk,
-            'favourite_products' => $favourite_products
+            'favourite_products' => $favourite_products,
+            'orders' => $orders
         ]);
+    }
+
+    /**
+     * Показать детальную информацию о пользователе.
+     *
+     * @param Request $request
+     * @return \Illuminate\View\View
+     */
+    public function show(Request $request)
+    {
+        $user = $request->user()->load('role', 'ypk');
+        return view('user.show', compact('user'));
     }
 
     /**

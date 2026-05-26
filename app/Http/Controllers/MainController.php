@@ -21,18 +21,12 @@ class MainController extends Controller
      */
     public function index()
     {
-        $products = Product::with('user', 'ypk', 'statusProduct')
+        $products = Product::with('user', 'ypk', 'statusProduct', 'favourite')
             ->orderByDesc('created_at')
             ->paginate(5);
 
-        $favoritedProductIds = [];
-        if (Auth::check()) {
-            $favoritedProductIds = Auth::user()->favourite()->pluck('product_id')->all();
-        }
-
         return view("index", [
             "products" => $products,
-            "favoritedProductIds" => $favoritedProductIds,
         ]);
     }
 }

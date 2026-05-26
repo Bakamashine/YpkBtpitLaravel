@@ -7,6 +7,8 @@
 @section('content')
     <section class="catalog content">
         <div class="container">
+            <x-alert />
+
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="myInfoCard catalog addProduct p-4">
@@ -66,6 +68,11 @@
 
                         <div class="d-flex gap-3 mt-4">
                             @auth
+                                <a href="{{ route('order.create', $product) }}"
+                                   class="btn btn-success d-flex align-items-center gap-2">
+                                    <span>{{ $product->is_product ? 'Купить' : 'Заказать' }}</span>
+                                </a>
+
                                 @php
                                     $isFavorited = Auth::user()
                                         ->favourite()

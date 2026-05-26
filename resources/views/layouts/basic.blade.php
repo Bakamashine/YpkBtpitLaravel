@@ -6,6 +6,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="@yield('meta_description', 'Платформа для заказа товаров и услуг')">
+    <meta name="keywords" content="@yield('meta_keywords', 'товары, услуги, заказ, платформа')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta property="og:title" content="@yield('meta_og_title', 'Платформа для заказа товаров и услуг')">
+    <meta property="og:description" content="@yield('meta_og_description', 'Платформа для заказа товаров и услуг')">
+    <meta property="og:image" content="@yield('meta_og_image', asset('/img/logo.png'))">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="{{ asset('/img/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
@@ -21,17 +31,13 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid flex-nowrap">
             <a class="navbar-brand" href="/">
-                <img src="/img/logo.png" alt="Логотип" class="myImg"/>
+                <img src="{{asset('img/logo.png')}}" alt="Логотип" class="myImg"/>
             </a>
 
             <div class="mySearh flex-grow-1 mx-3">
-                <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск"/>
+                <input class="form-control" type="search" placeholder="Поиск ... Пока не работает" aria-label="Поиск"/>
             </div>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <img src="{{asset('img/Group 2.png')}}" alt="Меню" style="width: 30px;"/>
-            </button>
 
             <div class="d-none d-lg-flex align-items-center">
                 <div class="myIcons">
@@ -81,53 +87,12 @@
                 </div>
             </div>
 
-            <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar"
-                 aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Меню</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav flex-column">
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 py-2" href="{{ route('login') }}">
-                                    <span>Вход</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 py-2" href="{{ route('register') }}">
-                                    <span>Регистрация</span>
-                                </a>
-                            </li>
-                        @endguest
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 py-2" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form-offcanvas').submit();">
-                                    <img src="/img/logout.png" alt="Выход" style="width: 24px;"/>
-                                    <span>Выйти</span>
-                                </a>
-                                <form id="logout-form-offcanvas" action="{{ route('logout') }}" method="POST"
-                                      class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        @endauth
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 py-2" href="college.html">
-                                <img src="/img/material-symbols_info-outline-rounded1.png" alt="Информация"
-                                     style="width: 24px;"/>
-                                <span>Информация</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </nav>
 </section>
 
+
+<div class="info hidden" id="info-for-users"></div>
 <main>
     @if (Breadcrumbs::exists())
         <div class="container mt-3">
@@ -142,7 +107,7 @@
     <div class="mobile-bottom-nav ">
         <div class="nav-icon text-center">
             <a href="{{ route('main') }}" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
+                <img src="{{asset('img/house.png')}}" alt="Главная">
                 <div>
                     <span class="text-decoration-none text-white">Главная</span>
                 </div>
@@ -150,8 +115,8 @@
             </a>
         </div>
         <div class="nav-icon text-center">
-            <a href="comments.html" class="text-decoration-none">
-                <img src="img/comment.png" alt="Комментарии">
+            <a href="{{route('feedback.index')}}" class="text-decoration-none">
+                <img src="{{asset('img/comment.png')}}" alt="Отзывы">
                 <div>
                     <span class="text-decoration-none text-white">Отзывы</span>
                 </div>
@@ -160,7 +125,7 @@
         </div>
         <div class="nav-icon text-center">
             <a href="{{ route('home') }}" class="text-decoration-none">
-                <img src="img/user.png" alt="Профиль">
+                <img src="{{asset('img/user.png')}}" alt="Профиль">
                 <div>
                     <span class="text-decoration-none text-white">Профиль</span>
                 </div>
@@ -168,8 +133,8 @@
             </a>
         </div>
         <div class="nav-icon text-center">
-            <a href="like.html" class="text-decoration-none">
-                <img src="img/heart.png" alt="Избранное">
+            <a href="{{route('favourite.index')}}" class="text-decoration-none">
+                <img src="{{asset('img/heart.png')}}" alt="Избранное">
                 <div>
                     <span class="text-decoration-none text-white">Избранное</span>
                 </div>
@@ -178,7 +143,7 @@
         </div>
         <div class="nav-icon text-center">
             <a href="" class="text-decoration-none">
-                <img src="img/material-symbols_info-outline-rounded1.png" alt="Избранное">
+                <img src="{{asset('img/material-symbols_info-outline-rounded1.png')}}" alt="О нас"/>
                 <div>
                     <span class="text-decoration-none text-white">О нас</span>
                 </div>
@@ -208,6 +173,36 @@
 </footer>
 
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+
+<script>
+    let status = Boolean("{{env('APP_DEBUG')}}")
+    const userStatusKey = "userStatus"
+    let user_status = localStorage.getItem(userStatusKey)
+    console.log("Site status: ", status)
+    if (!user_status && status) {
+        const info = document.getElementById('info-for-users')
+        info.classList.remove('hidden')
+        info.innerHTML += `
+            <p>Сайт находится в разработке. При появлении каких-либо ошибок, просьба сделать скриншот и отправить по следущим адресам:</p>
+            <a href="mailto:ivan.fa.002@gmail.com"></a>
+            <p>Telegram: @Adski328</p>
+            <p>Vk: https://vk.com/persik123321</p>
+             <p>Для возврата сообщения, почистите локальное хранилище в вашем браузере</p>
+
+            <p>Если вы ознакомились и хотите убрать данное сообщение, то нажмите сюда: </p>
+        `
+
+        const new_element = document.createElement("a")
+        new_element.onclick = function () {
+            localStorage.setItem(userStatusKey, String(1))
+            // window.location.reload()
+        }
+        new_element.textContent = "Убрать"
+        new_element.href = window.location
+        info.appendChild(new_element)
+    }
+
+</script>
 </body>
 
 </html>

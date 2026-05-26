@@ -1,2 +1,13 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /home
+Disallow: /user/
+Disallow: /order/
+Disallow: /favourite/
+Disallow: /feedback/
+Disallow: /user_management/
+Disallow: /product/create
+Disallow: /product/*/edit
+Disallow: /about_us
