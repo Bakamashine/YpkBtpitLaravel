@@ -10,8 +10,18 @@ class RoleSeeder extends Seeder
 {
     public function run(): void
     {
-        foreach (RoleName::cases() as $roleName) {
-            Role::create(['role_name' => $roleName->value]);
-        }
+        Role::create([
+            "id" => 1,
+            "role_name" => RoleName::Admin->value,
+        ]);
+        Role::create([
+            "id" => 2,
+            "role_name" => RoleName::Manager->value,
+        ]);
+        Role::create([
+            "id" => 3,
+            "role_name" => RoleName::User->value,
+        ]);
+
     }
 }

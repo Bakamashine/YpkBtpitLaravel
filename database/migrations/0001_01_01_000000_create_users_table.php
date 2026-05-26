@@ -19,7 +19,8 @@ return new class extends Migration {
             $table->timestamps();
         });
         Schema::create('roles', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+//            $table->uuid('id')->primary();
+            $table->id();
             $table->string('role_name', 50);
             $table->timestamps();
         });
@@ -29,14 +30,12 @@ return new class extends Migration {
             $table->string('email')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string("phone_number");
-            $table->foreignUuid("role_id")
-                ->nullable()
-//                ->default(null)
+            $table->foreignId("role_id")
+                ->default(3)
                 ->constrained()
-                ->nullOnDelete();
+                ->cascadeOnDelete();
             $table->foreignUuid("ypk_id")
                 ->nullable()
-//                ->default(null)
                 ->constrained('ypks')
                 ->nullOnDelete();
 
