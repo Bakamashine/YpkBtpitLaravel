@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
             $table->string('comment', 1500);
-            $table->integer('raiting')->default(1);
+            $table->integer('rating')->default(1);
             $table->text('image_path')->nullable();
             $table->timestamps();
 

@@ -75,7 +75,7 @@
                         @endisAdmin
 
                         <!-- оставить отзыв после хотя 1 оказанной услуги -->
-                        <a href="formComments.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                        <a href="{{route('feedback.create')}}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                                 <span>Оставить отзыв</span>
@@ -159,77 +159,20 @@
             <div class="myBlue rounded-3">
                 <h1 class="p-3 text-white nameBlock">Ваши товары и услуги</h1>
             </div>
-            <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
-                <!-- основная карточка -->
-                <div class="col d-flex">
-                    <a href="infoForUser.html" class="text-decoration-none text-black">
-                        <div class="rounded shadow p-3 w-100">
-                            <img src="img/Group 19.png" class="card-img-top" alt="...">
-                            <div class="card-body catalog">
-                                <h3 class="card-title">Крутое название</h3>
-                                <h5>Исполнитель</h5>
-                                <h4>Цена</h4>
-                                <p>Дата</p>
-                                <p>Статус</p>
-                                <p>Телефон</p>
-                            </div>
-                            <a href="redactProductInfo.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                                <button type="button"
-                                        class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                    <span>Редактировать</span>
-                                </button>
-                            </a>
-                            <!-- кнопка скрыть услугу если она больше не акуальна -->
-                            <a href="hide.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                                <button type="button"
-                                        class="my-3 sign-out d-flex bg-danger-subtle border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                    <span>Скрыть</span>
-                                </button>
-                            </a>
-                            <!-- кнопка если товар был скрыт и его нужно вернуть -->
-                            <a href="return.html" class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                                <button type="button"
-                                        class="my-3 sign-out d-flex bg-success-subtle border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                    <span>Вернуть</span>
-                                </button>
-                            </a>
-                        </div>
-                    </a>
+
+            @empty($favourite_products)
+                <p class="text-center">Ваших товаров или услуг нет</p>
+            @else
+                <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+
+
+                    @foreach($favourite_products as $value)
+                        <x-product-card :product="$value"/>
+                    @endforeach
                 </div>
-                <!-- заполнители-карточки -->
-                <div class="col d-flex">
-                    <div class="rounded shadow p-3 w-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как
-                                естественное
-                                введение в дополнительный контент.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex">
-                    <div class="rounded shadow p-3 w-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex">
-                    <div class="rounded shadow p-3 w-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Это более длинная карточка с поддерживающим текстом ниже, как
-                                естественное
-                                введение в дополнительный контент.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    @endempty
         </section>
+
 
         @isAdmin
         <!-- ======================= ШТУКИ АДМИНА!!!!!!!!!!!!!!!!  ======================= -->

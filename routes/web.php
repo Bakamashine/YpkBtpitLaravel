@@ -22,6 +22,19 @@ Route::middleware("auth")
                     });
             });
 
+
+        // Отзывы
+        Route::controller(\App\Http\Controllers\FeedbackController::class)
+            ->prefix('feedback')
+            ->name('feedback')
+            ->group(function () {
+                Route::get('', 'index')->name('.index');
+                Route::get("create", "create")->name('.create');
+                Route::post("", "store")->name('.store');
+                Route::delete("{feedback}", 'destroy')->name('.destroy')->middleware(\App\Http\Middleware\AdminMiddleware::class);
+            });
+
+        // Избранное
         Route::controller(\App\Http\Controllers\FavouriteController::class)
             ->prefix("favourite")
             ->name("favourite")

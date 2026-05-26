@@ -18,10 +18,12 @@ class Feedback extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['user_id', 'comment', 'raiting', 'image_path'];
+
+    public $table = "feedbacks";
+    protected $fillable = ['user_id', 'comment', 'rating'];
 
     protected $casts = [
-        'raiting' => 'integer',
+        'rating' => 'integer',
     ];
 
     public function user(): BelongsTo
