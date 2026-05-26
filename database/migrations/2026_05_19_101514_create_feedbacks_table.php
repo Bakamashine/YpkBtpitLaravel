@@ -12,7 +12,6 @@ return new class extends Migration {
             $table->uuid('user_id');
             $table->string('comment', 1500);
             $table->integer('rating')->default(1);
-            $table->text('image_path')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

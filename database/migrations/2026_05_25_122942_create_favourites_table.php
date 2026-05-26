@@ -11,11 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('favourites', function (Blueprint $table) {
-            $table->uuid("id");
-            $table->foreignUuid("user_uuid")
+            $table->uuid("id")->primary();
+            $table->foreignUuid("user_id")
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->foreignUuid("product_uuid")
+            $table->foreignUuid("product_id")
                 ->constrained()
                 ->cascadeOnDelete();
             $table->timestamps();

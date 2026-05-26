@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->timestamp('date');
             $table->string('customers_comment', 1500)->nullable();
             $table->string('user_comment', 1500)->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
