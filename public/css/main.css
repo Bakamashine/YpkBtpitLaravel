@@ -443,11 +443,4 @@ a {
     opacity: 0;
 }
 
-.heart-wrapper.is-favorited .heart-default,
-.heart-wrapper.is-favorited .heart-hover {
-    opacity: 1;
-}
 
-.heart-wrapper.is-favorited:hover .heart-hover {
-    opacity: 0;
-}

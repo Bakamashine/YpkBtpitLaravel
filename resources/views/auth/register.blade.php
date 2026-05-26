@@ -18,12 +18,21 @@
                 {{$message}}
             </div>
             @enderror
-            <input type="tel" placeholder="Ваш номер телефона"
-                   value="{{old('phone')}}"
-                   name="phone_number"
-                   {{--                   pattern="\+7\s?\(?[0-9]{3}\)?\s?[0-9]{3}-?[0-9]{2}-?[0-9]{2}"--}}
-                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('phone_number') is-invalid @enderror"
+            <input type="email" placeholder="Ваш email"
+                   value="{{old('email')}}"
+                   name="email"
+                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('email') is-invalid @enderror"
                    required>
+            @error('email')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
+
+            <input type="tel" placeholder="Ваш номер телефона (необязательно)"
+                   value="{{old('phone_number')}}"
+                   name="phone_number"
+                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('phone_number') is-invalid @enderror">
             @error('phone_number')
             <div class="invalid-feedback">
                 {{$message}}
