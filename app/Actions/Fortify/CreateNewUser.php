@@ -32,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'phone_number' => [
-                'nullable',
+                'required',
                 'string',
                 'max:12',
                 Rule::unique(User::class),

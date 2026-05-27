@@ -3,10 +3,13 @@
 namespace App\Providers;
 
 use App\Contracts\IImageService;
+use App\Enums\TokenAbility;
 use App\Models\User;
 use App\Services\ImageService;
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,5 +38,29 @@ class AppServiceProvider extends ServiceProvider
         \Gate::define('admin', function (User $user) {
             return $user->isAdmin();
         });
+
+        $this->overrideSanctumConfigurationToSupportRefreshToken();
+
+        Builder::$defaultMorphKeyType = "uuid";
+    }
+
+    private function overrideSanctumConfigurationToSupportRefreshToken(): void
+    {
+        Sanctum::$accessTokenAuthenticationCallback = function ($accessToken, $isValid) {
+            $abilities = collect($accessToken->abilities);
+            if (!empty($abilities) && $abilities[0] === TokenAbility::ISSUE_ACCESS_TOKEN->value) {
+                return $accessToken->expires_at && $accessToken->expires_at->isFuture();
+            }
+
+            return $isValid;
+        };
+
+        Sanctum::$accessTokenRetrievalCallback = function ($request) {
+            if (!$request->routeIs('refresh')) {
+                return str_replace('Bearer ', '', $request->headers->get('Authorization'));
+            }
+
+            return $request->cookie('refreshToken') ?? '';
+        };
     }
 }
