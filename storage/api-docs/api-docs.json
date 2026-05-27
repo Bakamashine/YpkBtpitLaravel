@@ -53,7 +53,14 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -120,7 +127,14 @@
                 "operationId": "df9bdc6c7a6d9f20b983526b2ec0f698",
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
@@ -130,13 +144,13 @@
                 ]
             }
         },
-        "/api/auth/loginViaToken": {
+        "/api/auth/login-via-token": {
             "post": {
                 "tags": [
                     "Auth"
                 ],
                 "summary": "Get new tokens using refresh token",
-                "operationId": "ea5ab2b4e18eef73f756b59a9280531f",
+                "operationId": "b5cdc45ddb8ab85afb802320efe53f07",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -161,10 +175,10 @@
                                 "schema": {
                                     "properties": {
                                         "accessToken": {
-                                            "type": "object"
+                                            "type": "string"
                                         },
                                         "refreshToken": {
-                                            "type": "object"
+                                            "type": "string"
                                         }
                                     },
                                     "type": "object"
@@ -173,9 +187,358 @@
                         }
                     },
                     "401": {
-                        "description": "Invalid or expired refresh token"
+                        "description": "Invalid or expired refresh token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
+            }
+        },
+        "/api/feedback/all": {
+            "get": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Get all feedbacks",
+                "operationId": "c73c56f72c6fe6f4cba3d1cb83536323",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "comment": {
+                                                "type": "string"
+                                            },
+                                            "raiting": {
+                                                "type": "integer"
+                                            },
+                                            "user": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "phoneNumber": {
+                                                        "type": "string"
+                                                    },
+                                                    "userInfo": {
+                                                        "type": "string"
+                                                    },
+                                                    "avatarUrl": {
+                                                        "type": "string",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "ypk": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "ypkName": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "isActive": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/feedback/{feedback}": {
+            "get": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Get feedback by ID",
+                "operationId": "b55b5dcca25b4db94ec6457b73f171cd",
+                "parameters": [
+                    {
+                        "name": "feedback",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "comment": {
+                                            "type": "string"
+                                        },
+                                        "raiting": {
+                                            "type": "integer"
+                                        },
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "phoneNumber": {
+                                                    "type": "string"
+                                                },
+                                                "userInfo": {
+                                                    "type": "string"
+                                                },
+                                                "avatarUrl": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ypk": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "ypkName": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "isActive": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Feedback not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Delete feedback by ID",
+                "operationId": "f56c37b08a86d7c8070877d39cbffb53",
+                "parameters": [
+                    {
+                        "name": "feedback",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Feedback not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/feedback": {
+            "post": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Create feedback",
+                "operationId": "00cc0cc44651586507dc21fec307d425",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "comment": {
+                                        "type": "string"
+                                    },
+                                    "raiting": {
+                                        "type": "integer",
+                                        "maximum": 5,
+                                        "minimum": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/feedback/update": {
+            "put": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Update feedback by ID",
+                "operationId": "24822a9511373039af9bb8911ef1110c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    },
+                                    "raiting": {
+                                        "type": "integer",
+                                        "maximum": 5,
+                                        "minimum": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Feedback not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/auth/me": {
@@ -287,6 +650,10 @@
         {
             "name": "Auth",
             "description": "Auth"
+        },
+        {
+            "name": "Feedback",
+            "description": "Feedback"
         },
         {
             "name": "User",

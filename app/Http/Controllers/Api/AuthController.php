@@ -53,7 +53,7 @@ class AuthController extends Controller
                     new OA\Property(property: 'refreshToken', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 401, description: 'Unauthorized'),
+            new OA\Response(response: 401, description: 'Unauthorized', content: new OA\JsonContent(properties: [])),
         ]
     )]
     public function login(StoreApiLoginRequest $request)
@@ -105,7 +105,7 @@ class AuthController extends Controller
         security: [['bearerAuth' => []]],
         tags: ['Auth'],
         responses: [
-            new OA\Response(response: 200, description: 'Success'),
+            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(properties: [])),
         ]
     )]
     public function logout(RefreshTokenRequest $request)
@@ -115,7 +115,7 @@ class AuthController extends Controller
     }
 
     #[OA\Post(
-        path: '/api/auth/loginViaToken',
+        path: '/api/auth/login-via-token',
         summary: 'Get new tokens using refresh token',
         requestBody: new OA\RequestBody(
             required: true,
@@ -129,11 +129,13 @@ class AuthController extends Controller
         responses: [
             new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
                 properties: [
-                    new OA\Property(property: 'accessToken', type: 'object'),
-                    new OA\Property(property: 'refreshToken', type: 'object'),
+                    new OA\Property(property: 'accessToken', type: 'string'),
+                    new OA\Property(property: 'refreshToken', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 401, description: 'Invalid or expired refresh token'),
+            new OA\Response(response: 401, description: 'Invalid or expired refresh token', content: new OA\JsonContent(properties: [
+                new OA\Property(property: 'message', type: 'string'),
+            ])),
         ]
     )]
     public function loginViaToken(RefreshTokenRequest $request)

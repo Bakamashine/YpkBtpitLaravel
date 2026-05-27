@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\MeAllResource;
+use App\Http\Resources\UserResource;
 use App\Http\Resources\MeResource;
 use Illuminate\Http\Request;
 use OpenApi\Attributes as OA;
@@ -55,6 +55,6 @@ class UserController extends Controller
         ]
     )]
     public function meAll(Request $request) {
-        return MeAllResource::make($request->user());
+        return UserResource::make($request->user());
     }
 }

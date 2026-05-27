@@ -7,6 +7,7 @@ use App\Enums\TokenAbility;
 use App\Models\User;
 use App\Services\ImageService;
 use Illuminate\Database\Schema\Builder;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
@@ -42,6 +43,8 @@ class AppServiceProvider extends ServiceProvider
         $this->overrideSanctumConfigurationToSupportRefreshToken();
 
         Builder::$defaultMorphKeyType = "uuid";
+
+        JsonResource::withoutWrapping();
     }
 
     private function overrideSanctumConfigurationToSupportRefreshToken(): void

@@ -26,11 +26,6 @@ Route::prefix('auth')
         Route::post('logout', 'logout');
         Route::post('login-via-token', 'loginViaToken');
 
-        Route::middleware('auth:sanctum')
-            ->group(function () {
-                Route::post('loginViaToken', 'refresh')
-                    ->name('refresh');
-            });
     });
 
 Route::middleware("auth:sanctum")
@@ -40,4 +35,22 @@ Route::middleware("auth:sanctum")
                 Route::get("auth/me", 'me');
                 Route::get("auth/me/all", 'meAll');
             });
+
+        Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
+            ->prefix("feedback")
+            ->group(function () {
+                Route::post("", 'store');
+                Route::put("update", 'update');
+                Route::delete("{feedback}", 'destroy');
+            });
+    });
+
+Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
+    ->group(function () {
+        Route::prefix('feedback')
+            ->group(function () {
+                Route::get("all", 'getAll');
+                Route::get("{feedback}", 'getById');
+            });
+
     });

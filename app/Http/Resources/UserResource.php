@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Storage;
  * @property ?string avatar
  * @property Role role
  */
-class MeAllResource extends JsonResource
+class UserResource extends JsonResource
 {
 
     /**
@@ -88,7 +88,9 @@ class MeAllResource extends JsonResource
             "name" => $this->name,
             "phoneNumber" => $this->phone_number,
             "userInfo" => $this->user_info,
-            "avatarUrl" => $this->avatar ? Storage::disk('public')->url($this->avatar) : null
+            "avatarUrl" => $this->avatar
+                ? Storage::disk('public')->url($this->avatar)
+                : null
         ];
     }
 }
