@@ -43,6 +43,27 @@ Route::middleware("auth:sanctum")
                 Route::put("update", 'update');
                 Route::delete("{feedback}", 'destroy');
             });
+
+        Route::controller(\App\Http\Controllers\Api\RoleController::class)
+            ->prefix("role")
+            ->group(function () {
+                Route::get("all", 'getAll');
+                Route::get("{role}", 'getById');
+            });
+
+        Route::controller(\App\Http\Controllers\Api\StatusProductController::class)
+            ->prefix("StatusProduct")
+            ->group(function () {
+                Route::get("all", 'getAll');
+                Route::get("{statusProduct}", 'getById');
+            });
+
+        Route::controller(\App\Http\Controllers\Api\StatusOrderController::class)
+            ->prefix("StatusOrder")
+            ->group(function () {
+                Route::get("all", 'getAll');
+                Route::get("{statusOrder}", 'getById');
+            });
     });
 
 Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
