@@ -541,6 +541,468 @@
                 ]
             }
         },
+        "/api/product/all/publish": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get all published products",
+                "operationId": "3c203fe2131323484bc419bed903a781",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "ypkId": {
+                                                "type": "string"
+                                            },
+                                            "productName": {
+                                                "type": "string"
+                                            },
+                                            "productCost": {
+                                                "type": "number"
+                                            },
+                                            "productInfo": {
+                                                "type": "string"
+                                            },
+                                            "isProduct": {
+                                                "type": "boolean"
+                                            },
+                                            "photoPath": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "photoUrl": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "address": {
+                                                "type": "string"
+                                            },
+                                            "statusProductId": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/product/all/editing": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get all editing products",
+                "operationId": "116d422aaa79eb76811dda64816a1d6e",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "ypkId": {
+                                                "type": "string"
+                                            },
+                                            "productName": {
+                                                "type": "string"
+                                            },
+                                            "productCost": {
+                                                "type": "number"
+                                            },
+                                            "productInfo": {
+                                                "type": "string"
+                                            },
+                                            "isProduct": {
+                                                "type": "boolean"
+                                            },
+                                            "photoPath": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "photoUrl": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "address": {
+                                                "type": "string"
+                                            },
+                                            "statusProductId": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/product/byYpk/{ypk}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get products by YPK",
+                "operationId": "42e28fdab38fde60e58f7405177b27bf",
+                "parameters": [
+                    {
+                        "name": "ypk",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "ypkId": {
+                                                "type": "string"
+                                            },
+                                            "productName": {
+                                                "type": "string"
+                                            },
+                                            "productCost": {
+                                                "type": "number"
+                                            },
+                                            "productInfo": {
+                                                "type": "string"
+                                            },
+                                            "isProduct": {
+                                                "type": "boolean"
+                                            },
+                                            "photoPath": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "photoUrl": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "address": {
+                                                "type": "string"
+                                            },
+                                            "statusProductId": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/product/{product}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get product by ID",
+                "operationId": "687fb099aa12137c8ba13c343730bdd9",
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "ypkId": {
+                                            "type": "string"
+                                        },
+                                        "productName": {
+                                            "type": "string"
+                                        },
+                                        "productCost": {
+                                            "type": "number"
+                                        },
+                                        "productInfo": {
+                                            "type": "string"
+                                        },
+                                        "isProduct": {
+                                            "type": "boolean"
+                                        },
+                                        "photoPath": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "photoUrl": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "address": {
+                                            "type": "string"
+                                        },
+                                        "statusProductId": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Delete product by ID",
+                "operationId": "8076e8fe60c38065603af989523ab5df",
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/product": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Create a product",
+                "operationId": "f6c6fa48346dd08aae3060e1e8765913",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ProductName": {
+                                        "type": "string"
+                                    },
+                                    "YpkId": {
+                                        "type": "string"
+                                    },
+                                    "StatusProductId": {
+                                        "type": "string"
+                                    },
+                                    "ProductCost": {
+                                        "type": "string"
+                                    },
+                                    "ProductInfo": {
+                                        "type": "string"
+                                    },
+                                    "IsProduct": {
+                                        "type": "boolean"
+                                    },
+                                    "Photo": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "Address": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/product/update": {
+            "put": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Update product by ID",
+                "operationId": "88e635d1eee982a79655ee22cd22d842",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "ProductName": {
+                                        "type": "string"
+                                    },
+                                    "YpkId": {
+                                        "type": "string"
+                                    },
+                                    "StatusProductId": {
+                                        "type": "string"
+                                    },
+                                    "ProductCost": {
+                                        "type": "string"
+                                    },
+                                    "ProductInfo": {
+                                        "type": "string"
+                                    },
+                                    "IsProduct": {
+                                        "type": "boolean"
+                                    },
+                                    "Photo": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "Address": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/auth/me": {
             "get": {
                 "tags": [
@@ -654,6 +1116,10 @@
         {
             "name": "Feedback",
             "description": "Feedback"
+        },
+        {
+            "name": "Product",
+            "description": "Product"
         },
         {
             "name": "User",

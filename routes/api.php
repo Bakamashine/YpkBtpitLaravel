@@ -54,3 +54,21 @@ Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
             });
 
     });
+
+Route::controller(\App\Http\Controllers\Api\ProductController::class)
+    ->prefix('product')
+    ->group(function () {
+        Route::get("all/publish", 'getAllPublish');
+        Route::get("all/editing", 'getAllEditing');
+        Route::get("byYpk/{ypk}", 'getByYpk');
+        Route::get("{product}", 'getById');
+    });
+
+Route::middleware("auth:sanctum")
+    ->controller(\App\Http\Controllers\Api\ProductController::class)
+    ->prefix('product')
+    ->group(function () {
+        Route::post("", 'store');
+        Route::put("update", 'update');
+        Route::delete("{product}", 'destroy');
+    });

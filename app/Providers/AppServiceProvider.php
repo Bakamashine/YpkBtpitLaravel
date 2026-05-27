@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Contracts\IImageService;
+use App\Contracts\Repository\IProductRepository;
 use App\Enums\TokenAbility;
 use App\Models\User;
+use App\Repository\ProductRepository;
 use App\Services\ImageService;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->scoped(IImageService::class, ImageService::class);
+        $this->app->singleton(IProductRepository::class, ProductRepository::class);
     }
 
     /**
