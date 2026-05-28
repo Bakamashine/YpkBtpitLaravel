@@ -10,7 +10,7 @@ use App\Http\Requests\StoreApiRegisterRequest;
 use App\Models\User;
 use OpenApi\Attributes as OA;
 
-#[OA\Info(version: '1.0.0', description: 'API documentation for Thrift Store', title: 'APIs For Thrift Store')]
+#[OA\Info(version: '1.0.0', description: 'Ypk btpit', title: 'Ypk btpit')]
 #[OA\SecurityScheme(securityScheme: 'bearerAuth', type: 'http', bearerFormat: 'JWT', scheme: 'bearer')]
 class AuthController extends Controller
 {
@@ -35,7 +35,7 @@ class AuthController extends Controller
 
     #[OA\Post(
         path: '/api/auth/login',
-        summary: 'Login with phone and password',
+        summary: 'Вход по номеру телефона и паролю',
         requestBody: new OA\RequestBody(
             required: true,
             content: new OA\JsonContent(
@@ -45,15 +45,15 @@ class AuthController extends Controller
                 ]
             )
         ),
-        tags: ['Auth'],
+        tags: ['Авторизация'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'accessToken', type: 'string'),
                     new OA\Property(property: 'refreshToken', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 401, description: 'Unauthorized', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 401, description: 'Не авторизован', content: new OA\JsonContent(properties: [])),
         ]
     )]
     public function login(StoreApiLoginRequest $request)
@@ -68,7 +68,7 @@ class AuthController extends Controller
 
     #[OA\Post(
         path: '/api/auth/register',
-        summary: 'Register a new user',
+        summary: 'Регистрация нового пользователя',
         requestBody: new OA\RequestBody(
             required: true,
             content: new OA\JsonContent(
@@ -79,9 +79,9 @@ class AuthController extends Controller
                 ]
             )
         ),
-        tags: ['Auth'],
+        tags: ['Авторизация'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'accessToken', type: 'string'),
                     new OA\Property(property: 'refreshToken', type: 'string'),
@@ -101,11 +101,11 @@ class AuthController extends Controller
 
     #[OA\Post(
         path: '/api/auth/logout',
-        summary: 'Logout and revoke all tokens',
+        summary: 'Выход и отзыв всех токенов',
         security: [['bearerAuth' => []]],
-        tags: ['Auth'],
+        tags: ['Авторизация'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(properties: [])),
         ]
     )]
     public function logout(RefreshTokenRequest $request)
@@ -115,8 +115,8 @@ class AuthController extends Controller
     }
 
     #[OA\Post(
-        path: '/api/auth/login-via-token',
-        summary: 'Get new tokens using refresh token',
+        path: '/api/auth/loginViaToken',
+        summary: 'Получить новые токены по refresh token',
         requestBody: new OA\RequestBody(
             required: true,
             content: new OA\JsonContent(
@@ -125,15 +125,15 @@ class AuthController extends Controller
                 ]
             )
         ),
-        tags: ['Auth'],
+        tags: ['Авторизация'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'accessToken', type: 'string'),
                     new OA\Property(property: 'refreshToken', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 401, description: 'Invalid or expired refresh token', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 401, description: 'Недействительный или просроченный refresh token', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]

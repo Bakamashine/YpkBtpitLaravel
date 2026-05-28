@@ -1,17 +1,17 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "APIs For Thrift Store",
-        "description": "API documentation for Thrift Store",
+        "title": "Ypk btpit",
+        "description": "Ypk btpit",
         "version": "1.0.0"
     },
     "paths": {
         "/api/auth/login": {
             "post": {
                 "tags": [
-                    "Auth"
+                    "Авторизация"
                 ],
-                "summary": "Login with phone and password",
+                "summary": "Вход по номеру телефона и паролю",
                 "operationId": "dd51a484b7fa0f97c7680fdbde14cf5f",
                 "requestBody": {
                     "required": true,
@@ -35,7 +35,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -53,7 +53,7 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized",
+                        "description": "Не авторизован",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -68,9 +68,9 @@
         "/api/auth/register": {
             "post": {
                 "tags": [
-                    "Auth"
+                    "Авторизация"
                 ],
-                "summary": "Register a new user",
+                "summary": "Регистрация нового пользователя",
                 "operationId": "c7bb21a0d87049e161b8e4c9b0d909f2",
                 "requestBody": {
                     "required": true,
@@ -98,7 +98,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -121,13 +121,13 @@
         "/api/auth/logout": {
             "post": {
                 "tags": [
-                    "Auth"
+                    "Авторизация"
                 ],
-                "summary": "Logout and revoke all tokens",
+                "summary": "Выход и отзыв всех токенов",
                 "operationId": "df9bdc6c7a6d9f20b983526b2ec0f698",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -144,13 +144,13 @@
                 ]
             }
         },
-        "/api/auth/login-via-token": {
+        "/api/auth/loginViaToken": {
             "post": {
                 "tags": [
-                    "Auth"
+                    "Авторизация"
                 ],
-                "summary": "Get new tokens using refresh token",
-                "operationId": "b5cdc45ddb8ab85afb802320efe53f07",
+                "summary": "Получить новые токены по refresh token",
+                "operationId": "ea5ab2b4e18eef73f756b59a9280531f",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -169,7 +169,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -187,7 +187,7 @@
                         }
                     },
                     "401": {
-                        "description": "Invalid or expired refresh token",
+                        "description": "Недействительный или просроченный refresh token",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -204,16 +204,151 @@
                 }
             }
         },
+        "/api/favourite/all": {
+            "get": {
+                "tags": [
+                    "Избранное"
+                ],
+                "summary": "Получить все избранные",
+                "operationId": "335da5997dcd80a95d5960ef3e1b0a29",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "user_id": {
+                                                "type": "string"
+                                            },
+                                            "product_id": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "nullable": true
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/favourite/{favourite}": {
+            "delete": {
+                "tags": [
+                    "Избранное"
+                ],
+                "summary": "Удалить избранное по ID",
+                "operationId": "4a7be1a6e9bbe5122dbe43f752f022f9",
+                "parameters": [
+                    {
+                        "name": "favourite",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Удалено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Избранное не найдено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/favourite": {
+            "post": {
+                "tags": [
+                    "Избранное"
+                ],
+                "summary": "Добавить в избранное",
+                "operationId": "2f6406b6367f89c3f6916ec2055c2b6b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "productId": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Создано",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/feedback/all": {
             "get": {
                 "tags": [
-                    "Feedback"
+                    "Отзывы"
                 ],
-                "summary": "Get all feedbacks",
+                "summary": "Получить все отзывы",
                 "operationId": "c73c56f72c6fe6f4cba3d1cb83536323",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -285,9 +420,9 @@
         "/api/feedback/{feedback}": {
             "get": {
                 "tags": [
-                    "Feedback"
+                    "Отзывы"
                 ],
-                "summary": "Get feedback by ID",
+                "summary": "Получить отзыв по ID",
                 "operationId": "b55b5dcca25b4db94ec6457b73f171cd",
                 "parameters": [
                     {
@@ -301,7 +436,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -360,7 +495,7 @@
                         }
                     },
                     "404": {
-                        "description": "Feedback not found",
+                        "description": "Отзыв не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -383,9 +518,9 @@
             },
             "delete": {
                 "tags": [
-                    "Feedback"
+                    "Отзывы"
                 ],
-                "summary": "Delete feedback by ID",
+                "summary": "Удалить отзыв по ID",
                 "operationId": "f56c37b08a86d7c8070877d39cbffb53",
                 "parameters": [
                     {
@@ -399,7 +534,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Deleted",
+                        "description": "Удалено",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -409,7 +544,7 @@
                         }
                     },
                     "404": {
-                        "description": "Feedback not found",
+                        "description": "Отзыв не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -434,9 +569,9 @@
         "/api/feedback": {
             "post": {
                 "tags": [
-                    "Feedback"
+                    "Отзывы"
                 ],
-                "summary": "Create feedback",
+                "summary": "Создать отзыв",
                 "operationId": "00cc0cc44651586507dc21fec307d425",
                 "requestBody": {
                     "required": true,
@@ -460,7 +595,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Created",
+                        "description": "Создано",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -480,9 +615,9 @@
         "/api/feedback/update": {
             "put": {
                 "tags": [
-                    "Feedback"
+                    "Отзывы"
                 ],
-                "summary": "Update feedback by ID",
+                "summary": "Обновить отзыв по ID",
                 "operationId": "24822a9511373039af9bb8911ef1110c",
                 "requestBody": {
                     "required": true,
@@ -509,7 +644,7 @@
                 },
                 "responses": {
                     "204": {
-                        "description": "Updated",
+                        "description": "Обновлено",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -519,7 +654,7 @@
                         }
                     },
                     "404": {
-                        "description": "Feedback not found",
+                        "description": "Отзыв не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -541,16 +676,301 @@
                 ]
             }
         },
+        "/api/order/for-manager": {
+            "get": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Получить заказы по роли (Админ видит все, Менеджер видит свои заказы)",
+                "operationId": "fd2702d1d247f01bf485e1a775adf688",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "executorId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "customerId": {
+                                                "type": "string"
+                                            },
+                                            "date": {
+                                                "type": "string"
+                                            },
+                                            "statusName": {
+                                                "type": "string"
+                                            },
+                                            "customersName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "userComment": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "productDto": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/order/all": {
+            "get": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Получить все заказы",
+                "operationId": "cee7053506ec129bf9e5f15b9307bf90",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "executorId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "customerId": {
+                                                "type": "string"
+                                            },
+                                            "date": {
+                                                "type": "string"
+                                            },
+                                            "statusName": {
+                                                "type": "string"
+                                            },
+                                            "customersName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "userComment": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "productDto": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/order/{order}": {
+            "get": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Получить заказ по ID",
+                "operationId": "663b00d3cebc9f4399e91e2025488c16",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "executorId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "customerId": {
+                                            "type": "string"
+                                        },
+                                        "date": {
+                                            "type": "string"
+                                        },
+                                        "statusName": {
+                                            "type": "string"
+                                        },
+                                        "customersName": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "userComment": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "productDto": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Заказ не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Удалить заказ по ID",
+                "operationId": "35b2c18114e1dee54daeea6ee820e5bd",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Удалено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Заказ не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/order": {
+            "post": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Создать заказ",
+                "operationId": "a07ca1b7a7df6281e01b7b309254afb3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "productId": {
+                                        "type": "string"
+                                    },
+                                    "customersComment": {
+                                        "type": "string"
+                                    },
+                                    "userComment": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Создано",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/product/all/publish": {
             "get": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Get all published products",
+                "summary": "Получить все опубликованные товары",
                 "operationId": "3c203fe2131323484bc419bed903a781",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -602,13 +1022,13 @@
         "/api/product/all/editing": {
             "get": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Get all editing products",
+                "summary": "Получить все редактируемые товары",
                 "operationId": "116d422aaa79eb76811dda64816a1d6e",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -660,9 +1080,9 @@
         "/api/product/byYpk/{ypk}": {
             "get": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Get products by YPK",
+                "summary": "Получить товары по YPK",
                 "operationId": "42e28fdab38fde60e58f7405177b27bf",
                 "parameters": [
                     {
@@ -676,7 +1096,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -728,9 +1148,9 @@
         "/api/product/{product}": {
             "get": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Get product by ID",
+                "summary": "Получить товар по ID",
                 "operationId": "687fb099aa12137c8ba13c343730bdd9",
                 "parameters": [
                     {
@@ -744,7 +1164,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -788,7 +1208,7 @@
                         }
                     },
                     "404": {
-                        "description": "Product not found",
+                        "description": "Товар не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -806,9 +1226,9 @@
             },
             "delete": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Delete product by ID",
+                "summary": "Удалить товар по ID",
                 "operationId": "8076e8fe60c38065603af989523ab5df",
                 "parameters": [
                     {
@@ -822,7 +1242,7 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Deleted",
+                        "description": "Удалено",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -832,7 +1252,7 @@
                         }
                     },
                     "404": {
-                        "description": "Product not found",
+                        "description": "Товар не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -857,9 +1277,9 @@
         "/api/product": {
             "post": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Create a product",
+                "summary": "Создать товар",
                 "operationId": "f6c6fa48346dd08aae3060e1e8765913",
                 "requestBody": {
                     "required": true,
@@ -900,7 +1320,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Created",
+                        "description": "Создано",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -925,9 +1345,9 @@
         "/api/product/update": {
             "put": {
                 "tags": [
-                    "Product"
+                    "Товары"
                 ],
-                "summary": "Update product by ID",
+                "summary": "Обновить товар по ID",
                 "operationId": "88e635d1eee982a79655ee22cd22d842",
                 "requestBody": {
                     "required": true,
@@ -971,7 +1391,7 @@
                 },
                 "responses": {
                     "204": {
-                        "description": "Updated",
+                        "description": "Обновлено",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -981,7 +1401,7 @@
                         }
                     },
                     "404": {
-                        "description": "Product not found",
+                        "description": "Товар не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1006,13 +1426,13 @@
         "/api/role/all": {
             "get": {
                 "tags": [
-                    "Role"
+                    "Роли"
                 ],
-                "summary": "Get all roles",
+                "summary": "Получить все роли",
                 "operationId": "e0c729e5d9d02194499e5310730a5b80",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1043,9 +1463,9 @@
         "/api/role/{role}": {
             "get": {
                 "tags": [
-                    "Role"
+                    "Роли"
                 ],
-                "summary": "Get role by ID",
+                "summary": "Получить роль по ID",
                 "operationId": "a6a5596e127a8fcf63bf2063c99e54ca",
                 "parameters": [
                     {
@@ -1059,7 +1479,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1077,7 +1497,7 @@
                         }
                     },
                     "404": {
-                        "description": "Role not found",
+                        "description": "Роль не найдена",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1102,13 +1522,13 @@
         "/api/StatusOrder/all": {
             "get": {
                 "tags": [
-                    "StatusOrder"
+                    "Статусы заказов"
                 ],
-                "summary": "Get all status orders",
+                "summary": "Получить все статусы заказов",
                 "operationId": "8e742a322373290d4ca705625fa59f5f",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1139,9 +1559,9 @@
         "/api/StatusOrder/{statusOrder}": {
             "get": {
                 "tags": [
-                    "StatusOrder"
+                    "Статусы заказов"
                 ],
-                "summary": "Get status order by ID",
+                "summary": "Получить статус заказа по ID",
                 "operationId": "5f30242599db26c37c055d5f3193f8f9",
                 "parameters": [
                     {
@@ -1155,7 +1575,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1173,7 +1593,7 @@
                         }
                     },
                     "404": {
-                        "description": "Status order not found",
+                        "description": "Статус заказа не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1198,13 +1618,13 @@
         "/api/StatusProduct/all": {
             "get": {
                 "tags": [
-                    "StatusProduct"
+                    "Статусы товаров"
                 ],
-                "summary": "Get all status products",
+                "summary": "Получить все статусы товаров",
                 "operationId": "5a302349185a85a3b11c3d6b1f00003d",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1235,9 +1655,9 @@
         "/api/StatusProduct/{statusProduct}": {
             "get": {
                 "tags": [
-                    "StatusProduct"
+                    "Статусы товаров"
                 ],
-                "summary": "Get status product by ID",
+                "summary": "Получить статус товара по ID",
                 "operationId": "a9638cbc44d591f9a514bf12ceb82b60",
                 "parameters": [
                     {
@@ -1251,7 +1671,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1269,7 +1689,7 @@
                         }
                     },
                     "404": {
-                        "description": "Status product not found",
+                        "description": "Статус товара не найден",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1294,13 +1714,13 @@
         "/api/auth/me": {
             "get": {
                 "tags": [
-                    "User"
+                    "Пользователь"
                 ],
-                "summary": "Get current user info",
+                "summary": "Получить информацию о текущем пользователе",
                 "operationId": "a78fa60870f290ed5ec1d89eb5df741c",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1338,13 +1758,13 @@
         "/api/auth/me/all": {
             "get": {
                 "tags": [
-                    "User"
+                    "Пользователь"
                 ],
-                "summary": "Get full current user info",
+                "summary": "Получить полную информацию о текущем пользователе",
                 "operationId": "bf31440a28c182b01e1782ac6bc23243",
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "Успешно",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1398,32 +1818,40 @@
     },
     "tags": [
         {
-            "name": "Auth",
-            "description": "Auth"
+            "name": "Авторизация",
+            "description": "Авторизация"
         },
         {
-            "name": "Feedback",
-            "description": "Feedback"
+            "name": "Избранное",
+            "description": "Избранное"
         },
         {
-            "name": "Product",
-            "description": "Product"
+            "name": "Отзывы",
+            "description": "Отзывы"
         },
         {
-            "name": "Role",
-            "description": "Role"
+            "name": "Заказы",
+            "description": "Заказы"
         },
         {
-            "name": "StatusOrder",
-            "description": "StatusOrder"
+            "name": "Товары",
+            "description": "Товары"
         },
         {
-            "name": "StatusProduct",
-            "description": "StatusProduct"
+            "name": "Роли",
+            "description": "Роли"
         },
         {
-            "name": "User",
-            "description": "User"
+            "name": "Статусы заказов",
+            "description": "Статусы заказов"
+        },
+        {
+            "name": "Статусы товаров",
+            "description": "Статусы товаров"
+        },
+        {
+            "name": "Пользователь",
+            "description": "Пользователь"
         }
     ]
 }

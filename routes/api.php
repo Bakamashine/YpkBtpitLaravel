@@ -24,7 +24,7 @@ Route::prefix('auth')
         Route::post('login', 'login');
         Route::post('register', 'register');
         Route::post('logout', 'logout');
-        Route::post('login-via-token', 'loginViaToken');
+        Route::post('loginViaToken', 'loginViaToken');
 
     });
 
@@ -64,6 +64,14 @@ Route::middleware("auth:sanctum")
                 Route::get("all", 'getAll');
                 Route::get("{statusOrder}", 'getById');
             });
+
+        Route::controller(\App\Http\Controllers\Api\FavouriteController::class)
+            ->prefix("selectedProducts")
+            ->group(function () {
+                Route::get("all", 'getAll');
+                Route::post("", 'store');
+                Route::delete("{favourite}", 'destroy');
+            });
     });
 
 Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
@@ -83,13 +91,29 @@ Route::controller(\App\Http\Controllers\Api\ProductController::class)
         Route::get("all/editing", 'getAllEditing');
         Route::get("byYpk/{ypk}", 'getByYpk');
         Route::get("{product}", 'getById');
+
+        Route::middleware("auth:sanctum")
+            ->group(function () {
+                Route::post("", 'store');
+                Route::put("update", 'update');
+                Route::delete("{product}", 'destroy');
+            });
     });
 
-Route::middleware("auth:sanctum")
-    ->controller(\App\Http\Controllers\Api\ProductController::class)
-    ->prefix('product')
+Route::controller(\App\Http\Controllers\Api\OrderController::class)
+    ->prefix('order')
     ->group(function () {
-        Route::post("", 'store');
-        Route::put("update", 'update');
-        Route::delete("{product}", 'destroy');
+        Route::get("all", 'getAll');
+        Route::get("{order}", 'getById');
+
+        Route::middleware("auth:sanctum")
+            ->group(function () {
+                Route::post("", 'store');
+            });
+
+        Route::middleware(['auth:sanctum', 'manager'])
+            ->group(function () {
+                Route::get("manager", 'getAllForManager');
+                Route::delete("{order}", 'destroy');
+            });
     });

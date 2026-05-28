@@ -24,10 +24,10 @@ class ProductController extends Controller
 
     #[OA\Get(
         path: '/api/product/all/publish',
-        summary: 'Get all published products',
-        tags: ['Product'],
+        summary: 'Получить все опубликованные товары',
+        tags: ['Товары'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 type: 'array',
                 items: new OA\Items(properties: [
                     new OA\Property(property: 'id', type: 'string'),
@@ -52,10 +52,10 @@ class ProductController extends Controller
 
     #[OA\Get(
         path: '/api/product/all/editing',
-        summary: 'Get all editing products',
-        tags: ['Product'],
+        summary: 'Получить все редактируемые товары',
+        tags: ['Товары'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 type: 'array',
                 items: new OA\Items(properties: [
                     new OA\Property(property: 'id', type: 'string'),
@@ -79,13 +79,13 @@ class ProductController extends Controller
 
     #[OA\Get(
         path: '/api/product/byYpk/{ypk}',
-        summary: 'Get products by YPK',
-        tags: ['Product'],
+        summary: 'Получить товары по YPK',
+        tags: ['Товары'],
         parameters: [
             new OA\Parameter(name: 'ypk', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 type: 'array',
                 items: new OA\Items(properties: [
                     new OA\Property(property: 'id', type: 'string'),
@@ -109,13 +109,13 @@ class ProductController extends Controller
 
     #[OA\Get(
         path: '/api/product/{product}',
-        summary: 'Get product by ID',
-        tags: ['Product'],
+        summary: 'Получить товар по ID',
+        tags: ['Товары'],
         parameters: [
             new OA\Parameter(name: 'product', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                     new OA\Property(property: 'ypkId', type: 'string'),
@@ -129,7 +129,7 @@ class ProductController extends Controller
                     new OA\Property(property: 'statusProductId', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 404, description: 'Product not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 404, description: 'Товар не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]
@@ -141,15 +141,15 @@ class ProductController extends Controller
 
     #[OA\Delete(
         path: '/api/product/{product}',
-        summary: 'Delete product by ID',
+        summary: 'Удалить товар по ID',
         security: [['bearerAuth' => []]],
-        tags: ['Product'],
+        tags: ['Товары'],
         parameters: [
             new OA\Parameter(name: 'product', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 204, description: 'Deleted', content: new OA\JsonContent(properties: [])),
-            new OA\Response(response: 404, description: 'Product not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 204, description: 'Удалено', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 404, description: 'Товар не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]
@@ -162,7 +162,7 @@ class ProductController extends Controller
 
     #[OA\Post(
         path: '/api/product',
-        summary: 'Create a product',
+        summary: 'Создать товар',
         security: [['bearerAuth' => []]],
         requestBody: new OA\RequestBody(
             required: true,
@@ -179,9 +179,9 @@ class ProductController extends Controller
                 ]
             )
         ),
-        tags: ['Product'],
+        tags: ['Товары'],
         responses: [
-            new OA\Response(response: 201, description: 'Created', content: new OA\JsonContent(
+            new OA\Response(response: 201, description: 'Создано', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                 ]
@@ -206,7 +206,7 @@ class ProductController extends Controller
 
     #[OA\Put(
         path: '/api/product/update',
-        summary: 'Update product by ID',
+        summary: 'Обновить товар по ID',
         security: [['bearerAuth' => []]],
         requestBody: new OA\RequestBody(
             required: true,
@@ -224,10 +224,10 @@ class ProductController extends Controller
                 ]
             )
         ),
-        tags: ['Product'],
+        tags: ['Товары'],
         responses: [
-            new OA\Response(response: 204, description: 'Updated', content: new OA\JsonContent(properties: [])),
-            new OA\Response(response: 404, description: 'Product not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 204, description: 'Обновлено', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 404, description: 'Товар не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]

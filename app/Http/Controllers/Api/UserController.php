@@ -16,11 +16,11 @@ class UserController extends Controller
      */
     #[OA\Get(
         path: '/api/auth/me',
-        summary: 'Get current user info',
+        summary: 'Получить информацию о текущем пользователе',
         security: [['bearerAuth' => []]],
-        tags: ['User'],
+        tags: ['Пользователь'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                     new OA\Property(property: 'name', type: 'string'),
@@ -37,11 +37,11 @@ class UserController extends Controller
 
     #[OA\Get(
         path: '/api/auth/me/all',
-        summary: 'Get full current user info',
+        summary: 'Получить полную информацию о текущем пользователе',
         security: [['bearerAuth' => []]],
-        tags: ['User'],
+        tags: ['Пользователь'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                     new OA\Property(property: 'name', type: 'string'),

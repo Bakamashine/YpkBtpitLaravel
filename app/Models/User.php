@@ -72,7 +72,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereYpkId($value)
  * @mixin \Eloquent
  */
-#[Fillable(['name', 'email', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar'])]
+#[Fillable(['name', 'email', 'password', 'phone_number', 'role_id', 'ypk_id', 'user_info', 'is_active', 'avatar', 'product_id'])]
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
 class User extends Authenticatable
 {

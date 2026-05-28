@@ -12,11 +12,11 @@ class RoleController extends Controller
 {
     #[OA\Get(
         path: '/api/role/all',
-        summary: 'Get all roles',
+        summary: 'Получить все роли',
         security: [['bearerAuth' => []]],
-        tags: ['Role'],
+        tags: ['Роли'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 type: 'array',
                 items: new OA\Items(properties: [
                     new OA\Property(property: 'id', type: 'string'),
@@ -31,20 +31,20 @@ class RoleController extends Controller
 
     #[OA\Get(
         path: '/api/role/{role}',
-        summary: 'Get role by ID',
+        summary: 'Получить роль по ID',
         security: [['bearerAuth' => []]],
-        tags: ['Role'],
+        tags: ['Роли'],
         parameters: [
             new OA\Parameter(name: 'role', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                     new OA\Property(property: 'name', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 404, description: 'Role not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 404, description: 'Роль не найдена', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]

@@ -16,11 +16,11 @@ class FeedbackController extends Controller
 
     #[OA\Get(
         path: '/api/feedback/all',
-        summary: 'Get all feedbacks',
+        summary: 'Получить все отзывы',
         security: [['bearerAuth' => []]],
-        tags: ['Feedback'],
+        tags: ['Отзывы'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 type: 'array',
                 items: new OA\Items(properties: [
                     new OA\Property(property: 'id', type: 'string'),
@@ -51,14 +51,14 @@ class FeedbackController extends Controller
 
     #[OA\Get(
         path: '/api/feedback/{feedback}',
-        summary: 'Get feedback by ID',
+        summary: 'Получить отзыв по ID',
         security: [['bearerAuth' => []]],
-        tags: ['Feedback'],
+        tags: ['Отзывы'],
         parameters: [
             new OA\Parameter(name: 'feedback', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                     new OA\Property(property: 'comment', type: 'string'),
@@ -78,7 +78,7 @@ class FeedbackController extends Controller
                     ], type: 'object'),
                 ]
             )),
-            new OA\Response(response: 404, description: 'Feedback not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 404, description: 'Отзыв не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]
@@ -90,7 +90,7 @@ class FeedbackController extends Controller
 
     #[OA\Post(
         path: '/api/feedback',
-        summary: 'Create feedback',
+        summary: 'Создать отзыв',
         security: [['bearerAuth' => []]],
         requestBody: new OA\RequestBody(
             required: true,
@@ -101,9 +101,9 @@ class FeedbackController extends Controller
                 ]
             )
         ),
-        tags: ['Feedback'],
+        tags: ['Отзывы'],
         responses: [
-            new OA\Response(response: 200, description: 'Created', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 200, description: 'Создано', content: new OA\JsonContent(properties: [])),
         ]
     )]
     public function store(StoreApiFeedbackRequest $request)
@@ -117,7 +117,7 @@ class FeedbackController extends Controller
 
     #[OA\Put(
         path: '/api/feedback/update',
-        summary: 'Update feedback by ID',
+        summary: 'Обновить отзыв по ID',
         security: [['bearerAuth' => []]],
         requestBody: new OA\RequestBody(
             required: true,
@@ -129,10 +129,10 @@ class FeedbackController extends Controller
                 ]
             )
         ),
-        tags: ['Feedback'],
+        tags: ['Отзывы'],
         responses: [
-            new OA\Response(response: 204, description: 'Updated', content: new OA\JsonContent(properties: [])),
-            new OA\Response(response: 404, description: 'Feedback not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 204, description: 'Обновлено', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 404, description: 'Отзыв не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]
@@ -150,15 +150,15 @@ class FeedbackController extends Controller
 
     #[OA\Delete(
         path: '/api/feedback/{feedback}',
-        summary: 'Delete feedback by ID',
+        summary: 'Удалить отзыв по ID',
         security: [['bearerAuth' => []]],
-        tags: ['Feedback'],
+        tags: ['Отзывы'],
         parameters: [
             new OA\Parameter(name: 'feedback', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Deleted', content: new OA\JsonContent(properties: [])),
-            new OA\Response(response: 404, description: 'Feedback not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 200, description: 'Удалено', content: new OA\JsonContent(properties: [])),
+            new OA\Response(response: 404, description: 'Отзыв не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]

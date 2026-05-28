@@ -12,11 +12,11 @@ class StatusOrderController extends Controller
 {
     #[OA\Get(
         path: '/api/StatusOrder/all',
-        summary: 'Get all status orders',
+        summary: 'Получить все статусы заказов',
         security: [['bearerAuth' => []]],
-        tags: ['StatusOrder'],
+        tags: ['Статусы заказов'],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 type: 'array',
                 items: new OA\Items(properties: [
                     new OA\Property(property: 'id', type: 'string'),
@@ -32,20 +32,20 @@ class StatusOrderController extends Controller
 
     #[OA\Get(
         path: '/api/StatusOrder/{statusOrder}',
-        summary: 'Get status order by ID',
+        summary: 'Получить статус заказа по ID',
         security: [['bearerAuth' => []]],
-        tags: ['StatusOrder'],
+        tags: ['Статусы заказов'],
         parameters: [
             new OA\Parameter(name: 'statusOrder', in: 'path', required: true, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Success', content: new OA\JsonContent(
+            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'id', type: 'string'),
                     new OA\Property(property: 'statusName', type: 'string'),
                 ]
             )),
-            new OA\Response(response: 404, description: 'Status order not found', content: new OA\JsonContent(properties: [
+            new OA\Response(response: 404, description: 'Статус заказа не найден', content: new OA\JsonContent(properties: [
                 new OA\Property(property: 'message', type: 'string'),
             ])),
         ]
