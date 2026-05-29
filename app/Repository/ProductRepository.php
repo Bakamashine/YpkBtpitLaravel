@@ -10,10 +10,10 @@ use App\Models\StatusProduct;
 
 class ProductRepository implements IProductRepository {
 
-    public function getByStatus(string $status)
+    public function getByStatus(StatusProductEnum $status): ProductCollection
     {
-        $status = StatusProduct::where('status_name', $status)->firstOrFail();
-        $products = Product::where('status_product_id', $status)->get();
+        $statusModel = StatusProduct::where('status_name', $status->value)->firstOrFail();
+        $products = Product::where('status_product_id', $statusModel->id)->get();
         return new ProductCollection($products);
     }
 }

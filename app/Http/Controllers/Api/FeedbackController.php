@@ -140,7 +140,8 @@ class FeedbackController extends Controller
     public function update(UpdateApiFeedbackRequest $request)
     {
         /** @var Feedback $current_feedback */
-        $current_feedback = Feedback::findOrFail($request->id);
+//        $current_feedback = Feedback::findOrFail($request->id);
+        $current_feedback = $request->user()->feedbacks()->findOrFail($request->id);
         $current_feedback->comment = $request->comment;
         $current_feedback->rating = $request->raiting;
 

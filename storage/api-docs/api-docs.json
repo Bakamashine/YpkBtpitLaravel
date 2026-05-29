@@ -204,13 +204,13 @@
                 }
             }
         },
-        "/api/favourite/all": {
+        "/api/selectedProducts/all": {
             "get": {
                 "tags": [
                     "Избранное"
                 ],
                 "summary": "Получить все избранные",
-                "operationId": "335da5997dcd80a95d5960ef3e1b0a29",
+                "operationId": "0abe668dc74ebb82e57dfb9c75a50767",
                 "responses": {
                     "200": {
                         "description": "Успешно",
@@ -247,13 +247,13 @@
                 }
             }
         },
-        "/api/favourite/{favourite}": {
+        "/api/selectedProducts/{favourite}": {
             "delete": {
                 "tags": [
                     "Избранное"
                 ],
                 "summary": "Удалить избранное по ID",
-                "operationId": "4a7be1a6e9bbe5122dbe43f752f022f9",
+                "operationId": "f77c0c681ec5a4704097cbf7f9fa4e4b",
                 "parameters": [
                     {
                         "name": "favourite",
@@ -298,13 +298,13 @@
                 ]
             }
         },
-        "/api/favourite": {
+        "/api/selectedProducts": {
             "post": {
                 "tags": [
                     "Избранное"
                 ],
                 "summary": "Добавить в избранное",
-                "operationId": "2f6406b6367f89c3f6916ec2055c2b6b",
+                "operationId": "5b11485419ef78a4f4ca477fc54d23bb",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -676,13 +676,13 @@
                 ]
             }
         },
-        "/api/order/for-manager": {
+        "/api/order/manager": {
             "get": {
                 "tags": [
                     "Заказы"
                 ],
                 "summary": "Получить заказы по роли (Админ видит все, Менеджер видит свои заказы)",
-                "operationId": "fd2702d1d247f01bf485e1a775adf688",
+                "operationId": "2ad200c8389b7abd9ea3392ddf7fc828",
                 "responses": {
                     "200": {
                         "description": "Успешно",
@@ -961,6 +961,67 @@
                 ]
             }
         },
+        "/api/order/user": {
+            "get": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Получить заказы текущего пользователя",
+                "operationId": "4d1a147d0d467ef7e61be1e2c138637c",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "executorId": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "customerId": {
+                                                "type": "string"
+                                            },
+                                            "date": {
+                                                "type": "string"
+                                            },
+                                            "statusName": {
+                                                "type": "string"
+                                            },
+                                            "customersName": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "userComment": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "productDto": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Не авторизован"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/product/all/publish": {
             "get": {
                 "tags": [
@@ -1019,13 +1080,13 @@
                 }
             }
         },
-        "/api/product/all/editing": {
+        "/api/product/all": {
             "get": {
                 "tags": [
                     "Товары"
                 ],
-                "summary": "Получить все редактируемые товары",
-                "operationId": "116d422aaa79eb76811dda64816a1d6e",
+                "summary": "Получить все опубликованные товары",
+                "operationId": "79e971583729a1f14c6a49cb09e00df6",
                 "responses": {
                     "200": {
                         "description": "Успешно",
@@ -1805,6 +1866,233 @@
                     }
                 ]
             }
+        },
+        "/api/ypk/all": {
+            "get": {
+                "tags": [
+                    "YPK"
+                ],
+                "summary": "Получить все YPK",
+                "operationId": "5248d38c15b9472da63323dee02b06e5",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "ypkName": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "isActive": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/ypk/{ypk}": {
+            "get": {
+                "tags": [
+                    "YPK"
+                ],
+                "summary": "Получить YPK по ID",
+                "operationId": "20011b32a7abe2bc5449590e9f7923e9",
+                "parameters": [
+                    {
+                        "name": "ypk",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "ypkName": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "isActive": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    },
+                    "404": {
+                        "description": "Не найдено"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/ypk/{id}": {
+            "delete": {
+                "tags": [
+                    "YPK"
+                ],
+                "summary": "Удалить YPK",
+                "operationId": "79f59d0e7641a6eadb872fbec31d82a8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Удалено"
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    },
+                    "404": {
+                        "description": "Не найдено"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/ypk": {
+            "put": {
+                "tags": [
+                    "YPK"
+                ],
+                "summary": "Обновить YPK",
+                "operationId": "451c152c58771e76448025d077735226",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "ypkName": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Обновлено"
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    },
+                    "404": {
+                        "description": "Не найдено"
+                    },
+                    "422": {
+                        "description": "Ошибка валидации"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "YPK"
+                ],
+                "summary": "Создать YPK",
+                "operationId": "b48fb11c0009587d515ddab08b1652fb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ypkName": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Создано"
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    },
+                    "422": {
+                        "description": "Ошибка валидации"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -1852,6 +2140,10 @@
         {
             "name": "Пользователь",
             "description": "Пользователь"
+        },
+        {
+            "name": "YPK",
+            "description": "YPK"
         }
     ]
 }

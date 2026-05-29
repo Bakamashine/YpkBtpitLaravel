@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateOrderApiRequest extends FormRequest
+class StoreYpkApiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,8 @@ class UpdateOrderApiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|string',
-            'productId' => 'required|string|exists:products,id',
-            'statusOrderId' => 'required|string',
-            'executorId' => 'required|string',
-            'customersComment' => 'required|string',
-            'userComment' => 'required|string'
+            'ypkName' => 'required|string',
+            'description' => 'required|string'
         ];
     }
 }

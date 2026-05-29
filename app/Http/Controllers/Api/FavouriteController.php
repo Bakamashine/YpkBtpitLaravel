@@ -11,7 +11,7 @@ use OpenApi\Attributes as OA;
 class FavouriteController extends Controller
 {
     #[OA\Get(
-        path: '/api/favourite/all',
+        path: '/api/selectedProducts/all',
         summary: 'Получить все избранные',
         tags: ['Избранное'],
         responses: [
@@ -33,7 +33,7 @@ class FavouriteController extends Controller
     }
 
     #[OA\Delete(
-        path: '/api/favourite/{favourite}',
+        path: '/api/selectedProducts/{favourite}',
         summary: 'Удалить избранное по ID',
         security: [['bearerAuth' => []]],
         tags: ['Избранное'],
@@ -54,7 +54,7 @@ class FavouriteController extends Controller
     }
 
     #[OA\Post(
-        path: '/api/favourite',
+        path: '/api/selectedProducts',
         summary: 'Добавить в избранное',
         security: [['bearerAuth' => []]],
         requestBody: new OA\RequestBody(
@@ -72,12 +72,23 @@ class FavouriteController extends Controller
     )]
     public function store(StoreApiFavouriteRequest $request)
     {
-        $request->user()
-            ->favourite()
-            ->create([
-                "product_id" => $request->productId
-            ]);
 
-        return response(status: 200);
+        $exists = $request->user()->favourite()
+            ->where('product_id', $request->productId)
+            ->exists();
+
+        if (!$exists) {
+            $request->user()
+                ->favourite()
+                ->create([
+                    "product_id" => $request->productId
+                ]);
+            return response(status: 200);
+
+        }
+
+        return response()->json([
+            "message" => "Вы уже добавляли данный товар"
+        ], 422);
     }
 }

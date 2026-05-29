@@ -46,13 +46,14 @@ class ProductController extends Controller
     )]
     public function getAllPublish()
     {
-        return $this->repository->getByStatus(StatusProductEnum::Publish->value);
+        return $this->repository->getByStatus(StatusProductEnum::Publish);
 
     }
 
+
     #[OA\Get(
-        path: '/api/product/all/editing',
-        summary: 'Получить все редактируемые товары',
+        path: '/api/product/all',
+        summary: 'Получить все опубликованные товары',
         tags: ['Товары'],
         responses: [
             new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
@@ -72,10 +73,36 @@ class ProductController extends Controller
             )),
         ]
     )]
-    public function getAllEditing()
-    {
-        return $this->repository->getByStatus(StatusProductEnum::Editing->value);
+    public function getAllEditing() {
+        return new ProductCollection(Product::all());
     }
+
+//    #[OA\Get(
+//        path: '/api/product/all/editing',
+//        summary: 'Получить все редактируемые товары',
+//        tags: ['Товары'],
+//        responses: [
+//            new OA\Response(response: 200, description: 'Успешно', content: new OA\JsonContent(
+//                type: 'array',
+//                items: new OA\Items(properties: [
+//                    new OA\Property(property: 'id', type: 'string'),
+//                    new OA\Property(property: 'ypkId', type: 'string'),
+//                    new OA\Property(property: 'productName', type: 'string'),
+//                    new OA\Property(property: 'productCost', type: 'number'),
+//                    new OA\Property(property: 'productInfo', type: 'string'),
+//                    new OA\Property(property: 'isProduct', type: 'boolean'),
+//                    new OA\Property(property: 'photoPath', type: 'string', nullable: true),
+//                    new OA\Property(property: 'photoUrl', type: 'string', nullable: true),
+//                    new OA\Property(property: 'address', type: 'string'),
+//                    new OA\Property(property: 'statusProductId', type: 'string'),
+//                ])
+//            )),
+//        ]
+//    )]
+//    public function getAllEditing()
+//    {
+//        return $this->repository->getByStatus(StatusProductEnum::Editing);
+//    }
 
     #[OA\Get(
         path: '/api/product/byYpk/{ypk}',

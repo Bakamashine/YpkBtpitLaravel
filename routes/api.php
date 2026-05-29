@@ -40,7 +40,7 @@ Route::middleware("auth:sanctum")
             ->prefix("feedback")
             ->group(function () {
                 Route::post("", 'store');
-                Route::put("update", 'update');
+                Route::put("", 'update');
                 Route::delete("{feedback}", 'destroy');
             });
 
@@ -70,7 +70,22 @@ Route::middleware("auth:sanctum")
             ->group(function () {
                 Route::get("all", 'getAll');
                 Route::post("", 'store');
-                Route::delete("{favourite}", 'destroy');
+
+                Route::middleware(['auth:sanctum', 'manager'])
+                    ->group(function () {
+                        Route::delete("{favourite}", 'destroy');
+                    });
+            });
+
+        Route::middleware(['auth:sanctum', 'manager'])
+            ->controller(\App\Http\Controllers\Api\YpkController::class)
+            ->prefix('ypk')
+            ->group(function () {
+                Route::get('all', 'getAll');
+                Route::get('{ypk}', 'getById');
+                Route::delete('{id}', 'destroy');
+                Route::post('', 'store');
+                Route::put('', 'update');
             });
     });
 
@@ -87,33 +102,45 @@ Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
 Route::controller(\App\Http\Controllers\Api\ProductController::class)
     ->prefix('product')
     ->group(function () {
-        Route::get("all/publish", 'getAllPublish');
-        Route::get("all/editing", 'getAllEditing');
-        Route::get("byYpk/{ypk}", 'getByYpk');
+        Route::get('all', 'getAllPublish');
         Route::get("{product}", 'getById');
 
         Route::middleware("auth:sanctum")
             ->group(function () {
                 Route::post("", 'store');
-                Route::put("update", 'update');
                 Route::delete("{product}", 'destroy');
+                Route::get("byYpk/{ypk}", 'getByYpk');
+
+                Route::middleware('manager')
+                    ->group(function () {
+                        Route::put("", 'update');
+                        Route::get("all/created", 'getAllEditing');
+//                        Route::get("all/editing", 'getAllEditing');
+                    });
             });
+
     });
 
 Route::controller(\App\Http\Controllers\Api\OrderController::class)
     ->prefix('order')
     ->group(function () {
-        Route::get("all", 'getAll');
-        Route::get("{order}", 'getById');
-
         Route::middleware("auth:sanctum")
             ->group(function () {
                 Route::post("", 'store');
+                Route::get("user", 'getForUser');
+            });
+
+        Route::middleware(['auth:sanctum', 'admin'])
+            ->group(function () {
+                Route::get("all", 'getAll');
             });
 
         Route::middleware(['auth:sanctum', 'manager'])
             ->group(function () {
                 Route::get("manager", 'getAllForManager');
                 Route::delete("{order}", 'destroy');
+                Route::get("{order}", 'getById');
+                Route::put("", 'update');
             });
+
     });

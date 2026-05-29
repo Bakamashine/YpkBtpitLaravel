@@ -17,8 +17,8 @@ class AuthController extends Controller
 
     private function generateTokens(User $user)
     {
-        $atExpireTime = now()->addMinutes(config('sanctum.expiration'));
-        $rtExpireTime = now()->addMinutes(config('sanctum.rt_expiration'));
+        $atExpireTime = now()->addMinutes((int)config('sanctum.expiration'));
+        $rtExpireTime = now()->addMinutes((int)config('sanctum.rt_expiration'));
 
         $accessAbility = $user->isAdmin()
             ? TokenAbility::ADMIN_ACCESS
