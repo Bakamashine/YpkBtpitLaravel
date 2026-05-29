@@ -232,7 +232,7 @@ class ProductController extends Controller
     }
 
     #[OA\Put(
-        path: '/api/product/update',
+        path: '/api/product',
         summary: 'Обновить товар по ID',
         security: [['bearerAuth' => []]],
         requestBody: new OA\RequestBody(
