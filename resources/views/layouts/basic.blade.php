@@ -70,7 +70,7 @@
                             <div class="mx-1 text-center">
                                 <a href="{{ route('favourite.index') }}" class="text-decoration-none">
                                     <img class="header__image__size" src="{{asset('img/heart.png')}}"
-                                         alt="Профиль"/>
+                                         alt="Избранное"/>
                                     <p class="header__button__text">Избранное</p>
                                 </a>
                             </div>
@@ -79,7 +79,7 @@
                             <a href="{{route('about_us')}}" class="text-decoration-none">
                                 <img class="header__image__size"
                                      src="{{asset('img/material-symbols_info-outline-rounded1.png')}}"
-                                     alt="Информация"/>
+                                     alt="О нас"/>
                                 <p class="header__button__text">О нас</p>
                             </a>
                         </div>

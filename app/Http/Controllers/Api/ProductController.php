@@ -19,7 +19,7 @@ class ProductController extends Controller
 
     public function __construct(private IProductRepository $repository, private IImageService $imageService)
     {
-
+        $this->imageService->setWidth(400);
     }
 
     #[OA\Get(

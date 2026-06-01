@@ -12,4 +12,12 @@ interface IImageService
     public function updateImage(?UploadedFile $upload, string $path, ?string $old_path): ?string;
 
     public function removeImage(?string $path): void;
+
+    public function setWidth(int $width): void;
+
+    public function getWidth(): int;
+
+    public function setHeight(int $height): void;
+
+    public function getHeight(): int;
 }

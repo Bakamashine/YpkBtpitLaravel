@@ -29,6 +29,12 @@ body {
     width: 100%;
 }
 
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .content {
     flex: 1;
     display: flex;
@@ -418,6 +424,21 @@ a {
     background-color: white;
     padding: 5px;
     border-radius: 5px;
+}
+
+/* Product card button hover effects */
+.product-card-btn {
+    transition: filter 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.product-card-btn:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+.product-card-btn.bg-danger:hover {
+    filter: brightness(1.3);
 }
 
 .heart-wrapper {

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="catalog content">
+    <div class="catalog">
         <section class="m-5 catalog">
             <h1>Избранное</h1>
 

@@ -23,19 +23,17 @@ class ImageService implements IImageService
     /**
      * Установить ширину изображения.
      */
-    public function setWidth(int $width): static
+    public function setWidth(int $width): void
     {
         $this->width = $width;
-        return $this;
     }
 
     /**
      * Установить высоту изображения.
      */
-    public function setHeight(int $height): static
+    public function setHeight(int $height): void
     {
         $this->height = $height;
-        return $this;
     }
 
     /**
@@ -105,6 +103,18 @@ class ImageService implements IImageService
         ) {
             return $real_path;
         }
+
+        return null;
+    }
+
+    public function getWidth(): int
+    {
+        return $this->width;
+    }
+
+    public function getHeight(): int
+    {
+        return $this->height;
     }
 
 }

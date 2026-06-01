@@ -1,26 +1,25 @@
-{{--
- * Компонент карточки товара/услуги с кнопками "Редактировать" и "Удалить".
- *
- * @param \App\Models\Product $product Объект товара или услуги.
---}}
 @props(['product'])
 
 <div class="col d-flex">
-    <div class="rounded shadow p-3 w-100 d-flex flex-column">
-        <img src="{{ get_image_or_default($product->photo_path) }}" class="card-img-top"
-             alt="{{ $product->product_name }}">
-        <div class="card-body catalog d-flex flex-column">
-            <h3 class="card-title">Название: {{ $product->product_name }}</h3>
-            <h5>Исполнитель: {{ $product->user->name ?? 'Не указан' }}</h5>
-            <h4>Цена: {{ $product->product_cost }} руб.</h4>
-            <p>Описание: {{ Str::limit($product->product_info, 100) }}</p>
-            <p>{{$product->is_product ? "Продукт" : "Услуга"}}</p>
+    <div class="rounded shadow-sm w-100 d-flex flex-column overflow-hidden">
+        <div class="product-card-img" style="height: 200px; overflow: hidden;">
+            <img src="{{ get_image_or_default($product->photo_path) }}"
+                 class="w-100 h-100 object-fit"
+                 alt="{{ $product->product_name }}">
+        </div>
+        <div class="p-3 d-flex flex-column flex-grow-1 catalog">
+            <h5 class="fw-bold mb-2">{{ $product->product_name }}</h5>
+            <h6 class="text-muted mb-1">Исполнитель: {{ $product->user->name ?? 'Не указан' }}</h6>
+            <h5 class="fw-bold mb-2">{{ $product->product_cost }} руб.</h5>
+            <p class="text-muted small mb-1">{{ Str::limit($product->product_info, 100) }}</p>
+            <div class="mb-2">
+                <span class="badge bg-secondary">{{ $product->is_product ? "Продукт" : "Услуга" }}</span>
+            </div>
             <div class="mt-auto d-flex flex-column gap-2">
-
                 @isAdmin
                 <a href="{{ route('product.edit', $product) }}" class="text-decoration-none">
                     <button type="button"
-                            class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                            class="product-card-btn sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                         <span>Редактировать</span>
                     </button>
                 </a>
@@ -30,20 +29,20 @@
                     @csrf
                     @method('DELETE')
                     <button type="submit"
-                            class="sign-out d-flex bg-danger border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                            class="product-card-btn sign-out d-flex bg-danger border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                         <span>Удалить</span>
                     </button>
                 </form>
                 @endisAdmin
+
                 <a href="{{ route('product.show', $product) }}" class="text-decoration-none">
                     <button type="button"
-                            class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center p-2 text-white w-100">
+                            class="product-card-btn sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center p-2 text-white w-100">
                         <span>Подробнее</span>
                     </button>
                 </a>
 
-
-                @if(Auth::user() &&  $product->favourite->contains('user_id', Auth::user()->id))
+                @if(Auth::user() && $product->favourite->contains('user_id', Auth::user()->id))
                     <form action="{{ route('favourite.destroy', $product) }}" method="POST"
                           class="m-0 p-0 d-inline-block lh-1">
                         @csrf
@@ -55,7 +54,6 @@
                                      class="heart-default like">
                                 <img src="{{ asset('img/greyHeart.png') }}" alt="Серый"
                                      class="heart-hover like">
-
                             </div>
                         </button>
                     </form>
@@ -63,8 +61,6 @@
                     <form action="{{ route('favourite.store') }}" method="POST"
                           class="m-0 p-0 d-inline-block lh-1">
                         @csrf
-
-
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <button type="submit" class="border-0 bg-transparent p-0"
                                 title="Добавить в избранное">
@@ -78,7 +74,6 @@
                     </form>
                 @endif
             </div>
-
         </div>
     </div>
 </div>

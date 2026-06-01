@@ -26,6 +26,7 @@ class ProductController extends Controller
      */
     public function __construct(private IImageService $imageService)
     {
+        $this->imageService->setWidth(400);
     }
 
     /**

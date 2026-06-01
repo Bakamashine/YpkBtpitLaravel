@@ -23,7 +23,7 @@ class MainController extends Controller
     {
         $products = Product::with('user', 'ypk', 'statusProduct', 'favourite')
             ->orderByDesc('created_at')
-            ->paginate(5);
+            ->paginate(6);
 
         return view("index", [
             "products" => $products,
