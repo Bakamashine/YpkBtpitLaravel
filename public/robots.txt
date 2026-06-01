@@ -11,3 +11,8 @@ Disallow: /user_management/
 Disallow: /product/create
 Disallow: /product/*/edit
 Disallow: /about_us
+
+
+Crawl-delay: 10
+
+Sitemap: http://ivanfaue.beget.tech/sitemap.xml
