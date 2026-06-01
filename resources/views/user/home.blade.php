@@ -123,13 +123,14 @@
             @else
                 <div class="m-5px row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
                     @foreach($orders as $value)
-                        <x-order-card :order="$value" />
+                        <x-order-card :order="$value" :select_status="false" />
                     @endforeach
                 </div>
 
             @endif
         </section>
 
+        @isManager
         <!-- ======================= товары и услуги редактора/исполнителя ======================= -->
         <section>
             <div class="myBlue rounded-3">
@@ -148,7 +149,7 @@
                 </div>
             @endif
         </section>
-
+        @endisManager
 
         @isAdmin
         <!-- ======================= ШТУКИ АДМИНА!!!!!!!!!!!!!!!!  ======================= -->
