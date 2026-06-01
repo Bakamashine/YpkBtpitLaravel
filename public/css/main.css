@@ -402,6 +402,39 @@ a {
     object-fit: cover;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery-photo,
+.photo-horizontal,
+.adaptive-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.gallery-photo {
+    height: 220px;
+}
+
+.photo-horizontal {
+    max-height: 400px;
+}
+
+.photo-card {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .header__button__text {
     color: white;
     text-decoration: none;
@@ -412,6 +445,21 @@ a {
     justify-content: center;
     align-items: center;
 
+}
+
+.header-icons .mx-1 {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    border-radius: 12px;
+    padding: 4px 8px;
+}
+
+.header-icons .mx-1:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.header-icons .mx-1:active {
+    transform: translateY(0);
 }
 
 .header__image__size {

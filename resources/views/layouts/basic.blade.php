@@ -159,7 +159,7 @@
         <div class="row align-items-center">
             <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
                 <a href="/">
-                    <img src="/img/logo.png" alt="Логотип" class="myImg" style="max-width: 150px;">
+                    <img src="{{ asset('img/logo.png') }}" alt="Логотип" class="myImg" style="max-width: 150px;">
                 </a>
             </div>
             <div class="col-md-4 text-center mb-3 mb-md-0">

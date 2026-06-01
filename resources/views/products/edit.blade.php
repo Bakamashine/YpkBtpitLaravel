@@ -20,7 +20,7 @@
                                 for="photoInput"
                                 class="m-3 newFoto rounded-5 bg-secondary d-flex justify-content-center align-items-center">
                                 <img id="photoPreview"
-                                     src="{{ $product->photo_path ? get_image_or_default($product->photo_path) : '/img/material-symbols_add-a-photo-outline-sharp.png' }}"
+                                     src="{{ $product->photo_path ? get_image_or_default($product->photo_path) : asset('img/material-symbols_add-a-photo-outline-sharp.png') }}"
                                      class="w-25" alt="Изображение товара">
                             </label>
                             <input type="file" name="photo_path" accept="image/*" hidden id="photoInput">

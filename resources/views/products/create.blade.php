@@ -17,7 +17,7 @@
                         <div class="card-body text-center ">
                             <label for="photoInput"
                                    class="m-3 newFoto rounded-5 bg-secondary d-flex justify-content-center align-items-center">
-                                <img id="photoPreview" src="/img/material-symbols_add-a-photo-outline-sharp.png"
+                                <img id="photoPreview" src="{{ asset('img/material-symbols_add-a-photo-outline-sharp.png') }}"
                                      class="w-25"
                                      alt="Изображение товара">
                             </label>
