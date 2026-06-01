@@ -10,12 +10,12 @@
             @csrf
             <h1 class="my-2">Добро пожаловать</h1>
             <h5 class="my-4">Еще нет аккаунта? <a href="{{route('register')}}" class="myA">Создай его</a></h5>
-            <input type="email" placeholder="Ваш email"
-                   value="{{old('email')}}"
-                   name="email"
-                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('email') is-invalid @enderror"
+            <input type="tel" placeholder="Ваш номер телефона"
+                   value="{{old('phone_number')}}"
+                   name="phone_number"
+                   class="w-75 border-0 myGrey rounded my-1 p-1 mySize20 @error('phone_number') is-invalid @enderror"
                    required>
-            @error('email')
+            @error('phone_number')
             <div class="invalid-feedback">
                 {{$message}}
             </div>
