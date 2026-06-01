@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="catalog content">
-        <section class="m-5 catalog">
+    <div class="catalog">
+        <section class="m-5px catalog">
             <h1 class="text-center mb-4">Редактировать статус заказов</h1>
 
             <form method="get" class="d-flex gap-2 mt-3">
