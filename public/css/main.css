@@ -632,6 +632,61 @@ img {
     margin: 5px !important;
 }
 
+.mySearh {
+    position: relative;
+}
+
+#results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    display: none;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#results.show {
+    display: block;
+}
+
+.search-dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    transition: background 0.15s ease;
+    font-size: 0.95rem;
+}
+
+.search-dropdown-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 12px 12px;
+}
+
+.search-dropdown-item:hover {
+    background: #f0f7ff;
+    color: #007bff;
+}
+
+.search-dropdown-item strong {
+    color: #c62828;
+}
+
+.search-dropdown-empty {
+    padding: 14px 16px;
+    color: #999;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+
 /* Mobile font-size fixes */
 @media (max-width: 576px) {
     .btn,
@@ -639,6 +694,8 @@ img {
     .sign-out {
         font-size: 1rem !important;
     }
+
+
 
     .product-card-btn span,
     .sign-out span {

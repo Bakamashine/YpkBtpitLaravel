@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>http://localhost:8000</loc>
+    <title>Главная страница</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/home</loc>
+    <title>Профиль</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/about_us</loc>
+    <title>О нас</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user/detail</loc>
+    <title>Мои данные</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user/edit</loc>
+    <title>Редактировать профиль</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/feedback</loc>
+    <title>Отзывы</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/feedback/create</loc>
+    <title>Оставить отзыв</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/favourite</loc>
+    <title>Избранное</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order_management</loc>
+    <title>Управление заявками</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product</loc>
+    <title>Управление продуктами</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/create</loc>
+    <title>Добавить продукт</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/edit_page</loc>
+    <title>Выбор продукта для редактирования</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user_management</loc>
+    <title>Управление пользователями</title>
+    <min_role>3</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user_management/create</loc>
+    <title>Добавить пользователя</title>
+    <min_role>3</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71e9-73bd-ab7f-cd50a62747d0</loc>
+    <title>veritatis dolore reprehenderit</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71e9-73bd-ab7f-cd50a62747d0/edit</loc>
+    <title>veritatis dolore reprehenderit (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-71e9-73bd-ab7f-cd50a62747d0</loc>
+    <title>Заказать veritatis dolore reprehenderit</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71f0-70b0-b7f6-d2d5b46b1e92</loc>
+    <title>libero ut et</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71f0-70b0-b7f6-d2d5b46b1e92/edit</loc>
+    <title>libero ut et (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-71f0-70b0-b7f6-d2d5b46b1e92</loc>
+    <title>Заказать libero ut et</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71f5-7082-820c-151d9dd9ec1b</loc>
+    <title>earum commodi iure</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71f5-7082-820c-151d9dd9ec1b/edit</loc>
+    <title>earum commodi iure (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-71f5-7082-820c-151d9dd9ec1b</loc>
+    <title>Заказать earum commodi iure</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71fa-7220-9777-83a77c428b93</loc>
+    <title>facere distinctio ullam</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71fa-7220-9777-83a77c428b93/edit</loc>
+    <title>facere distinctio ullam (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-71fa-7220-9777-83a77c428b93</loc>
+    <title>Заказать facere distinctio ullam</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71fe-71d5-a8f1-a638c34ed856</loc>
+    <title>vitae animi aut</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-71fe-71d5-a8f1-a638c34ed856/edit</loc>
+    <title>vitae animi aut (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-71fe-71d5-a8f1-a638c34ed856</loc>
+    <title>Заказать vitae animi aut</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7203-7008-883d-0307cfbd0688</loc>
+    <title>et suscipit voluptate</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7203-7008-883d-0307cfbd0688/edit</loc>
+    <title>et suscipit voluptate (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7203-7008-883d-0307cfbd0688</loc>
+    <title>Заказать et suscipit voluptate</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7208-7276-a7f9-c85004b77dce</loc>
+    <title>sequi quam eius</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7208-7276-a7f9-c85004b77dce/edit</loc>
+    <title>sequi quam eius (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7208-7276-a7f9-c85004b77dce</loc>
+    <title>Заказать sequi quam eius</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-720c-70bd-bb32-11d8ad3e4ae2</loc>
+    <title>asperiores accusantium et</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-720c-70bd-bb32-11d8ad3e4ae2/edit</loc>
+    <title>asperiores accusantium et (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-720c-70bd-bb32-11d8ad3e4ae2</loc>
+    <title>Заказать asperiores accusantium et</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7210-7004-bed1-21d625c2c029</loc>
+    <title>consequatur quis dicta</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7210-7004-bed1-21d625c2c029/edit</loc>
+    <title>consequatur quis dicta (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7210-7004-bed1-21d625c2c029</loc>
+    <title>Заказать consequatur quis dicta</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7214-72ed-97ef-f98b71a6ca91</loc>
+    <title>magnam sit ex</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7214-72ed-97ef-f98b71a6ca91/edit</loc>
+    <title>magnam sit ex (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7214-72ed-97ef-f98b71a6ca91</loc>
+    <title>Заказать magnam sit ex</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7219-7270-a2fc-2aab5ec00a95</loc>
+    <title>et aut doloremque</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7219-7270-a2fc-2aab5ec00a95/edit</loc>
+    <title>et aut doloremque (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7219-7270-a2fc-2aab5ec00a95</loc>
+    <title>Заказать et aut doloremque</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-721d-72de-b368-ee7a277c3746</loc>
+    <title>consequatur labore eos</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-721d-72de-b368-ee7a277c3746/edit</loc>
+    <title>consequatur labore eos (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-721d-72de-b368-ee7a277c3746</loc>
+    <title>Заказать consequatur labore eos</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7222-7217-8749-a5d50e2fd87e</loc>
+    <title>et qui aut</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7222-7217-8749-a5d50e2fd87e/edit</loc>
+    <title>et qui aut (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7222-7217-8749-a5d50e2fd87e</loc>
+    <title>Заказать et qui aut</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7226-703e-9aa6-c0d7ca0dd89f</loc>
+    <title>vel qui fuga</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7226-703e-9aa6-c0d7ca0dd89f/edit</loc>
+    <title>vel qui fuga (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7226-703e-9aa6-c0d7ca0dd89f</loc>
+    <title>Заказать vel qui fuga</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-722a-72f2-adf6-4f30460aff79</loc>
+    <title>porro incidunt quod</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-722a-72f2-adf6-4f30460aff79/edit</loc>
+    <title>porro incidunt quod (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-722a-72f2-adf6-4f30460aff79</loc>
+    <title>Заказать porro incidunt quod</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-722e-7079-9962-96fd67ec0d8b</loc>
+    <title>voluptatem dicta eum</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-722e-7079-9962-96fd67ec0d8b/edit</loc>
+    <title>voluptatem dicta eum (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-722e-7079-9962-96fd67ec0d8b</loc>
+    <title>Заказать voluptatem dicta eum</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7233-7067-8634-b7bbb95195ef</loc>
+    <title>molestias eos et</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7233-7067-8634-b7bbb95195ef/edit</loc>
+    <title>molestias eos et (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7233-7067-8634-b7bbb95195ef</loc>
+    <title>Заказать molestias eos et</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7238-70a6-8cad-99500257a0f8</loc>
+    <title>explicabo aut eveniet</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7238-70a6-8cad-99500257a0f8/edit</loc>
+    <title>explicabo aut eveniet (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7238-70a6-8cad-99500257a0f8</loc>
+    <title>Заказать explicabo aut eveniet</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-723c-70f5-88f1-62d8b4c17846</loc>
+    <title>provident ad quisquam</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-723c-70f5-88f1-62d8b4c17846/edit</loc>
+    <title>provident ad quisquam (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-723c-70f5-88f1-62d8b4c17846</loc>
+    <title>Заказать provident ad quisquam</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7240-705b-8870-c86ec3e4c9c2</loc>
+    <title>alias vel mollitia</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e826f-7240-705b-8870-c86ec3e4c9c2/edit</loc>
+    <title>alias vel mollitia (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e826f-7240-705b-8870-c86ec3e4c9c2</loc>
+    <title>Заказать alias vel mollitia</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e82a4-9562-719b-bbd9-e6a8ce5de99b</loc>
+    <title>123</title>
+    <min_role>0</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/product/019e82a4-9562-719b-bbd9-e6a8ce5de99b/edit</loc>
+    <title>123 (ред.)</title>
+    <min_role>2</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/create/019e82a4-9562-719b-bbd9-e6a8ce5de99b</loc>
+    <title>Заказать 123</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/order/019e82f3-d325-7147-b3c7-fa6ef2e7cd64</loc>
+    <title>Заказ #019e82f3-d325-7147-b3c7-fa6ef2e7cd64</title>
+    <min_role>1</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user_management/019e826f-6a42-7166-b5a5-3672c408da36/edit</loc>
+    <title>Default User (ред.)</title>
+    <min_role>3</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user_management/019e826f-6b50-71d7-b71b-c7013e989101/edit</loc>
+    <title>Manager (ред.)</title>
+    <min_role>3</min_role>
+  </url>
+  <url>
+    <loc>http://localhost:8000/user_management/019e826f-6c63-703c-a3e7-30f321c8db8c/edit</loc>
+    <title>Admin (ред.)</title>
+    <min_role>3</min_role>
+  </url>
+</urlset>
