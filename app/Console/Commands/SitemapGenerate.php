@@ -19,22 +19,27 @@ class SitemapGenerate extends Command
      */
     public function handle(): void
     {
-        Sitemap::create()
-            ->add(config("app.url"))
-            ->add(Url::create("/home")
-                ->setLastModificationDate(Carbon::yesterday()))
-            ->add(Url::create(route("about_us")))
-            ->add(Product::all())
-            ->writeToFile(public_path("sitemap.xml"));
+        $sitemap = Sitemap::create()
+            ->add(Url::create(config('app.url'))
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                ->setPriority(1.0))
+            ->add(Url::create('/home')
+                ->setLastModificationDate(Carbon::yesterday())
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                ->setPriority(0.8))
+            ->add(Url::create('/about_us')
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                ->setPriority(0.5));
 
-//        "about_us"
-//            |> route(...)
-//            |> Url(...)
-//            |> Sitemap::create()
-//            ->add(config("app.url"))
-//            ->add(Url::create("/home")
-//                ->setLastModificationDate(Carbon::yesterday()))(...)
-//             ->add(Product::all())
-//            ->writeToFile(public_path("sitemap.xml"));
+        Product::all()->each(function (Product $product) use ($sitemap) {
+            $sitemap->add(
+                Url::create("/product/{$product->id}")
+                    ->setLastModificationDate($product->updated_at)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                    ->setPriority(0.6),
+            );
+        });
+
+        $sitemap->writeToFile(public_path('sitemap.xml'));
     }
 }
