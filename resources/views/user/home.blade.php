@@ -109,8 +109,13 @@
 
         <!-- ======================= Заказы обычного пользователя ======================= -->
         <section class="order">
-            <div class="myBlue rounded-3">
-                <h1 class="p-3 text-white nameBlock">Заказы</h1>
+            <div class="myBlue rounded-3 d-flex justify-content-between align-items-center">
+                <h1 class="p-3 text-white nameBlock mb-0">Заказы</h1>
+                @isManager
+                    <a href="{{ route('order_management.index') }}" class="btn btn-light btn-sm me-3">
+                        Управление заказами
+                    </a>
+                @endisManager
             </div>
 
             @if($orders->count() == 0)

@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function show(Order $order)
+    {
+        $order->load('customer', 'executor', 'product', 'statusOrder');
+        $statuses = StatusOrder::all();
+
+        return view('orders.show', compact('order', 'statuses'));
+    }
+
     public function create(Product $product)
     {
         return view('orders.create', compact('product'));

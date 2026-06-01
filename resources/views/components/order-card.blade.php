@@ -1,8 +1,6 @@
-@props(['order'])
+@props(['order', 'statuses' => null])
 
 <div class="col d-flex">
-    <a href="{{ route('user.detail', $order->user) }}"
-       class="text-decoration-none text-black card-button w-100">
         <div class="rounded shadow w-100 d-flex flex-column overflow-hidden">
             <div class="product-card-img" style="height: 200px; overflow: hidden;">
                 <img src="{{ get_image_or_default($order->product->photo_path) }}"
@@ -15,7 +13,29 @@
                 <p class="text-muted small mb-1">{{ $order->date?->format('d.m.Y') }}</p>
                 <p class="text-muted small mb-1">{{ $order->statusOrder->status_name ?? 'Статус' }}</p>
                 <p class="text-muted small mb-0">{{ $order->product->user->phone_number ?? 'Телефон' }}</p>
+
+                @isManager
+                    <hr class="my-2">
+                    <form method="POST" action="{{ route('order_management.update-status', $order) }}"
+                          onclick="event.stopPropagation()">
+                        @csrf
+                        @method('PATCH')
+                        <div class="input-group input-group-sm">
+                            <select name="status_order_id" class="form-select form-select-sm">
+                                @foreach($statuses ?? \App\Models\StatusOrder::all() as $status)
+                                    <option value="{{ $status->id }}"
+                                        {{ $order->status_order_id === $status->id ? 'selected' : '' }}>
+                                        {{ $status->status_name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <button class="btn btn-outline-primary btn-sm" type="submit">OK</button>
+                        </div>
+                    </form>
+                <div class="my-2">
+                    <a href="{{route('order.show', $order)}}" class="btn btn-info text-white">Подробнее</a>
+                </div>
+                @endisManager
             </div>
         </div>
-    </a>
 </div>

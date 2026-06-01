@@ -43,6 +43,7 @@ Route::middleware(["auth", 'banned'])
             ->group(function () {
                 Route::get('create/{product}', 'create')->name('.create');
                 Route::post('', 'store')->name('.store');
+                Route::get('{order}', 'show')->name('.show');
             });
 
         // Избранное
