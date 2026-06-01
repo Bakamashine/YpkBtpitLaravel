@@ -33,7 +33,7 @@ Route::middleware(["auth", 'banned'])
                 Route::get("create", "create")->name('.create');
                 Route::post("", "store")->name('.store');
                 Route::delete("{feedback}", 'destroy')->name('.destroy')
-                    ->middleware(\App\Http\Middleware\AdminMiddleware::class);
+                    ->middleware('manager');
             });
 
         // Заказы
@@ -57,7 +57,7 @@ Route::middleware(["auth", 'banned'])
 
 
         // Для администратора
-        Route::middleware('admin')
+        Route::middleware('manager')
             ->group(function () {
                 Route::controller(YpkController::class)
                     ->prefix('ypk')
@@ -95,6 +95,8 @@ Route::middleware(["auth", 'banned'])
 
                 // Управление пользователями
                 Route::controller(UserController::class)
+                    ->middleware("admin")
+                    ->withoutMiddleware('manager')
                     ->prefix('user_management')
                     ->name('user_management')
                     ->group(function () {

@@ -13,6 +13,8 @@ use App\Services\ImageService;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
 
@@ -34,15 +36,27 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrapFive();
-        \Blade::directive('isAdmin', function () {
+        Blade::directive('isAdmin', function () {
             return "<?php if(auth()->check() && auth()->user()->isAdmin()): ?>";
         });
 
-        \Blade::directive('endisAdmin', function () {
+        Blade::directive('endisAdmin', function () {
             return "<?php endif; ?>";
         });
 
-        \Gate::define('admin', function (User $user) {
+        Blade::directive("isManager", function () {
+            return "<?php if(auth()->check() && auth()->user()->isAdminOrManager()): ?>";
+        });
+
+        Blade::directive("endisManager", function () {
+            return "<?php endif; ?>";
+        });
+
+
+        Gate::define("manager", function (User $user) {
+            return $user->isAdminOrManager();
+        });
+        Gate::define('admin', function (User $user) {
             return $user->isAdmin();
         });
 

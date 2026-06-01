@@ -21,7 +21,7 @@
             <div>
                 <button class=" w-75 rounded-4 mySize20 myLightBlue text-white p-2 border-0 m-2">Войти</button>
             </div>
-            <a href="NumberLogin.html" class="myA">Забыли пароль?</a>
+{{--            <a href="NumberLogin.html" class="myA">Забыли пароль?</a>--}}
         </form>
     </section>
 @endsection

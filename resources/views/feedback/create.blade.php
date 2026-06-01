@@ -5,41 +5,42 @@
 @endsection
 
 @section('content')
-    <section class="mx-4 catalog profile">
-        <div>
-            <div class="text-center">
-                <h1>Оставить отзыв</h1>
-            </div>
-            <div class="myInfoCard catalog addProduct d-flex align-items-center justify-content-center">
-                <div class="mb-3">
-                    <form method="POST" action="{{ route('feedback.store') }}" class="newTovar">
-                        @csrf
-                        <div class="card-body text-center">
+    <section class="catalog profile">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0 rounded-3">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4">Оставить отзыв</h4>
 
-                            <div class="mb-3">
-                                <select name="rating"
-                                        class="border-0 rounded-4 backColorGre1 w-100 px-3 text-muted @error('rating') is-invalid @enderror">
-                                    <option selected disabled>Оценка</option>
-                                    @for ($i = 1; $i <= 5; $i++)
-                                        <option value="{{ $i }}" @selected(old('rating') == $i)>{{ $i }}</option>
-                                    @endfor
-                                </select>
-                            </div>
+                            <form method="POST" action="{{ route('feedback.store') }}">
+                                @csrf
 
-                            <div class="mb-3">
-                            <textarea name="comment"
-                                      class="border-0 rounded-4 backColorGre1 w-100 px-3 @error('comment') is-invalid @enderror"
-                                      placeholder="Комментарий" rows="6">{{ old('comment') }}</textarea>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="rating" class="form-label fw-semibold">Оценка <span class="text-danger">*</span></label>
+                                    <select id="rating" name="rating"
+                                            class="form-select @error('rating') is-invalid @enderror">
+                                        <option selected disabled>Выберите оценку</option>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <option value="{{ $i }}" @selected(old('rating') == $i)>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
 
+                                <div class="mb-4">
+                                    <label for="comment" class="form-label fw-semibold">Комментарий <span class="text-danger">*</span></label>
+                                    <textarea id="comment" name="comment" rows="6"
+                                              class="form-control @error('comment') is-invalid @enderror"
+                                              placeholder="Напишите ваш отзыв">{{ old('comment') }}</textarea>
+                                </div>
+
+                                <div class="d-flex justify-content-end gap-2">
+                                    <a href="{{ route('feedback.index') }}" class="btn btn-secondary">Назад</a>
+                                    <button type="submit" class="btn btn-primary px-4">Сохранить</button>
+                                </div>
+                            </form>
                         </div>
-
-                        <div class="d-flex justify-content-center">
-                            <button type="submit"
-                                    class="w-50 myButton rounded-4 myBlue text-white p-2">Сохранить
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

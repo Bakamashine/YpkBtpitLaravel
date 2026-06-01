@@ -83,6 +83,15 @@
                                 <p class="header__button__text">О нас</p>
                             </a>
                         </div>
+
+                            <div class="mx-1 text-center">
+                                <a href="{{route('feedback.index')}}" class="text-decoration-none">
+                                    <img class="header__image__size"
+                                         src="{{asset('img/comment.png')}}"
+                                         alt="Комментарии"/>
+                                    <p class="header__button__text">Отзывы</p>
+                                </a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -144,7 +153,7 @@
             </a>
         </div>
         <div class="nav-icon text-center">
-            <a href="" class="text-decoration-none">
+            <a href="{{route('about_us')}}" class="text-decoration-none">
                 <img src="{{asset('img/material-symbols_info-outline-rounded1.png')}}" alt="О нас"/>
                 <div>
                     <span class="text-decoration-none text-white">О нас</span>
@@ -168,7 +177,7 @@
                 <p class="text-white mb-0">&copy; {{ date('Y') }} Все права защищены</p>
             </div>
             <div class="col-md-4 text-center text-md-end">
-                <a href="/college.html" class="text-white text-decoration-none">О колледже</a>
+                <a href="{{route('about_us')}}" class="text-white text-decoration-none">О колледже</a>
             </div>
         </div>
     </div>

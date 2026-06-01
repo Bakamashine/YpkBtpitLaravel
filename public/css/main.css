@@ -1,3 +1,83 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/font/roboto/Roboto-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
 * {
     text-decoration: none;
 }
@@ -22,12 +102,20 @@ body {
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     width: 100%;
 }
+
+button, input, select, textarea, a {
+    font-family: inherit;
+}
+
+
+
 
 main {
     flex: 1;
@@ -132,29 +220,29 @@ a {
 }
 
 @media (max-width: 576px) {
-    .mySearh input {
+    .mySearch input {
         font-size: 14px;
         height: 45px !important;
         padding: 0 8px;
     }
 
-    .mySearh button {
+    .mySearch button {
         padding: 6px 12px;
         font-size: 14px;
     }
 
-    .mySearh img {
+    .mySearch img {
         width: 40px;
         height: 40px;
     }
 
     .like {
-        width: 30px;
+        width: 36px;
         height: auto;
     }
 
     .mobile-bottom-nav a {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 
     footer {
@@ -167,25 +255,25 @@ a {
         width: 80px;
     }
 
-    .mySearh input {
+    .mySearch input {
         font-size: 10px;
         max-height: 30px !important;
         padding: 0 8px;
     }
 
-    .mySearh button {
+    .mySearch button {
         padding: 6px 12px;
         font-size: 12px;
         margin: 1px;
     }
 
-    .mySearh img {
+    .mySearch img {
         width: 30px;
         height: 30px;
     }
 
     .like {
-        width: 20px;
+        width: 32px;
         height: auto;
     }
 
@@ -237,7 +325,7 @@ a {
 
     .catalog p,
     .catalog textarea {
-        font-size: 0.4rem;
+        font-size: 1rem;
     }
 
     .catalog button {
@@ -325,8 +413,8 @@ a {
 
 
 .avatar {
-    width: 300px;
-    height: 300px;
+    width: 20%;
+    height: 20%;
 }
 
 .edit {
@@ -496,6 +584,11 @@ img {
 }
 
 /* Product card button hover effects */
+.like {
+    width: 36px;
+    height: auto;
+}
+
 .product-card-btn {
     transition: filter 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -535,4 +628,37 @@ img {
     opacity: 0;
 }
 
+.m-5px {
+    margin: 5px !important;
+}
 
+/* Mobile font-size fixes */
+@media (max-width: 576px) {
+    .btn,
+    .product-card-btn,
+    .sign-out {
+        font-size: 1rem !important;
+    }
+
+    .product-card-btn span,
+    .sign-out span {
+        font-size: 0.95rem;
+    }
+
+    .catalog h5,
+    .catalog h6,
+    .catalog p,
+    .catalog h3,
+    .catalog h4,
+    .card-body.catalog p,
+    .card-body.catalog h3,
+    .card-body.catalog h4,
+    .card-body.catalog h5,
+    .card-body.catalog h6 {
+        font-size: 1rem;
+    }
+
+    p.small {
+        font-size: 0.95rem;
+    }
+}

@@ -118,18 +118,18 @@ a {
 
 @media (max-width: 576px) {
 
-    .mySearh input {
+    .mySearch input {
         font-size: 14px;
         height: 45px !important;
         padding: 0 8px;
     }
 
-    .mySearh button {
+    .mySearch button {
         padding: 6px 12px;
         font-size: 14px;
     }
 
-    .mySearh img {
+    .mySearch img {
         width: 40px;
         height: 40px;
     }
@@ -154,19 +154,19 @@ a {
         width: 80px;
     }
 
-    .mySearh input {
+    .mySearch input {
         font-size: 10px;
         max-height: 30px !important;
         padding: 0 8px;
     }
 
-    .mySearh button {
+    .mySearch button {
         padding: 6px 12px;
         font-size: 12px;
         margin: 1px;
     }
 
-    .mySearh img {
+    .mySearch img {
         width: 30px;
         height: 30px;
     }

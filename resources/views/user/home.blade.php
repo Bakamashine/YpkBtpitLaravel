@@ -44,7 +44,7 @@
                             </button>
                         </a>
                         <!-- ======================= Исполнитель кнопки======================= -->
-                        @isAdmin
+                        @isManager
                         <!-- добавь товары/услуги -->
                         <a href="{{ route('product.create') }}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
@@ -62,20 +62,24 @@
                             </button>
                         </a>
 
-                        <!-- Управление пользователями -->
-                        <a href="{{ route('user_management.index') }}"
-                           class="text-decoration-none flex-grow-1 flex-md-grow-0">
-                            <button type="button"
-                                    class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
-                                <span>Управление пользователями</span>
-                            </button>
-                        </a>
 
                         <!-- Управление заказами -->
                         <a href="{{route('order_management.index')}}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                                 <span>Управление заказами</span>
+                            </button>
+                        </a>
+                        @endisManager
+
+
+                        @isAdmin
+                        <!-- Управление пользователями -->
+                        <a href="{{ route('user_management.index') }}"
+                           class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                            <button type="button"
+                                    class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
+                                <span>Управление пользователями</span>
                             </button>
                         </a>
                         @endisAdmin
@@ -109,32 +113,16 @@
                 <h1 class="p-3 text-white nameBlock">Заказы</h1>
             </div>
 
-            @empty($orders)
+            @if($orders->count() == 0)
                 <p class="text-center">Заказов нет</p>
             @else
-                <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+                <div class="m-5px row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
                     @foreach($orders as $value)
-                        <!-- основная карточка -->
-                        <div class="col d-flex">
-                            <a href="{{ route('user.detail', $value->user) }}"
-                               class="text-decoration-none text-black card-button">
-                                <div class="rounded shadow p-3 w-100">
-                                    <img src="{{ get_image_or_default($value->product->photo_path) }}"
-                                         class="card-img-top" alt="...">
-                                    <div class="card-body catalog">
-                                        <h3 class="card-title">{{ $value->product->product_name }}</h3>
-                                        <h5>{{ $value->product->user->name ?? 'Исполнитель' }}</h5>
-                                        <h4>{{ $value->product->product_cost }} руб.</h4>
-                                        <p>{{ $value->date?->format('d.m.Y') }}</p>
-                                        <p>{{ $value->statusOrder->status_name ?? 'Статус' }}</p>
-                                        <p>{{ $value->product->user->phone_number ?? 'Телефон' }}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        <x-order-card :order="$value" />
                     @endforeach
                 </div>
-            @endempty
+
+            @endif
         </section>
 
         <!-- ======================= товары и услуги редактора/исполнителя ======================= -->
@@ -143,17 +131,17 @@
                 <h1 class="p-3 text-white nameBlock">Ваши товары и услуги</h1>
             </div>
 
-            @empty($favourite_products)
+            @if($favourite_products->count() == 0)
                 <p class="text-center">Ваших товаров или услуг нет</p>
             @else
-                <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
+                <div class="m-5px row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
 
 
                     @foreach($favourite_products as $value)
-                        <x-product-card :product="$value"/>
+                        <x-product-card :product="$value" :like_button="false"/>
                     @endforeach
                 </div>
-            @endempty
+            @endif
         </section>
 
 

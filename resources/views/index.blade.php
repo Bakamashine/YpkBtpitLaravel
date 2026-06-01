@@ -5,7 +5,7 @@
 
 @section("content")
     <div class="catalog content">
-        <section class="m-5 catalog">
+        <section class="m-5px catalog">
             <h1>Услуги и товары</h1>
             @if (count($products) > 0)
                 <div class="row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">

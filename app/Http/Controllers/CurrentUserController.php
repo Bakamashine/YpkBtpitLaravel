@@ -28,7 +28,7 @@ class CurrentUserController extends Controller
         $ypk = Ypk::all();
 
         $orders = $current_user->executorOrders()->paginate(6);
-        $favourite_products = $current_user->products()->paginate(6);
+        $favourite_products = $current_user->products()->with('favourite')->paginate(6);
         return view('user.home', [
             'current_user' => $current_user,
             'ypk' => $ypk,

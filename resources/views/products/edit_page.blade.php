@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="catalog content">
-        <section class="m-5 catalog text-center">
+        <section class="m-5px catalog text-center">
             <h1>Редактировать услуги и товары</h1>
             <form method="get" class="d-flex gap-2">
                 <input name="search" value="{{ request('search') }}" class="form-control" type="search"
