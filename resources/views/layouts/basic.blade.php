@@ -35,7 +35,7 @@
             </a>
 
             <div class="mySearh flex-grow-1 mx-3">
-                <input class="form-control" type="search" id="search" placeholder="Поиск..." aria-label="Поиск"
+                <input class="form-control" autocomplete="off" type="search" id="search" placeholder="Поиск..." aria-label="Поиск"
                        data-role="{{ auth()->check() ? (auth()->user()->isAdmin() ? 3 : (auth()->user()->isAdminOrManager() ? 2 : 1)) : 0 }}"/>
 
                 <div id="results"></div>
