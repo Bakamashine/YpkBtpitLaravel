@@ -13,7 +13,6 @@
 
         <form method="POST" action="{{ route('user_management.store') }}" enctype="multipart/form-data" class="my-5">
             @csrf
-
             <div class="mx-auto" style="max-width: 600px;">
                 <div class="d-flex align-items-start gap-4 mb-4">
                     <label for="avatar">
@@ -22,18 +21,12 @@
                     <input type="file" name="avatar" id="avatar" accept="image/*" hidden>
                     <div class="text-muted small">Нажмите на изображение, чтобы загрузить аватар</div>
                 </div>
-                @error('avatar')
-                <div class="text-danger small mb-3">{{ $message }}</div>
-                @enderror
 
                 <div class="mb-3">
                     <label class="form-label">ФИО <span class="text-danger">*</span></label>
                     <input type="text" name="name" value="{{ old('name') }}"
                            class="form-control @error('name') is-invalid @enderror"
                            placeholder="Введите ФИО">
-                    @error('name')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -41,9 +34,6 @@
                     <input type="tel" name="phone_number" value="{{ old('phone_number') }}"
                            class="form-control @error('phone_number') is-invalid @enderror"
                            placeholder="Введите номер телефона" inputmode="numeric">
-                    @error('phone_number')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -51,9 +41,6 @@
                     <input type="email" name="email" value="{{ old('email') }}"
                            class="form-control @error('email') is-invalid @enderror"
                            placeholder="Введите email">
-                    @error('email')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -61,9 +48,6 @@
                     <input type="password" name="password"
                            class="form-control @error('password') is-invalid @enderror"
                            placeholder="Минимум 8 символов">
-                    @error('password')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -76,9 +60,6 @@
                             </option>
                         @endforeach
                     </select>
-                    @error('role_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -91,9 +72,6 @@
                             </option>
                         @endforeach
                     </select>
-                    @error('ypk_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -101,9 +79,6 @@
                     <textarea name="user_info" rows="3"
                               class="form-control @error('user_info') is-invalid @enderror"
                               placeholder="Введите дополнительную информацию">{{ old('user_info') }}</textarea>
-                    @error('user_info')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="mb-4 form-check">
@@ -111,9 +86,6 @@
                            class="form-check-input @error('is_active') is-invalid @enderror"
                         @checked(old('is_active', true))>
                     <label class="form-check-label" for="is_active">Пользователь активен</label>
-                    @error('is_active')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="d-flex gap-3">

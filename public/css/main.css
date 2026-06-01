@@ -407,6 +407,27 @@ img {
     height: auto;
 }
 
+.alert-slide-wrapper {
+    animation: slideDown 0.35s ease-out;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+}
+
+.alert-slide-wrapper .alert ul {
+    padding-left: 1.25rem;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .gallery-photo,
 .photo-horizontal,
 .adaptive-photo {

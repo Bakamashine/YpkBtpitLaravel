@@ -7,8 +7,6 @@
 @section('content')
     <section class="catalog content">
         <div class="container">
-            <x-alert />
-
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="myInfoCard catalog addProduct p-4">

@@ -9,9 +9,6 @@
         <section class="m-5 catalog">
             <h1 class="text-center mb-4">Редактировать статус заказов</h1>
 
-            <x-alert/>
-
-
             <form method="get" class="d-flex gap-2 mt-3">
                 <input name="search" value="{{ request('search') }}" class="form-control" type="search"
                        placeholder="Поиск по названию товара или заказчику" aria-label="Поиск"

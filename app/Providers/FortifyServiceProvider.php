@@ -8,6 +8,7 @@ use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -55,5 +56,17 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::registerView("auth.register");
         Fortify::loginView("auth.login");
+
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = \App\Models\User::where('phone_number', $request->phone_number)->first();
+
+            if ($user &&
+                $user->is_active &&
+                Hash::check($request->password, $user->password)
+            ) {
+                return $user;
+            }
+        });
     }
 }

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
-    <title>@yield('title') :: {{ env('APP_NAME') }}</title>
+    <title>@yield('title') :: {{ env('APP_NAME', "Laravel") }}</title>
 </head>
 
 <body>
@@ -99,6 +99,8 @@
             {{ Breadcrumbs::render() }}
         </div>
     @endif
+
+    <x-alert :errors="$errors" />
 
     @yield('content')
 

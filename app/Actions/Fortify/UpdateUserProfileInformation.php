@@ -43,7 +43,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'email' => ['nullable', 'email', Rule::unique('users')->ignore($user->id)],
             'user_info' => ['nullable', 'string'],
             'avatar' => ['nullable', 'image', 'mimetypes:image/jpeg,image/jpg,image/png,image/webp'],
-        ])->validateWithBag('updateProfileInformation');
+        ])->validate();
 
         $user->forceFill([
             'name' => $input['name'],

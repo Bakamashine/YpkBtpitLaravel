@@ -127,4 +127,17 @@ class UserController extends Controller
 
         return to_route('user_management.index');
     }
+
+    /**
+     * Деактивировать / активировать пользователя.
+     *
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleActive(User $user)
+    {
+        $user->update(['is_active' => !$user->is_active]);
+
+        return to_route('user_management.edit', $user);
+    }
 }

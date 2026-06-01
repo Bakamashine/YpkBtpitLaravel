@@ -60,7 +60,9 @@ class AuthController extends Controller
     {
         /** @var User $found_user */
         $found_user = User::where('phone_number', $request->phoneNumber)->first();
-        if ($found_user && \Hash::check($request->password, $found_user->password)) {
+        if ($found_user &&
+            $found_user->is_active &&
+            \Hash::check($request->password, $found_user->password)) {
             return $this->generateTokens($found_user);
         }
         return response(status: 401);

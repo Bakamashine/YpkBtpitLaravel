@@ -24,18 +24,12 @@
                                         <option value="{{ $i }}" @selected(old('rating') == $i)>{{ $i }}</option>
                                     @endfor
                                 </select>
-                                @error('rating')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="mb-3">
                             <textarea name="comment"
                                       class="border-0 rounded-4 backColorGre1 w-100 px-3 @error('comment') is-invalid @enderror"
                                       placeholder="Комментарий" rows="6">{{ old('comment') }}</textarea>
-                                @error('comment')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
                             </div>
 
                         </div>

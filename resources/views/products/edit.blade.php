@@ -24,36 +24,24 @@
                                      class="w-25" alt="Изображение товара">
                             </label>
                             <input type="file" name="photo_path" accept="image/*" hidden id="photoInput">
-                            @error('photo_path')
-                            <div class="text-danger small">{{ $message }}</div>
-                            @enderror
 
                             <div class="my-5">
                                 <div class="mb-3">
                                     <input type="text" name="product_name" placeholder="Название"
                                            value="{{ old('product_name', $product->product_name) }}"
                                            class="border-0 rounded-4 backColorGre1 w-100 px-3 @error('product_name') is-invalid @enderror">
-                                    @error('product_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <input type="text" name="product_cost" placeholder="Стоимость"
                                            value="{{ old('product_cost', $product->product_cost) }}"
                                            class="border-0 rounded-4 backColorGre1 w-100 px-3 @error('product_cost') is-invalid @enderror">
-                                    @error('product_cost')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <input type="text" name="address" placeholder="Адрес"
                                            value="{{ old('address', $product->address) }}"
                                            class="border-0 rounded-4 backColorGre1 w-100 px-3 @error('address') is-invalid @enderror">
-                                    @error('address')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
@@ -66,9 +54,6 @@
                                                 {{ $ypk->ypk_name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('ypk_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
@@ -81,17 +66,11 @@
                                                 {{ $status->status_name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('status_product_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <textarea name="product_info" placeholder="Доп инфа" rows="3"
                                               class="border-0 rounded-4 backColorGre1 w-100 px-3 @error('product_info') is-invalid @enderror">{{ old('product_info', $product->product_info) }}</textarea>
-                                    @error('product_info')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
                                 </div>
 
                                 <div class="mb-4 d-flex justify-content-around gap-4">

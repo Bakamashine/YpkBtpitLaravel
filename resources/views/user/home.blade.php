@@ -170,11 +170,6 @@
                     <input name="ypk_name" type="text" placeholder="Введите новый тип услуги или продукта"
                            class=" border-0 rounded-4 backColorGre1 p-3 w-100 @error('ypk_name') is-invalid @enderror"
                            style="height: 100%;">
-                    @error('ypk_name')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
                 </div>
                 <div class="w-25">
                     <button

@@ -10,7 +10,7 @@ Route::controller(\App\Http\Controllers\MainController::class)
         Route::get("/", 'index')->name("main");
     });
 
-Route::middleware("auth")
+Route::middleware(["auth", 'banned'])
     ->group(function () {
         Route::controller(\App\Http\Controllers\CurrentUserController::class)
             ->group(function () {
@@ -104,6 +104,7 @@ Route::middleware("auth")
                         Route::get('{user}/edit', 'edit')->name('.edit');
                         Route::put('{user}', 'update')->name('.update');
                         Route::delete('{user}', 'destroy')->name('.destroy');
+                        Route::patch('{user}/toggle-active', 'toggleActive')->name('.toggle-active');
                     });
             });
     });

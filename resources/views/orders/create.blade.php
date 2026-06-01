@@ -34,9 +34,6 @@
                                 <textarea name="customers_comment" id="customers_comment" rows="5"
                                           class="form-control @error('customers_comment') is-invalid @enderror"
                                           placeholder="Укажите удобное время, адрес доставки или другие пожелания...">{{ old('customers_comment') }}</textarea>
-                                @error('customers_comment')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="d-flex gap-3">
