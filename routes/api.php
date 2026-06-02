@@ -34,6 +34,16 @@ Route::middleware("auth:sanctum")
             ->group(function () {
                 Route::get("auth/me", 'me');
                 Route::get("auth/me/all", 'meAll');
+                Route::prefix('user')
+                    ->group(function () {
+                        Route::get("all", 'getAll')->middleware('admin');
+                        Route::post("", 'create')->middleware('admin');
+                        Route::put('admin', 'updateUserForAdmin')->middleware('admin');
+                        Route::put("", 'updateUser');
+                        Route::put('current', 'updateCurrentUser');
+                        Route::delete("{user}", 'destroy')->middleware('admin');
+                        Route::get("{user}", 'getById');
+                    });
             });
 
         Route::controller(\App\Http\Controllers\Api\FeedbackController::class)
@@ -144,3 +154,5 @@ Route::controller(\App\Http\Controllers\Api\OrderController::class)
             });
 
     });
+
+

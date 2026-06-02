@@ -27,7 +27,7 @@ class StoreApiRegisterRequest extends FormRequest
     {
         return [
             'fullName' => 'required|string',
-            'phoneNumber' => 'required|string',
+            'phoneNumber' => ['required', 'string', 'regex:/^\+7\d{10}$/', 'unique:users,phone_number'],
             'password' => 'required|string'
         ];
     }

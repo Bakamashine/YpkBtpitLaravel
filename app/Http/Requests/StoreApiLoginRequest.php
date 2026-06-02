@@ -25,7 +25,7 @@ class StoreApiLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'phoneNumber' => 'required|string',
+            'phoneNumber' => ['required', 'string', 'regex:/^\+7\d{10}$/'],
             'password' => 'required|string'
         ];
     }

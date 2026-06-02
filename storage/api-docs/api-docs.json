@@ -915,6 +915,98 @@
             }
         },
         "/api/order": {
+            "put": {
+                "tags": [
+                    "Заказы"
+                ],
+                "summary": "Обновить заказ (админ/менеджер)",
+                "operationId": "8ddae29a864e6f507d59c42e3d08715c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "productId": {
+                                        "type": "string"
+                                    },
+                                    "statusOrderId": {
+                                        "type": "string"
+                                    },
+                                    "executorId": {
+                                        "type": "string"
+                                    },
+                                    "customersComment": {
+                                        "type": "string"
+                                    },
+                                    "userComment": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Обновлено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "executorId": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "customerId": {
+                                            "type": "string"
+                                        },
+                                        "date": {
+                                            "type": "string"
+                                        },
+                                        "statusName": {
+                                            "type": "string"
+                                        },
+                                        "customersName": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "userComment": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "productDto": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    },
+                    "404": {
+                        "description": "Не найдено"
+                    },
+                    "422": {
+                        "description": "Ошибка валидации"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
             "post": {
                 "tags": [
                     "Заказы"
@@ -1336,80 +1428,12 @@
             }
         },
         "/api/product": {
-            "post": {
-                "tags": [
-                    "Товары"
-                ],
-                "summary": "Создать товар",
-                "operationId": "f6c6fa48346dd08aae3060e1e8765913",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "ProductName": {
-                                        "type": "string"
-                                    },
-                                    "YpkId": {
-                                        "type": "string"
-                                    },
-                                    "StatusProductId": {
-                                        "type": "string"
-                                    },
-                                    "ProductCost": {
-                                        "type": "string"
-                                    },
-                                    "ProductInfo": {
-                                        "type": "string"
-                                    },
-                                    "IsProduct": {
-                                        "type": "boolean"
-                                    },
-                                    "Photo": {
-                                        "type": "string",
-                                        "format": "binary"
-                                    },
-                                    "Address": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Создано",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/product/update": {
             "put": {
                 "tags": [
                     "Товары"
                 ],
                 "summary": "Обновить товар по ID",
-                "operationId": "88e635d1eee982a79655ee22cd22d842",
+                "operationId": "cd7ec949960fe8e98f35ba88fcbac713",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1468,6 +1492,72 @@
                                 "schema": {
                                     "properties": {
                                         "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Товары"
+                ],
+                "summary": "Создать товар",
+                "operationId": "f6c6fa48346dd08aae3060e1e8765913",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ProductName": {
+                                        "type": "string"
+                                    },
+                                    "YpkId": {
+                                        "type": "string"
+                                    },
+                                    "StatusProductId": {
+                                        "type": "string"
+                                    },
+                                    "ProductCost": {
+                                        "type": "string"
+                                    },
+                                    "ProductInfo": {
+                                        "type": "string"
+                                    },
+                                    "IsProduct": {
+                                        "type": "boolean"
+                                    },
+                                    "Photo": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "Address": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Создано",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
                                             "type": "string"
                                         }
                                     },
@@ -1852,6 +1942,509 @@
                                         "avatarUrl": {
                                             "type": "string",
                                             "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/all": {
+            "get": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Получить всех пользователей",
+                "operationId": "d43bf268ebd87cc380999d811a378156",
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "users": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "fullName": {
+                                                        "type": "string"
+                                                    },
+                                                    "phoneNumber": {
+                                                        "type": "string"
+                                                    },
+                                                    "userInfo": {
+                                                        "type": "string"
+                                                    },
+                                                    "isActive": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "avatarUrl": {
+                                                        "type": "string",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Доступ запрещён"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/{user}": {
+            "get": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Получить пользователя по ID",
+                "operationId": "1ddb7438ad3114cd75b751b2978e1921",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "fullName": {
+                                            "type": "string"
+                                        },
+                                        "phoneNumber": {
+                                            "type": "string"
+                                        },
+                                        "userInfo": {
+                                            "type": "string"
+                                        },
+                                        "isActive": {
+                                            "type": "boolean"
+                                        },
+                                        "avatarUrl": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "role": {
+                                            "type": "object"
+                                        },
+                                        "ypk": {
+                                            "type": "object",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Не найдено"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Удалить пользователя",
+                "operationId": "ecb974a916217fb61347afdb7cfdbe36",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Удалено"
+                    },
+                    "404": {
+                        "description": "Не найдено"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user": {
+            "put": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Обновить пользователя по ID",
+                "operationId": "08de665c4b40d07417b4e906a9c0adce",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "Id": {
+                                        "type": "string"
+                                    },
+                                    "OldPassword": {
+                                        "type": "string"
+                                    },
+                                    "Password": {
+                                        "type": "string"
+                                    },
+                                    "Fullname": {
+                                        "type": "string"
+                                    },
+                                    "PhoneNumber": {
+                                        "type": "string"
+                                    },
+                                    "UserInfo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "RoleId": {
+                                        "type": "string"
+                                    },
+                                    "Avatar": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Обновлено"
+                    },
+                    "401": {
+                        "description": "Неверный пароль",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Не найдено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Ошибка валидации",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Создать пользователя",
+                "operationId": "b0736490d531d701e263bf9da2b2541c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "Fullname": {
+                                        "type": "string"
+                                    },
+                                    "Password": {
+                                        "type": "string"
+                                    },
+                                    "PhoneNumber": {
+                                        "type": "string"
+                                    },
+                                    "UserInfo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "RoleId": {
+                                        "type": "string"
+                                    },
+                                    "Avatar": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Создано",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Ошибка валидации",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/current": {
+            "put": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Обновить данные текущего пользователя",
+                "operationId": "5939bf71b46edba661803118a44bdd58",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "Fullname": {
+                                        "type": "string"
+                                    },
+                                    "PhoneNumber": {
+                                        "type": "string"
+                                    },
+                                    "UserInfo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "Avatar": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Обновлено"
+                    },
+                    "422": {
+                        "description": "Ошибка валидации",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/admin": {
+            "put": {
+                "tags": [
+                    "Пользователь"
+                ],
+                "summary": "Обновить пользователя (администратор)",
+                "operationId": "af3a9be1f9dd5c631e07301ee7eb75fd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "Id": {
+                                        "type": "string"
+                                    },
+                                    "Fullname": {
+                                        "type": "string"
+                                    },
+                                    "Password": {
+                                        "type": "string"
+                                    },
+                                    "PhoneNumber": {
+                                        "type": "string"
+                                    },
+                                    "UserInfo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "RoleId": {
+                                        "type": "string"
+                                    },
+                                    "Avatar": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Обновлено"
+                    },
+                    "401": {
+                        "description": "Неверный пароль",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Не найдено",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Ошибка валидации",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
