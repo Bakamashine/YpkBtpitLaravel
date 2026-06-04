@@ -69,7 +69,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return to_route('user_management.index');
+        return back();
     }
 
     public function create()
@@ -99,7 +99,7 @@ class UserController extends Controller
         $this->imageService->removeImage($user->avatar);
         $user->delete();
 
-        return to_route('user_management.index');
+        return back();
     }
 
     /**
@@ -138,6 +138,6 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return to_route('user_management.index');
+        return back();
     }
 }

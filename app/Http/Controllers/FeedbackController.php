@@ -66,6 +66,6 @@ class FeedbackController extends Controller
     {
         $feedback->delete();
 
-        return to_route('feedback.index');
+        return back();
     }
 }

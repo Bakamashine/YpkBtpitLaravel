@@ -25,7 +25,7 @@
 <body>
 <section class="myColorHeader">
     @auth
-        <p class="mb-0 pt-2 text-center">Добро пожаловать, {{ auth()->user()->name }}</p>
+        <p class="mb-0 pt-2 text-center text-white">Добро пожаловать, {{ auth()->user()->name }}</p>
     @endauth
 
     <nav class="navbar navbar-expand-lg">

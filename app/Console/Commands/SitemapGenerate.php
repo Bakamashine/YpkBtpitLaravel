@@ -25,7 +25,9 @@ class SitemapGenerate extends Command
         $this->addAllPages($sitemap);
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
-        $this->generateForJavaScript();
+
+        // Header search field
+//        $this->generateForJavaScript();
     }
 
     private function addAllPages(Sitemap $sitemap): void

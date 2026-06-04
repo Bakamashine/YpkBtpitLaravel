@@ -2,7 +2,8 @@
 
 <div class="col d-flex">
     <div class="rounded shadow w-100 d-flex flex-column overflow-hidden">
-        <div class="product-card-img" style="height: 200px; overflow: hidden;">
+        {{--        <div class="product-card-img" style="aspect-ratio: 16/9; overflow: hidden;">--}}
+        <div class="product-card-img" style="height: 200px; overflow: hidden">
             <img src="{{ get_image_or_default($product->photo_path) }}"
                  class="w-100 h-100 object-fit"
                  alt="{{ $product->product_name }}">

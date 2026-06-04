@@ -718,3 +718,8 @@ img {
         font-size: 0.95rem;
     }
 }
+
+.col:only-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
