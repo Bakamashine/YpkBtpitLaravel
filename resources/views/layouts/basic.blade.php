@@ -34,13 +34,13 @@
                 <img src="{{asset('img/logo.png')}}" alt="Логотип" class="myImg"/>
             </a>
 
-            <div class="mySearh flex-grow-1 mx-3">
-                <input class="form-control" autocomplete="off" type="search" id="search" placeholder="Поиск..."
-                       aria-label="Поиск"
-                       data-role="{{ auth()->check() ? (auth()->user()->isAdmin() ? 3 : (auth()->user()->isAdminOrManager() ? 2 : 1)) : 0 }}"/>
+{{--            <div class="mySearh flex-grow-1 mx-3">--}}
+{{--                <input class="form-control" autocomplete="off" type="search" id="search" placeholder="Поиск..."--}}
+{{--                       aria-label="Поиск"--}}
+{{--                       data-role="{{ auth()->check() ? (auth()->user()->isAdmin() ? 3 : (auth()->user()->isAdminOrManager() ? 2 : 1)) : 0 }}"/>--}}
 
-                <div id="results"></div>
-            </div>
+{{--                <div id="results"></div>--}}
+{{--            </div>--}}
 
 
             <div class="d-none d-lg-flex align-items-center">
@@ -219,7 +219,7 @@
 
 </script>
 
-<script src="{{asset('js/search.js')}}"></script>
+{{--<script src="{{asset('js/search.js')}}"></script>--}}
 </body>
 
 </html>
