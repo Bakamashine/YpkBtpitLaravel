@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\RoleName;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -94,15 +93,13 @@ class User extends Authenticatable
 
     public function isAdmin(): bool
     {
-        return $this->role?->role_name === \App\Enums\RoleName::Admin->value;
+        return $this->role_id == 1;
     }
 
     public function isAdminOrManager(): bool
     {
-        $current_role_name = $this->role?->role_name;
-        if ($current_role_name) {
-            return $current_role_name === RoleName::Admin->value ||
-                $current_role_name === RoleName::Manager->value;
+        if ($this->role_id) {
+            return $this->role_id === 1 || $this->role_id == 2;
         }
         return false;
     }

@@ -21,7 +21,7 @@ class AdminMiddleware
     {
         $current_user = $request->user();
 
-        if ($current_user->role?->role_name !== \App\Enums\RoleName::Admin->value) {
+        if ($current_user->role_id != 1) {
             abort(403);
         }
 

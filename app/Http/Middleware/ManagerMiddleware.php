@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Enums\RoleName;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,8 +12,8 @@ class ManagerMiddleware
     {
         $current_user = $request->user();
 
-        if ($current_user->role?->role_name !== RoleName::Admin->value
-            && $current_user->role?->role_name !== RoleName::Manager->value) {
+        if ($current_user->role_id != 1
+            && $current_user->role_id != 2) {
             abort(403);
         }
 
