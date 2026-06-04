@@ -16,7 +16,7 @@ fetch("/search.xml")
             const minRole = parseInt(urls[i].getElementsByTagName("min_role")[0]?.textContent || "0")
             if (loc && title && minRole <= userRole) {
                 const cleanUrl = loc.replace(/^https?:\/\/[^/]+/, "")
-                pages.push({ url: cleanUrl || "/", title })
+                pages.push({url: cleanUrl || "/", title})
             }
         }
 

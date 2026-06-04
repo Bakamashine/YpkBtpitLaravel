@@ -15,24 +15,6 @@ use OpenApi\Attributes as OA;
 class AuthController extends Controller
 {
 
-    private function generateTokens(User $user)
-    {
-        $atExpireTime = now()->addMinutes((int)config('sanctum.expiration'));
-        $rtExpireTime = now()->addMinutes((int)config('sanctum.rt_expiration'));
-
-        $accessAbility = $user->isAdmin()
-            ? TokenAbility::ADMIN_ACCESS
-            : TokenAbility::USER_ACCESS;
-
-        $accessToken = $user->createToken('access_token', [$accessAbility], $atExpireTime);
-        $refreshToken = $user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN], $rtExpireTime);
-
-        return response()->json([
-            "accessToken" => $accessToken->plainTextToken,
-            "refreshToken" => $refreshToken->plainTextToken
-        ]);
-    }
-
     #[OA\Post(
         path: '/api/auth/login',
         summary: 'Вход по номеру телефона и паролю',
@@ -66,6 +48,24 @@ class AuthController extends Controller
             return $this->generateTokens($found_user);
         }
         return response(status: 401);
+    }
+
+    private function generateTokens(User $user)
+    {
+        $atExpireTime = now()->addMinutes((int)config('sanctum.expiration'));
+        $rtExpireTime = now()->addMinutes((int)config('sanctum.rt_expiration'));
+
+        $accessAbility = $user->isAdmin()
+            ? TokenAbility::ADMIN_ACCESS
+            : TokenAbility::USER_ACCESS;
+
+        $accessToken = $user->createToken('access_token', [$accessAbility], $atExpireTime);
+        $refreshToken = $user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN], $rtExpireTime);
+
+        return response()->json([
+            "accessToken" => $accessToken->plainTextToken,
+            "refreshToken" => $refreshToken->plainTextToken
+        ]);
     }
 
     #[OA\Post(

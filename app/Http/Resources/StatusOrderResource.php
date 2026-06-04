@@ -12,6 +12,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class StatusOrderResource extends JsonResource
 {
     public static $wrap = "statusOrders";
+
     /**
      * Transform the resource into an array.
      *

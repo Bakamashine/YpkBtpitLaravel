@@ -13,7 +13,8 @@
                         <div class="card-body p-4">
                             <h4 class="card-title mb-4">Редактировать пользователя</h4>
 
-                            <form method="POST" action="{{ route('user_management.update', $user) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('user_management.update', $user) }}"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -29,14 +30,16 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="name" class="form-label fw-semibold">ФИО <span class="text-danger">*</span></label>
+                                    <label for="name" class="form-label fw-semibold">ФИО <span
+                                            class="text-danger">*</span></label>
                                     <input id="name" type="text" name="name" value="{{ old('name', $user->name) }}"
                                            class="form-control @error('name') is-invalid @enderror"
                                            placeholder="Введите ФИО">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="phone_number" class="form-label fw-semibold">Номер телефона <span class="text-danger">*</span></label>
+                                    <label for="phone_number" class="form-label fw-semibold">Номер телефона <span
+                                            class="text-danger">*</span></label>
                                     <input id="phone_number" type="tel" name="phone_number"
                                            value="{{ old('phone_number', $user->phone_number) }}"
                                            class="form-control @error('phone_number') is-invalid @enderror"
@@ -59,11 +62,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="role_id" class="form-label fw-semibold">Роль <span class="text-danger">*</span></label>
-                                    <select id="role_id" name="role_id" class="form-select @error('role_id') is-invalid @enderror">
+                                    <label for="role_id" class="form-label fw-semibold">Роль <span
+                                            class="text-danger">*</span></label>
+                                    <select id="role_id" name="role_id"
+                                            class="form-select @error('role_id') is-invalid @enderror">
                                         <option selected disabled>Выберите роль</option>
                                         @foreach ($roles as $role)
-                                            <option value="{{ $role->id }}" @selected(old('role_id', $user->role_id) == $role->id)>
+                                            <option
+                                                value="{{ $role->id }}" @selected(old('role_id', $user->role_id) == $role->id)>
                                                 {{ $role->role_name }}
                                             </option>
                                         @endforeach
@@ -72,10 +78,14 @@
 
                                 <div class="mb-3">
                                     <label for="ypk_id" class="form-label fw-semibold">Тип УПК</label>
-                                    <select id="ypk_id" name="ypk_id" class="form-select @error('ypk_id') is-invalid @enderror">
-                                        <option value="" @empty(old('ypk_id', $user->ypk_id)) selected @endempty>Не указано</option>
+                                    <select id="ypk_id" name="ypk_id"
+                                            class="form-select @error('ypk_id') is-invalid @enderror">
+                                        <option value="" @empty(old('ypk_id', $user->ypk_id)) selected @endempty>Не
+                                            указано
+                                        </option>
                                         @foreach ($ypks as $ypk)
-                                            <option value="{{ $ypk->id }}" @selected(old('ypk_id', $user->ypk_id) == $ypk->id)>
+                                            <option
+                                                value="{{ $ypk->id }}" @selected(old('ypk_id', $user->ypk_id) == $ypk->id)>
                                                 {{ $ypk->ypk_name }}
                                             </option>
                                         @endforeach
@@ -83,7 +93,8 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="user_info" class="form-label fw-semibold">Дополнительная информация</label>
+                                    <label for="user_info" class="form-label fw-semibold">Дополнительная
+                                        информация</label>
                                     <textarea id="user_info" name="user_info" rows="3"
                                               class="form-control @error('user_info') is-invalid @enderror"
                                               placeholder="Введите дополнительную информацию">{{ old('user_info', $user->user_info) }}</textarea>

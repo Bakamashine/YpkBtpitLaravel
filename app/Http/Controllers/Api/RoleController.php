@@ -25,7 +25,8 @@ class RoleController extends Controller
             )),
         ]
     )]
-    public function getAll() {
+    public function getAll()
+    {
         return new RoleCollection(Role::all());
     }
 
@@ -49,7 +50,8 @@ class RoleController extends Controller
             ])),
         ]
     )]
-    public function getById(Role $role) {
+    public function getById(Role $role)
+    {
         return new RoleResource($role);
     }
 }

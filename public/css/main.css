@@ -90,9 +90,11 @@ footer {
         rgba(1, 164, 240, 1)
     );
 }
+
 .hidden {
     display: none;
 }
+
 /* страница занимает 100% высоты */
 html,
 body {
@@ -113,8 +115,6 @@ body {
 button, input, select, textarea, a {
     font-family: inherit;
 }
-
-
 
 
 main {
@@ -694,7 +694,6 @@ img {
     .sign-out {
         font-size: 1rem !important;
     }
-
 
 
     .product-card-btn span,

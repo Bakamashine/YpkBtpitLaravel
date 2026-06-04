@@ -89,32 +89,6 @@ class UserController extends Controller
     }
 
     /**
-     * Обновить данные пользователя.
-     *
-     * @param UpdateUserRequest $request
-     * @param User $user
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(UpdateUserRequest $request, User $user)
-    {
-        $data = $request->validated();
-
-        if ($request->hasFile('avatar')) {
-            $data['avatar'] = $this->imageService->updateImage($request->file('avatar'), 'avatars', $user->avatar);
-        }
-
-        if (isset($data['password'])) {
-            $data['password'] = bcrypt($data['password']);
-        } else {
-            unset($data['password']);
-        }
-
-        $user->update($data);
-
-        return to_route('user_management.index');
-    }
-
-    /**
      * Удалить пользователя.
      *
      * @param User $user
@@ -139,5 +113,31 @@ class UserController extends Controller
         $user->update(['is_active' => !$user->is_active]);
 
         return to_route('user_management.edit', $user);
+    }
+
+    /**
+     * Обновить данные пользователя.
+     *
+     * @param UpdateUserRequest $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UpdateUserRequest $request, User $user)
+    {
+        $data = $request->validated();
+
+        if ($request->hasFile('avatar')) {
+            $data['avatar'] = $this->imageService->updateImage($request->file('avatar'), 'avatars', $user->avatar);
+        }
+
+        if (isset($data['password'])) {
+            $data['password'] = bcrypt($data['password']);
+        } else {
+            unset($data['password']);
+        }
+
+        $user->update($data);
+
+        return to_route('user_management.index');
     }
 }

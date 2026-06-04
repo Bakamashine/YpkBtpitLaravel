@@ -21,22 +21,6 @@ class ImageService implements IImageService
     private int $height = 300;
 
     /**
-     * Установить ширину изображения.
-     */
-    public function setWidth(int $width): void
-    {
-        $this->width = $width;
-    }
-
-    /**
-     * Установить высоту изображения.
-     */
-    public function setHeight(int $height): void
-    {
-        $this->height = $height;
-    }
-
-    /**
      * Обновить изображение: удалить старое и загрузить новое.
      *
      * @param UploadedFile|null $upload Новый файл.
@@ -112,9 +96,25 @@ class ImageService implements IImageService
         return $this->width;
     }
 
+    /**
+     * Установить ширину изображения.
+     */
+    public function setWidth(int $width): void
+    {
+        $this->width = $width;
+    }
+
     public function getHeight(): int
     {
         return $this->height;
+    }
+
+    /**
+     * Установить высоту изображения.
+     */
+    public function setHeight(int $height): void
+    {
+        $this->height = $height;
     }
 
 }

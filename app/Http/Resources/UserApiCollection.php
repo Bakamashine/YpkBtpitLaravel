@@ -9,6 +9,7 @@ class UserApiCollection extends ResourceCollection
 {
 
     public static $wrap = "users";
+
     /**
      * Transform the resource collection into an array.
      *

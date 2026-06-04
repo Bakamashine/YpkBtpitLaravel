@@ -73,7 +73,8 @@ class ProductController extends Controller
             )),
         ]
     )]
-    public function getAllEditing() {
+    public function getAllEditing()
+    {
         return new ProductCollection(Product::all());
     }
 

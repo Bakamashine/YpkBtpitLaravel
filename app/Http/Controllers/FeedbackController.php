@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feedback;
 use App\Http\Requests\StoreFeedbackRequest;
 use App\Http\Requests\UpdateFeedbackRequest;
+use App\Models\Feedback;
 
 class FeedbackController extends Controller
 {
@@ -19,20 +19,20 @@ class FeedbackController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('feedback.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreFeedbackRequest $request)
     {
         $request->user()->feedbacks()->create($request->all());
         return to_route('home');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('feedback.create');
     }
 
     /**

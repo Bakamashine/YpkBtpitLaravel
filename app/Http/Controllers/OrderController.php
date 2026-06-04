@@ -19,11 +19,6 @@ class OrderController extends Controller
         return view('orders.show', compact('order', 'statuses'));
     }
 
-    public function create(Product $product)
-    {
-        return view('orders.create', compact('product'));
-    }
-
     public function store(StoreOrderRequest $request)
     {
         $product = Product::findOrFail($request->input('product_id'));
@@ -49,6 +44,11 @@ class OrderController extends Controller
         ]);
 
         return to_route('product.show', $product)->with('success', 'Заказ успешно оформлен!');
+    }
+
+    public function create(Product $product)
+    {
+        return view('orders.create', compact('product'));
     }
 
     public function management(Request $request)

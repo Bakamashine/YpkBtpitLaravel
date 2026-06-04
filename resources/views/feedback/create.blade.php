@@ -28,7 +28,8 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="comment" class="form-label fw-semibold">Комментарий <span class="text-danger">*</span></label>
+                                    <label for="comment" class="form-label fw-semibold">Комментарий <span
+                                            class="text-danger">*</span></label>
                                     <textarea id="comment" name="comment" rows="6"
                                               class="form-control @error('comment') is-invalid @enderror"
                                               placeholder="Напишите ваш отзыв">{{ old('comment') }}</textarea>

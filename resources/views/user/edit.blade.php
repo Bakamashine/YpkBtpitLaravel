@@ -52,7 +52,8 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="user_info" class="form-label fw-semibold">Дополнительная информация</label>
+                                    <label for="user_info" class="form-label fw-semibold">Дополнительная
+                                        информация</label>
                                     <input id="user_info" type="text" name="user_info"
                                            value="{{ old('user_info', $user->user_info) }}"
                                            class="form-control @error('user_info') is-invalid @enderror"

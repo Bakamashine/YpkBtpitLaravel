@@ -9,6 +9,7 @@ class ProductCollection extends ResourceCollection
 {
 
     public static $wrap = "products";
+
     /**
      * Transform the resource collection into an array.
      *

@@ -17,7 +17,7 @@
                         @endphp
                         @if($product)
 
-                            <x-product-card :product="$product" />
+                            <x-product-card :product="$product"/>
 
                         @endif
                     @endforeach

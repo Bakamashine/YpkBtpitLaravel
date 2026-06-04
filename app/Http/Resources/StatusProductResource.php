@@ -7,12 +7,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 
 /**
-* @property string id
-* @property string status_name
-*/
+ * @property string id
+ * @property string status_name
+ */
 class StatusProductResource extends JsonResource
 {
     public static $wrap = 'statusProducts';
+
     /**
      * Transform the resource into an array.
      *

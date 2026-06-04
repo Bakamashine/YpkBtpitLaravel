@@ -64,7 +64,8 @@
 
 
                         <!-- Управление заказами -->
-                        <a href="{{route('order_management.index')}}" class="text-decoration-none flex-grow-1 flex-md-grow-0">
+                        <a href="{{route('order_management.index')}}"
+                           class="text-decoration-none flex-grow-1 flex-md-grow-0">
                             <button type="button"
                                     class="sign-out d-flex myLightBlue border-0 rounded-3 justify-content-center align-items-center gap-2 p-2 text-white w-100">
                                 <span>Управление заказами</span>
@@ -112,9 +113,9 @@
             <div class="myBlue rounded-3 d-flex justify-content-between align-items-center">
                 <h1 class="p-3 text-white nameBlock mb-0">Заказы</h1>
                 @isManager
-                    <a href="{{ route('order_management.index') }}" class="btn btn-light btn-sm me-3">
-                        Управление заказами
-                    </a>
+                <a href="{{ route('order_management.index') }}" class="btn btn-light btn-sm me-3">
+                    Управление заказами
+                </a>
                 @endisManager
             </div>
 
@@ -123,7 +124,7 @@
             @else
                 <div class="m-5px row row-cols-1 row-cols-2 row-cols-sm-2 row-cols-md-3 g-4 my-3">
                     @foreach($orders as $value)
-                        <x-order-card :order="$value" :select_status="false" />
+                        <x-order-card :order="$value" :select_status="false"/>
                     @endforeach
                 </div>
 

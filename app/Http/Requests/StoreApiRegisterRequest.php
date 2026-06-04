@@ -10,6 +10,7 @@ class StoreApiRegisterRequest extends FormRequest
 {
 
     use PasswordValidationRules;
+
     /**
      * Determine if the user is authorized to make this request.
      */

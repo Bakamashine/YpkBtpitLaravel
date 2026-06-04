@@ -13,17 +13,20 @@
                         <div class="card-body p-4">
                             <h4 class="card-title mb-4">Редактировать</h4>
 
-                            <form method="POST" action="{{ route('product.update', $product) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('product.update', $product) }}"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
                                 <div class="text-center mb-4">
                                     <label for="photoInput" class="d-inline-block" style="cursor: pointer;">
-                                        <div class="rounded-3 bg-secondary d-flex justify-content-center align-items-center mx-auto"
-                                             style="width: 200px; height: 200px; overflow: hidden;">
+                                        <div
+                                            class="rounded-3 bg-secondary d-flex justify-content-center align-items-center mx-auto"
+                                            style="width: 200px; height: 200px; overflow: hidden;">
                                             <img id="photoPreview"
                                                  src="{{ $product->photo_path ? get_image_or_default($product->photo_path) : asset('img/material-symbols_add-a-photo-outline-sharp.png') }}"
-                                                 class="w-100 h-100" style="object-fit: cover;" alt="Изображение товара">
+                                                 class="w-100 h-100" style="object-fit: cover;"
+                                                 alt="Изображение товара">
                                         </div>
                                         <div class="small text-muted mt-1">Нажмите, чтобы изменить фото</div>
                                     </label>
@@ -31,7 +34,8 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="product_name" class="form-label fw-semibold">Название <span class="text-danger">*</span></label>
+                                    <label for="product_name" class="form-label fw-semibold">Название <span
+                                            class="text-danger">*</span></label>
                                     <input id="product_name" type="text" name="product_name"
                                            value="{{ old('product_name', $product->product_name) }}"
                                            class="form-control @error('product_name') is-invalid @enderror"
@@ -39,7 +43,8 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="product_cost" class="form-label fw-semibold">Стоимость <span class="text-danger">*</span></label>
+                                    <label for="product_cost" class="form-label fw-semibold">Стоимость <span
+                                            class="text-danger">*</span></label>
                                     <input id="product_cost" type="text" name="product_cost"
                                            value="{{ old('product_cost', $product->product_cost) }}"
                                            class="form-control @error('product_cost') is-invalid @enderror"
@@ -55,12 +60,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="ypk_id" class="form-label fw-semibold">Тип <span class="text-danger">*</span></label>
+                                    <label for="ypk_id" class="form-label fw-semibold">Тип <span
+                                            class="text-danger">*</span></label>
                                     <select id="ypk_id" name="ypk_id"
                                             class="form-select @error('ypk_id') is-invalid @enderror">
                                         <option selected disabled>Выберите тип</option>
                                         @foreach ($ypks as $ypk)
-                                            <option value="{{ $ypk->id }}" @selected(old('ypk_id', $product->ypk_id) == $ypk->id)>
+                                            <option
+                                                value="{{ $ypk->id }}" @selected(old('ypk_id', $product->ypk_id) == $ypk->id)>
                                                 {{ $ypk->ypk_name }}
                                             </option>
                                         @endforeach
@@ -68,12 +75,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="status_product_id" class="form-label fw-semibold">Статус <span class="text-danger">*</span></label>
+                                    <label for="status_product_id" class="form-label fw-semibold">Статус <span
+                                            class="text-danger">*</span></label>
                                     <select id="status_product_id" name="status_product_id"
                                             class="form-select @error('status_product_id') is-invalid @enderror">
                                         <option selected disabled>Выберите статус</option>
                                         @foreach ($statusProducts as $status)
-                                            <option value="{{ $status->id }}" @selected(old('status_product_id', $product->status_product_id) == $status->id)>
+                                            <option
+                                                value="{{ $status->id }}" @selected(old('status_product_id', $product->status_product_id) == $status->id)>
                                                 {{ $status->status_name }}
                                             </option>
                                         @endforeach

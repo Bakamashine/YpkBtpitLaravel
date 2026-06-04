@@ -16,6 +16,18 @@ use Spatie\Sitemap\Tags\Url;
 #[Description('Generate sitemap')]
 class SitemapGenerate extends Command
 {
+    /**
+     * Execute the console command.
+     */
+    public function handle(): void
+    {
+        $sitemap = Sitemap::create();
+        $this->addAllPages($sitemap);
+        $sitemap->writeToFile(public_path('sitemap.xml'));
+
+        $this->generateForJavaScript();
+    }
+
     private function addAllPages(Sitemap $sitemap): void
     {
         $staticPages = [
@@ -68,7 +80,7 @@ class SitemapGenerate extends Command
             $urlEl = $dom->createElement('url');
             $locEl = $dom->createElement('loc', $url);
             $titleEl = $dom->createElement('title', $title);
-            $roleEl = $dom->createElement('min_role', (string) $minRole);
+            $roleEl = $dom->createElement('min_role', (string)$minRole);
             $urlEl->appendChild($locEl);
             $urlEl->appendChild($titleEl);
             $urlEl->appendChild($roleEl);
@@ -113,17 +125,5 @@ class SitemapGenerate extends Command
         });
 
         $dom->save(public_path('search.xml'));
-    }
-
-    /**
-     * Execute the console command.
-     */
-    public function handle(): void
-    {
-        $sitemap = Sitemap::create();
-        $this->addAllPages($sitemap);
-        $sitemap->writeToFile(public_path('sitemap.xml'));
-
-        $this->generateForJavaScript();
     }
 }

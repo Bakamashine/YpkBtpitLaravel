@@ -35,7 +35,8 @@
             </a>
 
             <div class="mySearh flex-grow-1 mx-3">
-                <input class="form-control" autocomplete="off" type="search" id="search" placeholder="Поиск..." aria-label="Поиск"
+                <input class="form-control" autocomplete="off" type="search" id="search" placeholder="Поиск..."
+                       aria-label="Поиск"
                        data-role="{{ auth()->check() ? (auth()->user()->isAdmin() ? 3 : (auth()->user()->isAdminOrManager() ? 2 : 1)) : 0 }}"/>
 
                 <div id="results"></div>
@@ -87,14 +88,14 @@
                             </a>
                         </div>
 
-                            <div class="mx-1 text-center">
-                                <a href="{{route('feedback.index')}}" class="text-decoration-none">
-                                    <img class="header__image__size"
-                                         src="{{asset('img/comment.png')}}"
-                                         alt="Комментарии"/>
-                                    <p class="header__button__text">Отзывы</p>
-                                </a>
-                            </div>
+                        <div class="mx-1 text-center">
+                            <a href="{{route('feedback.index')}}" class="text-decoration-none">
+                                <img class="header__image__size"
+                                     src="{{asset('img/comment.png')}}"
+                                     alt="Комментарии"/>
+                                <p class="header__button__text">Отзывы</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +113,7 @@
         </div>
     @endif
 
-    <x-alert :errors="$errors" />
+    <x-alert :errors="$errors"/>
 
     @yield('content')
 

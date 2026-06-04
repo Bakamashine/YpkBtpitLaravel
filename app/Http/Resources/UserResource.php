@@ -20,6 +20,17 @@ class UserResource extends JsonResource
 {
 
     /**
+     * @param Request $request
+     * @param JsonResource|string $instanceOrClass
+     * @param mixed|null $model
+     * @return MergeValue|mixed
+     */
+    public function mergeResource($request, $instanceOrClass, $model = null)
+    {
+        return $this->mergeResourceWhen(true, $request, $instanceOrClass, $model);
+    }
+
+    /**
      * @param bool $condition
      * @param Request $request
      * @param JsonResource|string $instanceOrClass
@@ -29,17 +40,6 @@ class UserResource extends JsonResource
     public function mergeResourceWhen($condition, $request, $instanceOrClass, $model = null)
     {
         return $this->mergeResourcesWhen($condition, $request, [$instanceOrClass], $model);
-    }
-
-    /**
-     * @param Request $request
-     * @param JsonResource|string $instanceOrClass
-     * @param mixed|null $model
-     * @return MergeValue|mixed
-     */
-    public function mergeResource($request, $instanceOrClass, $model = null)
-    {
-        return $this->mergeResourceWhen(true, $request, $instanceOrClass, $model);
     }
 
     /**
@@ -66,17 +66,6 @@ class UserResource extends JsonResource
     }
 
     /**
-     * @param Request $request
-     * @param JsonResource[]|string[] $instancesOrClasses
-     * @param mixed|null $model
-     * @return MergeValue|mixed
-     */
-    public function mergeResources($request, $instancesOrClasses, $model = null)
-    {
-        return $this->mergeResourcesWhen(true, $request, $instancesOrClasses, $model);
-    }
-
-    /**
      * Transform the resource into an array.
      *
      * @return array<string, mixed>
@@ -92,5 +81,16 @@ class UserResource extends JsonResource
                 ? Storage::disk('public')->url($this->avatar)
                 : null
         ];
+    }
+
+    /**
+     * @param Request $request
+     * @param JsonResource[]|string[] $instancesOrClasses
+     * @param mixed|null $model
+     * @return MergeValue|mixed
+     */
+    public function mergeResources($request, $instancesOrClasses, $model = null)
+    {
+        return $this->mergeResourcesWhen(true, $request, $instancesOrClasses, $model);
     }
 }

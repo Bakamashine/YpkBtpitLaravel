@@ -8,7 +8,8 @@ use App\Http\Resources\ProductCollection;
 use App\Models\Product;
 use App\Models\StatusProduct;
 
-class ProductRepository implements IProductRepository {
+class ProductRepository implements IProductRepository
+{
 
     public function getByStatus(StatusProductEnum $status): ProductCollection
     {

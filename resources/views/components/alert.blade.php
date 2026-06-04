@@ -11,21 +11,27 @@
 @if($hasBanned || $hasMessage || $hasSuccess || $hasError || $hasErrors)
     <div class="alert-slide-wrapper">
         @if($hasBanned)
-            <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center justify-content-between" role="alert">
+            <div
+                class="alert alert-danger alert-dismissible fade show d-flex align-items-center justify-content-between"
+                role="alert">
                 <span>{{ session('banned') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
 
         @if($hasError)
-            <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center justify-content-between" role="alert">
+            <div
+                class="alert alert-danger alert-dismissible fade show d-flex align-items-center justify-content-between"
+                role="alert">
                 <span>{{ session('error') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
 
         @if($hasMessage)
-            <div class="alert alert-warning alert-dismissible fade show d-flex align-items-center justify-content-between" role="alert">
+            <div
+                class="alert alert-warning alert-dismissible fade show d-flex align-items-center justify-content-between"
+                role="alert">
                 <span>{{ session('message') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
@@ -44,7 +50,9 @@
         @endif
 
         @if($hasSuccess)
-            <div class="alert alert-success alert-dismissible fade show d-flex align-items-center justify-content-between" role="alert">
+            <div
+                class="alert alert-success alert-dismissible fade show d-flex align-items-center justify-content-between"
+                role="alert">
                 <span>{{ session('success') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>

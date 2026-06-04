@@ -18,5 +18,5 @@ Artisan::command('inspire', function () {
 
 
 Schedule::call(function (Schedule $schedule) {
-   Artisan::call("sitemap:generate");
+    Artisan::call("sitemap:generate");
 })->daily()->name("Generate sitemap");
