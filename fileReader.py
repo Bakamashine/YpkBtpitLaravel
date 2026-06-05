@@ -8,7 +8,14 @@ ignoreDirectory = [
     "image",
     ".git",
     ".idea",
-    "vendor"
+    "vendor",
+    "config"
+]
+
+ignoreFile = [
+    ".phpstorm.meta.php",
+    "_ide_helper.php",
+    "_ide_helper_models.php"
 ]
 
 def should_ignore(path):
@@ -34,6 +41,9 @@ for item in listFiles:
         continue
     elif should_ignore(item):
         print(f"Пропуск: исключённая директория {item}")
+        continue
+    elif item.name in ignoreFile:
+        print(f"Пропуск: исключённый файл {item.name}")
         continue
     elif os.path.isfile(item):
         try:
