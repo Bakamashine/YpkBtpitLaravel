@@ -20,7 +20,7 @@ class BannedUserMiddleware
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect()->route("login")->with("banned", "Your account is blocked");
+            return redirect()->route("login")->with("banned", "Ваш аккаунт заблокирован");
         }
         return $next($request);
     }
